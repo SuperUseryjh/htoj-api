@@ -1,0 +1,137 @@
+{
+  "errCode": 0,
+  "data": {
+    "records": [
+      {
+        "id": 22914051374720,
+        "problemId": "P12980",
+        "title": "拼积木",
+        "type": null,
+        "difficulty": {
+          "id": 0,
+          "name": "暂无评定",
+          "color": "#CCCCCC"
+        },
+        "auth": 2,
+        "answerAuth": 1,
+        "codeShare": true,
+        "tags": [
+          {
+            "id": 557,
+            "name": "模拟",
+            "status": 1,
+            "zone": null,
+            "gmtCreate": null,
+            "gmtModified": null
+          },
+          {
+            "id": 572,
+            "name": "递推",
+            "status": 1,
+            "zone": null,
+            "gmtCreate": null,
+            "gmtModified": null
+          }
+        ],
+        "zone": "cpp",
+        "gmtCreate": 1790160264000,
+        "createTime": 1790160264000,
+        "modifiedUser": null,
+        "submitStatus": null,
+        "acCount": 2,
+        "tryCount": 2,
+        "total": 2,
+        "ac": 2
+      },
+      {
+        "id": 22914022057856,
+        "problemId": "P12979",
+        "title": "变魔术",
+        "type": null,
+        "difficulty": {
+          "id": 0,
+          "name": "暂无评定",
+          "color": "#CCCCCC"
+        },
+        "auth": 2,
+        "answerAuth": 1,
+        "codeShare": true,
+        "tags": [
+          {
+            "id": 587,
+            "name": "贪心",
+            "status": 1,
+            "zone": null,
+            "gmtCreate": null,
+            "gmtModified": null
+          },
+          {
+            "id": 562,
+            "name": "排序",
+            "status": 1,
+            "zone": null,
+            "gmtCreate": null,
+            "gmtModified": null
+          }
+        ],
+        "zone": "cpp",
+        "gmtCreate": 1790157973000,
+        "createTime": 1790157973000,
+        "modifiedUser": null,
+        "submitStatus": null,
+        "acCount": 1,
+        "tryCount": 1,
+        "total": 1,
+        "ac": 1
+      },
+      {
+        "id": 22914014524160,
+        "problemId": "P12974",
+        "title": "交朋友",
+        "type": null,
+        "difficulty": {
+          "id": 0,
+          "name": "暂无评定",
+          "color": "#CCCCCC"
+        },
+        "auth": 2,
+        "answerAuth": 1,
+        "codeShare": true,
+        "tags": [
+          {
+            "id": 578,
+            "name": "差分",
+            "status": 1,
+            "zone": null,
+            "gmtCreate": null,
+            "gmtModified": null
+          },
+          {
+            "id": 797,
+            "name": "位运算",
+            "status": 1,
+            "zone": null,
+            "gmtCreate": null,
+            "gmtModified": null
+          }
+        ],
+        "zone": "cpp",
+        "gmtCreate": 1790157385000,
+        "createTime": 1790157385000,
+        "modifiedUser": null,
+        "submitStatus": null,
+        "acCount": 1,
+        "tryCount": 1,
+        "total": 1,
+        "ac": 1
+      }
+    ],
+    "total": 1475,
+    "size": 3,
+    "current": 1,
+    "orders": [],
+    "searchCount": true,
+    "pages": 492
+  },
+  "errMsg": "success"
+}

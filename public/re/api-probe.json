@@ -1,0 +1,2786 @@
+{
+  "when": "2026-10-10T12:54:25.966Z",
+  "values": {
+    "wid": 1,
+    "currentPage": 1,
+    "limit": 10,
+    "page": 1,
+    "size": 10,
+    "zone": "cpp",
+    "types": "difficulty",
+    "language": "C++17 With O2",
+    "keyword": "A",
+    "status": 0,
+    "type": 1
+  },
+  "summary": {
+    "路径未解析（源码里是变量）": 10,
+    "网关拦截": 15,
+    "可用": 69,
+    "路由存在（业务错误）": 81,
+    "非 JSON": 1,
+    "路由存在（参数不足）": 4,
+    "请求失败": 1
+  },
+  "results": [
+    {
+      "file": "activity/csp.ts",
+      "name": "getMockRankInfo",
+      "method": "GET",
+      "path": "url",
+      "responseType": "Record<string, any>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "any"
+        }
+      ],
+      "probe": "只读",
+      "verdict": "路径未解析（源码里是变量）"
+    },
+    {
+      "file": "activity/csp.ts",
+      "name": "getMockRankList",
+      "method": "GET",
+      "path": "url",
+      "responseType": "Pagination<Record<string, any>>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "any"
+        }
+      ],
+      "probe": "只读",
+      "verdict": "路径未解析（源码里是变量）"
+    },
+    {
+      "file": "activity/csp.ts",
+      "name": "getMockShowRank",
+      "method": "GET",
+      "path": "url",
+      "responseType": "number",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "any"
+        }
+      ],
+      "probe": "只读",
+      "verdict": "路径未解析（源码里是变量）"
+    },
+    {
+      "name": "getProblemTag",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-tag",
+      "url": "https://example.invalid/14600b898b56.png",
+      "params": [],
+      "httpStatus": 403,
+      "ms": 226,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getProblemTags",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-tags",
+      "url": "https://example.invalid/7ea07c922c5c.png",
+      "params": [],
+      "httpStatus": 403,
+      "ms": 60,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getProblemDifficulty",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-difficulty",
+      "url": "https://example.invalid/5b69fcafdc49.png",
+      "params": [],
+      "httpStatus": 403,
+      "ms": 167,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getProblemSource",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-source",
+      "url": "https://example.invalid/3d2685094784.png",
+      "params": [],
+      "httpStatus": 403,
+      "ms": 162,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getClassificationList",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/tag/get-classification-list",
+      "url": "https://example.invalid/fd622ace9388.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 214,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(4)",
+      "sample": "[{\"id\":44,\"name\":\"语法\",\"list\":[{\"id\":47,\"name\":\"顺序结构\",\"tagList\":[{\"id\":618,\"name\":\"顺序结构\"},{\"id\":1415,\"name\":\"简单输入输出\"},{\"id\":1342,\"name\":\"保留小数输入输出\"},{\"id\":1343,\"name\":\"复杂输入输出\"},{\"id\":1344,\"name\":\"简易运算\"},{\"id\":1345,\"name\":\"小数计算\"}]},{\"id\":48,\"name\":\"选择结构\",\"tagList\":[{\"id\":1416,\"name\":\"if 语句\"},{\"id\":1346,\"name\":\"多分支 (if ... else if ... else)\"},{\"id\":1417,\"name\":\"switch-case\"},{\"id\":1418,\"name\":\"复杂选择结构\""
+    },
+    {
+      "name": "getProblemUserStatus",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-user-status",
+      "url": "https://example.invalid/785d1032e187.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 70,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(11)",
+      "sample": "[{\"id\":0,\"name\":\"Accepted\",\"shortName\":null,\"chineseName\":null},{\"id\":4,\"name\":\"Wrong Answer\",\"shortName\":null,\"chineseName\":null},{\"id\":1,\"name\":\"Presentation Error\",\"shortName\":null,\"chineseName\":null},{\"id\":7,\"name\":\"Compile Error\",\"shortName\":null,\"chineseName\":null},{\"id\":2,\"name\":\"Time Limit Exceeded\",\"shortName\":null,\"chineseName\":null},{\"id\":3,\"name\":\"Memory Limit Exceeded\",\"shortName\":nul"
+    },
+    {
+      "name": "getSensitiveCheckResult",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-sensitive-check-result",
+      "url": "https://example.invalid/9e94542034dc.png",
+      "params": [
+        "type",
+        "content"
+      ],
+      "httpStatus": 200,
+      "ms": 70,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'content' for method parameter type String is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getLanguage",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-language",
+      "url": "https://example.invalid/cfe1be44ea48.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 70,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(3)",
+      "sample": "[{\"id\":6,\"name\":\"C++14 With O2\"},{\"id\":7,\"name\":\"C++17 With O2\"},{\"id\":10,\"name\":\"Python3\"}]"
+    },
+    {
+      "name": "getZoneDataList",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/zone-data-list",
+      "url": "https://example.invalid/b071e7692425.png",
+      "params": [
+        "types"
+      ],
+      "httpStatus": 200,
+      "ms": 70,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{difficulty}",
+      "sample": "{\"difficulty\":[{\"type\":\"difficulty\",\"value\":0,\"label\":\"暂无评定\",\"color\":\"#CCCCCC\"},{\"type\":\"difficulty\",\"value\":1,\"label\":\"入门\",\"color\":\"#FF5100\"},{\"type\":\"difficulty\",\"value\":2,\"label\":\"普及-\",\"color\":\"#FF8000\"},{\"type\":\"difficulty\",\"value\":3,\"label\":\"普及/提高-\",\"color\":\"#FFB700\"},{\"type\":\"difficulty\",\"value\":4,\"label\":\"普及+/提高\",\"color\":\"#00B42A\"},{\"type\":\"difficulty\",\"value\":5,\"label\":\"提高+/省选-\",\"color\":\"#"
+    },
+    {
+      "name": "getArticleDetail",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-announcement-info",
+      "url": "https://example.invalid/b5274f170bee.png",
+      "params": [
+        "aid"
+      ],
+      "httpStatus": 200,
+      "ms": 61,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'aid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "searchOISchool",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/oi-school/search",
+      "url": "https://example.invalid/1b83ad4c70fc.png",
+      "params": [
+        "schoolName"
+      ],
+      "httpStatus": 200,
+      "ms": 60,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'schoolName' for method parameter type String is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getSchoolList",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-school-list",
+      "url": "https://example.invalid/30327611f291.png",
+      "params": [
+        "keyword"
+      ],
+      "httpStatus": 200,
+      "ms": 71,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(2)",
+      "sample": "[{\"id\":997620,\"name\":\"武汉蔡家田小学A区\"},{\"id\":1460537,\"name\":\"邯郸创A教育集团\"}]"
+    },
+    {
+      "name": "getRegionList",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-region-list",
+      "url": "https://example.invalid/d941a6a1128f.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 83,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(35)",
+      "sample": "[{\"id\":1,\"tag\":\"北京市\",\"areaType\":1,\"parentId\":0,\"children\":[{\"id\":72,\"tag\":\"朝阳区\",\"areaType\":3,\"parentId\":35,\"children\":null},{\"id\":2800,\"tag\":\"海淀区\",\"areaType\":3,\"parentId\":35,\"children\":null},{\"id\":2801,\"tag\":\"西城区\",\"areaType\":3,\"parentId\":35,\"children\":null},{\"id\":2802,\"tag\":\"东城区\",\"areaType\":3,\"parentId\":35,\"children\":null},{\"id\":2805,\"tag\":\"丰台区\",\"areaType\":3,\"parentId\":35,\"children\":null},{\"id\":28"
+    },
+    {
+      "name": "getGradeList",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-grade-list",
+      "url": "https://example.invalid/723202efb221.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 57,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(15)",
+      "sample": "[{\"realGrade\":1,\"gradeName\":\"幼儿中班\"},{\"realGrade\":2,\"gradeName\":\"幼儿大班\"},{\"realGrade\":3,\"gradeName\":\"一年级\"},{\"realGrade\":4,\"gradeName\":\"二年级\"},{\"realGrade\":5,\"gradeName\":\"三年级\"},{\"realGrade\":6,\"gradeName\":\"四年级\"},{\"realGrade\":7,\"gradeName\":\"五年级\"},{\"realGrade\":8,\"gradeName\":\"六年级\"},{\"realGrade\":9,\"gradeName\":\"初一\"},{\"realGrade\":10,\"gradeName\":\"初二\"},{\"realGrade\":11,\"gradeName\":\"初三\"},{\"realGrade\":12,\"gradeNa"
+    },
+    {
+      "name": "getAuthReward",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community-heart-beat/api/reward/v2/authReward",
+      "url": "https://example.invalid/5c43fddbeaa2.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 56,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(0)",
+      "sample": "[]"
+    },
+    {
+      "name": "searchProblem",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/common/searchProblem",
+      "url": "https://example.invalid/eaaf95f4538c.png",
+      "params": [
+        "keyword"
+      ],
+      "httpStatus": 200,
+      "ms": 68,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(5)",
+      "sample": "[{\"id\":22478163466112,\"problemId\":\"P10527\",\"problemTitle\":\"A-B数对\",\"zone\":null,\"deleted\":false},{\"id\":22764860877568,\"problemId\":\"P12113\",\"problemTitle\":\"ASCII 小助手\",\"zone\":null,\"deleted\":false},{\"id\":22169431623040,\"problemId\":\"P2471\",\"problemTitle\":\"Apples\",\"zone\":null,\"deleted\":false},{\"id\":22169431684608,\"problemId\":\"P2568\",\"problemTitle\":\"ABC\",\"zone\":null,\"deleted\":false},{\"id\":22169438846208,\""
+    },
+    {
+      "name": "getGrowthGradeList",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/common/get-grade-list",
+      "url": "https://example.invalid/14609d797067.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 91,
+      "errCode": 0,
+      "errMsg": "操作成功",
+      "verdict": "可用",
+      "shape": "Array(13)",
+      "sample": "[{\"realGrade\":3,\"gradeName\":\"一年级\"},{\"realGrade\":4,\"gradeName\":\"二年级\"},{\"realGrade\":5,\"gradeName\":\"三年级\"},{\"realGrade\":6,\"gradeName\":\"四年级\"},{\"realGrade\":7,\"gradeName\":\"五年级\"},{\"realGrade\":8,\"gradeName\":\"六年级\"},{\"realGrade\":9,\"gradeName\":\"初一\"},{\"realGrade\":10,\"gradeName\":\"初二\"},{\"realGrade\":11,\"gradeName\":\"初三\"},{\"realGrade\":12,\"gradeName\":\"高一\"},{\"realGrade\":13,\"gradeName\":\"高二\"},{\"realGrade\":14,\"gradeName"
+    },
+    {
+      "name": "getTrainingSolutionPermissionOptions",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/admin/common/v2/training-solution-permission",
+      "url": "https://example.invalid/0d28c9ea4820.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 54,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(5)",
+      "sample": "[{\"value\":0,\"label\":\"根据题目本身题解权限而定\"},{\"value\":1,\"label\":\"所有人可查看\"},{\"value\":3,\"label\":\"AC可查看\"},{\"value\":5,\"label\":\"通过测试点可查看\"},{\"value\":6,\"label\":\"一小时后可查看\"}]"
+    },
+    {
+      "name": "getPublicUploadToken",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/file/token-for-test",
+      "url": "https://example.invalid/113e4eed9c11.png",
+      "params": [
+        "dirType"
+      ],
+      "httpStatus": 200,
+      "ms": 55,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'dirType' for method parameter type String is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getProblemSolutionPermissionOptions",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/admin/common/v2/problem-solution-permission",
+      "url": "https://example.invalid/38f73d920b6b.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 55,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(4)",
+      "sample": "[{\"value\":1,\"label\":\"所有人可查看\"},{\"value\":3,\"label\":\"AC可查看\"},{\"value\":6,\"label\":\"一小时后可查看\"},{\"value\":5,\"label\":\"通过测试点可查看\"}]"
+    },
+    {
+      "name": "getOiProvinces",
+      "file": "common.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/oi-school/provinces",
+      "url": "https://example.invalid/7af194660a80.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 129,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(32)",
+      "sample": "[\"上海\",\"云南\",\"内蒙古\",\"北京\",\"吉林\",\"四川\",\"天津\",\"宁夏\",\"安徽\",\"山东\",\"山西\",\"广东\",\"广西\",\"新疆\",\"江苏\",\"江西\",\"河北\",\"河南\",\"浙江\",\"海南\",\"湖北\",\"湖南\",\"澳门\",\"甘肃\",\"福建\",\"贵州\",\"辽宁\",\"重庆\",\"陕西\",\"青海\",\"香港\",\"黑龙江\"]"
+    },
+    {
+      "name": "getCommonUploadToken",
+      "file": "groupCommon.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/file/upload-group-token?gid=${gid}",
+      "url": "https://example.invalid/4199e87c61b2.png",
+      "params": [
+        "gid",
+        "dirType"
+      ],
+      "httpStatus": 200,
+      "ms": 72,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'dirType' for method parameter type String is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getCommonUploadProblem",
+      "file": "groupCommon.ts",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/file/get-group-problem?gid=${gid}",
+      "url": "https://example.invalid/f85c0bcdd646.png",
+      "params": [
+        "gid",
+        "uploadKey"
+      ],
+      "httpStatus": 200,
+      "ms": 72,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'uploadKey' for method parameter type String is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getCommonUploadCaseList",
+      "file": "groupCommon.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/file/get-group-case-list?gid=${gid}",
+      "url": "https://example.invalid/93f53ac60e05.png",
+      "params": [
+        "gid",
+        "uploadKey"
+      ],
+      "httpStatus": 200,
+      "ms": 83,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'uploadKey' for method parameter type String is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getUnreadMsgCounts",
+      "file": "im.ts",
+      "method": "GET",
+      "path": "https://im.hetao101.com/im-business/v1/unreadMsgCounts",
+      "url": "https://example.invalid/1356224804ea.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 400,
+      "ms": 189,
+      "verdict": "非 JSON",
+      "body": "Parse query param: user failed."
+    },
+    {
+      "file": "im.ts",
+      "name": "getClassTutor",
+      "method": "GET",
+      "path": "url",
+      "responseType": "IMTeacherResp",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ gid: string; tid: string }"
+        }
+      ],
+      "probe": "只读",
+      "verdict": "路径未解析（源码里是变量）"
+    },
+    {
+      "name": "getCountryCodes",
+      "file": "login.ts",
+      "method": "GET",
+      "path": "https://api.hetao101.com/login/v2/countryCodes",
+      "url": "https://example.invalid/e4f0310be0f8.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 211,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(27)",
+      "sample": "[{\"country\":\"China\",\"name\":\"中国\",\"short\":\"CN\",\"code\":\"86\",\"regular\":\"^[1]\\\\d{10}$\"},{\"country\":\"Hong Kong\",\"name\":\"中国香港\",\"short\":\"HK\",\"code\":\"852\",\"regular\":\"^[5|6|9]\\\\d{7}$\"},{\"country\":\"Singapore\",\"name\":\"新加坡\",\"short\":\"SG\",\"code\":\"65\",\"regular\":\"^\\\\d{8}$\"},{\"country\":\"Malaysia\",\"name\":\"马来西亚\",\"short\":\"MY\",\"code\":\"60\",\"regular\":\"^\\\\d{9,10}$\"},{\"country\":\"Australia\",\"name\":\"澳大利亚\",\"short\":\"AU\",\"code\""
+    },
+    {
+      "name": "getWechatConfigInfo",
+      "file": "login.ts",
+      "method": "GET",
+      "path": "https://api.hetao101.com/login/v1/wechat/configInfo",
+      "url": "https://example.invalid/12e39c3f2ee1.png",
+      "params": [
+        "mode"
+      ],
+      "httpStatus": 200,
+      "ms": 214,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{appId}",
+      "sample": "{\"appId\":\"\"}"
+    },
+    {
+      "name": "loginByCode",
+      "file": "login.ts",
+      "method": "GET",
+      "path": "https://api.hetao101.com/login/v2/account/oauth/tokenByCode",
+      "url": "https://example.invalid/4f3e63950c72.png",
+      "params": [
+        "data"
+      ],
+      "httpStatus": 200,
+      "ms": 214,
+      "errCode": 9500,
+      "errMsg": "code无效",
+      "verdict": "路由存在（参数不足）"
+    },
+    {
+      "file": "login.ts",
+      "name": "changeToken",
+      "method": "GET",
+      "path": "url",
+      "responseType": "{ token: string }",
+      "options": [
+        "query",
+        "headers"
+      ],
+      "queryFields": [
+        "device"
+      ],
+      "params": [
+        {
+          "name": "device"
+        }
+      ],
+      "probe": "只读",
+      "verdict": "路径未解析（源码里是变量）"
+    },
+    {
+      "name": "getWechatLoginQrcode",
+      "file": "login.ts",
+      "method": "GET",
+      "path": "https://api.hetao101.com/login/v1/wechat/miniprogram/qrcode",
+      "url": "https://example.invalid/bddd77488a64.png",
+      "params": [
+        "mode"
+      ],
+      "httpStatus": 200,
+      "ms": 56,
+      "errCode": 1011,
+      "errMsg": "参数异常：mode不可以为空",
+      "verdict": "路由存在（参数不足）"
+    },
+    {
+      "name": "getWechatLoginCheck",
+      "file": "login.ts",
+      "method": "GET",
+      "path": "https://api.hetao101.com/login/v1/wechat/miniprogram/loginCheck",
+      "url": "https://example.invalid/8ee4260b0278.png",
+      "params": [
+        "sid"
+      ],
+      "httpStatus": 200,
+      "ms": 56,
+      "errCode": 1011,
+      "errMsg": "参数异常：sessionId不可以为空",
+      "verdict": "路由存在（参数不足）"
+    },
+    {
+      "name": "getMessageCenter",
+      "file": "message.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/user/message/center",
+      "url": "https://example.invalid/ab336f1b15f4.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 76,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(20/23)",
+      "sample": "{\"total\":23,\"pages\":2,\"current\":1,\"records\":[{\"id\":641534,\"messageType\":18,\"messageContent\":null,\"posterName\":null,\"posterId\":null,\"zone\":null,\"messageTime\":1790990431000,\"posterType\":null,\"category\":1,\"isRead\":true,\"version\":2,\"title\":\"{likerName}给你的农场荣誉墙点赞了\",\"subtitle\":null,\"params\":{\"likerName\":\"『사과씨🍏』\"},\"jump\":{\"kind\":\"route\",\"name\":\"oj_home_post\",\"query\":{\"id\":\"b3fee6f2956943b49ee2429ea79fc6"
+    },
+    {
+      "name": "getMyRewardDetail",
+      "file": "oj/activity.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/battle/myReward",
+      "url": "https://example.invalid/8531562a39c6.png",
+      "params": [
+        "missionId"
+      ],
+      "httpStatus": 200,
+      "ms": 57,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'missionId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getActivityDetail",
+      "file": "oj/activity.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/battle/activity",
+      "url": "https://example.invalid/1ab24708b93b.png",
+      "params": [
+        "missionId"
+      ],
+      "httpStatus": 200,
+      "ms": 58,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'missionId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "checkRewardBySubmission",
+      "file": "oj/activity.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/battle/reward",
+      "url": "https://example.invalid/a5a07fb987ea.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 57,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "null",
+      "sample": "null"
+    },
+    {
+      "name": "getUnreadCount",
+      "file": "message.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/user/message/unreadCount",
+      "url": "https://example.invalid/4d9d31a58146.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 58,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{total,likeCount,commentCount,noticeCount}",
+      "sample": "{\"total\":0,\"likeCount\":0,\"commentCount\":0,\"noticeCount\":0}"
+    },
+    {
+      "name": "getAiSolutionLanding",
+      "file": "oj/aiSolution.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/aiSolutionVersion/landing",
+      "url": "https://example.invalid/efc1818bf8f3.png",
+      "params": [
+        "pid"
+      ],
+      "httpStatus": 200,
+      "ms": 51,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'pid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getAiSolutionEntry",
+      "file": "oj/aiSolution.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/aiSolutionVersion/entry",
+      "url": "https://example.invalid/c4782b549406.png",
+      "params": [
+        "pid"
+      ],
+      "httpStatus": 200,
+      "ms": 52,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'pid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getAiSolutionVersionDetail",
+      "file": "oj/aiSolution.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/aiSolutionVersion/detail",
+      "url": "https://example.invalid/a3389ee12b0d.png",
+      "params": [
+        "versionId",
+        "id"
+      ],
+      "httpStatus": 200,
+      "ms": 54,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'id' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getDuanwuActivityDetail",
+      "file": "oj/activity.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/battle/duanwuActivity",
+      "url": "https://example.invalid/9bf7db1b1a6c.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 67,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{teamBattleInfo,userBattleInfo,circleList,missionRewards,startTime,endTime,status,winnerTeamName}",
+      "sample": "{\"teamBattleInfo\":[{\"teamName\":\"赤焰咸粽队\",\"teamScore\":567787,\"teamColor\":\"\"},{\"teamName\":\"冰晶甜粽队\",\"teamScore\":525393,\"teamColor\":\"\"}],\"userBattleInfo\":{\"nickName\":\"用户8d31e4\"\",\"cardCount\":0,\"score\":0,\"userRank\":24799,\"userTeam\":\"赤焰咸粽队\",\"teamColor\":\"\",\"img\":null,\"teamImg\":\"\"},\"circleList\":[{\"uid\":\"2e18aafb2e71754e7c3ba9ab37b58eb4\",\"nickName\":\"用户664b6f\"\",\"teamName\":\"冰晶甜粽队\",\"teamColor\":\"\",\"avatar\":\"htt"
+    },
+    {
+      "name": "getAiSolutionVersionInfo",
+      "file": "oj/aiSolution.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/aiSolutionVersion/get-info",
+      "url": "https://example.invalid/ad29b66d141a.png",
+      "params": [
+        "pid"
+      ],
+      "httpStatus": 200,
+      "ms": 70,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'pid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getMyEnhanceList",
+      "file": "oj/aiSolution.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/user/aiSolution/enhance/my",
+      "url": "https://example.invalid/14d67c52871b.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 72,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(0/0)",
+      "sample": "{\"records\":[],\"total\":0,\"size\":20,\"current\":1,\"orders\":[],\"searchCount\":true,\"pages\":0}"
+    },
+    {
+      "name": "getInlineCommentList",
+      "file": "oj/aiSolutionComment.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/solutionInlineComment/list",
+      "url": "https://example.invalid/66494b3dc798.png",
+      "params": [
+        "params"
+      ],
+      "httpStatus": 200,
+      "ms": 71,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'targetId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getHomeArticleList",
+      "file": "oj/article.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/home-discussion",
+      "url": "https://example.invalid/06a549a9b98f.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 89,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(10/10)",
+      "sample": "{\"records\":[{\"id\":22553038612224,\"title\":\"2025 CSP-S 复赛真题解析\",\"titlePic\":\"\",\"description\":\"（已脱敏）\"\",\"content\":null,\"topPriority\":null,\"category\":1,\"uid\":null,\"author\":\"用户24debb\"\",\"avatar\":\"https://example.invalid/59daf96f7b1c.jpg\",\"titleName\":null,\"likeNum\":0,\"viewNum\":0,\"hasLike\":false,\"selected\":null,\"createTime\":1761956142000},{\"id\":225530378920"
+    },
+    {
+      "name": "getChallengeBaseInfoDictionary",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/user/get-base-info-dictionary",
+      "url": "https://example.invalid/fa2e302946e2.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 57,
+      "errCode": 0,
+      "errMsg": "操作成功",
+      "verdict": "可用",
+      "shape": "object{noiAwardList,challengeTargetList}",
+      "sample": "{\"noiAwardList\":[{\"code\":1,\"name\":\"CSP-J一等奖\"},{\"code\":2,\"name\":\"CSP-J二等奖\"},{\"code\":3,\"name\":\"CSP-J三等奖\"},{\"code\":4,\"name\":\"CSP-J未获奖\"},{\"code\":5,\"name\":\"CSP-J未进复赛\"},{\"code\":6,\"name\":\"CSP-S一等奖\"},{\"code\":7,\"name\":\"CSP-S二等奖\"},{\"code\":8,\"name\":\"CSP-S三等奖\"},{\"code\":9,\"name\":\"CSP-S未获奖\"},{\"code\":10,\"name\":\"CSP-S未进复赛\"},{\"code\":11,\"name\":\"未参加过CSP\"}],\"challengeTargetList\":[{\"code\":0,\"name\":\"第一次尝试，无明确目标\"},{\"cod"
+    },
+    {
+      "name": "getArticleDetail",
+      "file": "oj/article.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-discussion-detail",
+      "url": "https://example.invalid/180af989fc2d.png",
+      "params": [
+        "did"
+      ],
+      "httpStatus": 200,
+      "ms": 59,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'did' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getHomeCarousel",
+      "file": "oj/banner.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/home-carousel",
+      "url": "https://example.invalid/5daf6ef18ea3.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 68,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(5)",
+      "sample": "[{\"id\":29,\"img\":\"https://public.hetaoimg.com/code-community/image/prod/cdda14e9835b15c2552e61bcc72a3b72.png\",\"url\":\"https://htoj.hetao101.com/cpp/discuss/post/detail?id=22341324358272&type=1\",\"target\":true,\"forceLogin\":false,\"scene\":null},{\"id\":36,\"img\":\"https://public.hetaoimg.com/code-community/image/prod/2dde9f22489440497772ecf54585f5c4.png\",\"url\":\"https://htoj.hetao101.com/cpp/discuss/post/det"
+    },
+    {
+      "name": "getHomeCarouselNew",
+      "file": "oj/banner.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/home-slider",
+      "url": "https://example.invalid/d4373aad4ff1.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 68,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(3)",
+      "sample": "[{\"id\":76,\"img\":\"https://oj.htcdn-a.com/code-community/banner/61cd59a49e55835a22d04eea5d1ab87d.png\",\"url\":\"https://htoj.com.cn/cpp/discuss/post/detail?id=22752755174784&type=1\",\"target\":true,\"scene\":0,\"forceLogin\":false},{\"id\":77,\"img\":\"https://oj.htcdn-a.com/code-community/banner/92bbf17c44f80506e11ae8343ccbfb32.png\",\"url\":\"https://hetao1.wjx.cn/vm/OnjSpZV.aspx\",\"target\":true,\"scene\":0,\"forceLogi"
+    },
+    {
+      "name": "getChallengeUserInfo",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/user/get-info",
+      "url": "https://example.invalid/f05b963e32bf.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 55,
+      "errCode": -1,
+      "errMsg": "admissionId is required.",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getChallengeUserBaseInfo",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/user/get-base-info",
+      "url": "https://example.invalid/5a741df12f2c.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 55,
+      "errCode": -1,
+      "errMsg": "admissionId is required.",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getChallengeInfo",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/get-info",
+      "url": "https://example.invalid/34e34f818840.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 56,
+      "errCode": 0,
+      "errMsg": "操作成功",
+      "verdict": "可用",
+      "shape": "object{admissionId,name,status,startTime,finishTime,freezeTime,examConfig,cspExamTimestamp,problemCountPerRound,contestStatus}",
+      "sample": "{\"admissionId\":14,\"name\":\"2026 CSP-J/S初赛 刷题挑战赛\",\"status\":3,\"startTime\":1788192000000,\"finishTime\":1789315140000,\"freezeTime\":1788710340000,\"examConfig\":{\"CSP-J\":184,\"CSP-S\":204},\"cspExamTimestamp\":1789747200000,\"problemCountPerRound\":25,\"contestStatus\":4,\"participantCount\":{\"CSP-J\":2699},\"pcDescription\":\"# PC 端赛事规则\\n\\n## 一、访问方式\\n\\n使用报名手机号/微信扫码登录即可在 PC 端参与刷题。\\n\\n## 二、刷题入口\\n\\n登录后在首页选择「个人赛 / 团队赛」进入对应"
+    },
+    {
+      "name": "getChallengeTeacherInfo",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/user/get-teacher-info",
+      "url": "https://example.invalid/78b2a3ee7de9.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 81,
+      "errCode": 0,
+      "errMsg": "操作成功",
+      "verdict": "请求失败",
+      "shape": "undefined",
+      "error": "undefined is not an object (evaluating 'JSON.stringify(data).slice')"
+    },
+    {
+      "name": "getChallengeAccuracyLeaderboard",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/leaderboard/accuracy",
+      "url": "https://example.invalid/1f7cbb9c2df8.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 403,
+      "ms": 54,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getChallengeTeamLeaderboard",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/leaderboard/team",
+      "url": "https://example.invalid/80012f9f601d.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 403,
+      "ms": 55,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getChallengeProblemLeaderboard",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/leaderboard/problem",
+      "url": "https://example.invalid/807a4820a71f.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 403,
+      "ms": 54,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getCommonGradeList",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/common/get-grade-list",
+      "url": "https://example.invalid/14609d797067.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 59,
+      "errCode": 0,
+      "errMsg": "操作成功",
+      "verdict": "可用",
+      "shape": "Array(13)",
+      "sample": "[{\"realGrade\":3,\"gradeName\":\"一年级\"},{\"realGrade\":4,\"gradeName\":\"二年级\"},{\"realGrade\":5,\"gradeName\":\"三年级\"},{\"realGrade\":6,\"gradeName\":\"四年级\"},{\"realGrade\":7,\"gradeName\":\"五年级\"},{\"realGrade\":8,\"gradeName\":\"六年级\"},{\"realGrade\":9,\"gradeName\":\"初一\"},{\"realGrade\":10,\"gradeName\":\"初二\"},{\"realGrade\":11,\"gradeName\":\"初三\"},{\"realGrade\":12,\"gradeName\":\"高一\"},{\"realGrade\":13,\"gradeName\":\"高二\"},{\"realGrade\":14,\"gradeName"
+    },
+    {
+      "name": "getChallengeSessionResult",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/gwpub/challenge/session-result",
+      "url": "https://example.invalid/5521c71a04a9.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 58,
+      "errCode": -1,
+      "errMsg": "testId is required.",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getChallengeUsedTime",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/used-time",
+      "url": "https://example.invalid/622bf884acd2.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 58,
+      "errCode": -1,
+      "errMsg": "testId is required.",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getChallengeIdentityStatus",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/gwpub/challenge/user/identity-status",
+      "url": "https://example.invalid/94b813e0108f.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 59,
+      "errCode": 0,
+      "errMsg": "操作成功",
+      "verdict": "可用",
+      "shape": "object{studentType,hasAddedTeacher}",
+      "sample": "{\"studentType\":1,\"hasAddedTeacher\":false}"
+    },
+    {
+      "name": "getCommonRegionList",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/common/get-region-list",
+      "url": "https://example.invalid/c81e4c6aa813.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 172,
+      "errCode": 0,
+      "errMsg": "操作成功",
+      "verdict": "可用",
+      "shape": "Array(35)",
+      "sample": "[{\"id\":1,\"tag\":\"北京市\",\"areaType\":1,\"parentId\":0,\"children\":[{\"id\":72,\"tag\":\"朝阳区\",\"areaType\":3,\"parentId\":35},{\"id\":2800,\"tag\":\"海淀区\",\"areaType\":3,\"parentId\":35},{\"id\":2801,\"tag\":\"西城区\",\"areaType\":3,\"parentId\":35},{\"id\":2802,\"tag\":\"东城区\",\"areaType\":3,\"parentId\":35},{\"id\":2805,\"tag\":\"丰台区\",\"areaType\":3,\"parentId\":35},{\"id\":2806,\"tag\":\"石景山区\",\"areaType\":3,\"parentId\":35},{\"id\":2807,\"tag\":\"门头沟区\",\"areaType\":3"
+    },
+    {
+      "name": "getPosterList",
+      "file": "oj/community.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/listPoster",
+      "url": "https://example.invalid/d04f5d711c48.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 54,
+      "errCode": 400,
+      "errMsg": "分类信息不能为空",
+      "verdict": "路由存在（参数不足）"
+    },
+    {
+      "name": "getChallengeAnswerSummary",
+      "file": "oj/challenge.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/answer-summary",
+      "url": "https://example.invalid/721e93017966.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 55,
+      "errCode": -1,
+      "errMsg": "testId is required.",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getPosterStatus",
+      "file": "oj/community.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/common/posterStatus",
+      "url": "https://example.invalid/fab08f622b1c.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 55,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(6)",
+      "sample": "[{\"id\":1,\"name\":\"审核中\"},{\"id\":2,\"name\":\"机审不通过\"},{\"id\":3,\"name\":\"人审不通过\"},{\"id\":4,\"name\":\"用户主动删除\"},{\"id\":5,\"name\":\"管理删除\"},{\"id\":6,\"name\":\"公开\"}]"
+    },
+    {
+      "name": "getPosterCategory",
+      "file": "oj/community.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/common/posterCategory",
+      "url": "https://example.invalid/157b4be6512c.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 56,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(2)",
+      "sample": "[{\"id\":1,\"name\":\"学术交流\"},{\"id\":2,\"name\":\"日常灌水\"}]"
+    },
+    {
+      "name": "getSimplePoster",
+      "file": "oj/community.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/simplePoster",
+      "url": "https://example.invalid/39730492b3db.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 65,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'categoryId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getMyPoster",
+      "file": "oj/community.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/myPoster",
+      "url": "https://example.invalid/84befc662471.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 69,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(1/1)",
+      "sample": "{\"records\":[{\"id\":22338002656512,\"posterName\":\"我有一个想法\",\"posterContent\":\"（已脱敏）\"\",\"uid\":\"dfbb0f4b648a9c6abdbf0948799d66ca\",\"nickname\":\"用户8d31e4\"\",\"goldenTeacher\":false,\"avatar\":\"https://example.invalid/9d28d38d8e02.jpg\",\"problemId\":0,\"viewCount\":70,\"thumbCount\":1,\"replyCount\":13,\"isMine\":true,\"posterCategory\":null,\"top\":false,\"zon"
+    },
+    {
+      "name": "getReplyList",
+      "file": "oj/community.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/replyList",
+      "url": "https://example.invalid/49e11d3bd0a1.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 69,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(0/0)",
+      "sample": "{\"records\":[],\"total\":0,\"size\":20,\"current\":1,\"orders\":[],\"searchCount\":true,\"pages\":0}"
+    },
+    {
+      "name": "getDetail",
+      "file": "oj/community.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/detail",
+      "url": "https://example.invalid/c21a7cef1711.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 71,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'posterId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "getPosterGoodsInfo",
+      "method": "GET",
+      "path": "url",
+      "responseType": "PosterSimpleInfoVo",
+      "options": [],
+      "params": [],
+      "probe": "只读",
+      "verdict": "路径未解析（源码里是变量）"
+    },
+    {
+      "name": "getContestDetail",
+      "file": "oj/contest.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-detail",
+      "url": "https://example.invalid/41e31da5d031.png",
+      "params": [
+        "id"
+      ],
+      "httpStatus": 403,
+      "ms": 47,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getPosterView",
+      "file": "oj/community.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/view",
+      "url": "https://example.invalid/1ad73c8170ac.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 48,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'posterId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getContestList",
+      "file": "oj/contest.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-list",
+      "url": "https://example.invalid/938d44df4c50.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 143,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(10/436)",
+      "sample": "{\"records\":[{\"id\":22930280659328,\"author\":\"用户4f2f06\"\",\"title\":\"【HT-132-Div.4】核桃语法组周赛\",\"type\":3,\"ioType\":1,\"typeDesc\":{\"id\":3,\"name\":\"乐多\"},\"description\":\"（已脱敏）\""
+    },
+    {
+      "name": "getStatusList",
+      "file": "oj/contest.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-status-list",
+      "url": "https://example.invalid/761f8bfacc09.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 74,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(3)",
+      "sample": "[{\"id\":-1,\"name\":\"未开始\"},{\"id\":0,\"name\":\"进行中\"},{\"id\":1,\"name\":\"已结束\"}]"
+    },
+    {
+      "name": "getTypeList",
+      "file": "oj/contest.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-type-list",
+      "url": "https://example.invalid/f4ef01a96730.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 80,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(6)",
+      "sample": "[{\"id\":1,\"name\":\"OI\"},{\"id\":2,\"name\":\"ACM\"},{\"id\":3,\"name\":\"乐多\"},{\"id\":4,\"name\":\"IOI\"},{\"id\":5,\"name\":\"IOI(OFS)\"},{\"id\":6,\"name\":\"严格IOI\"}]"
+    },
+    {
+      "name": "getContestInfo",
+      "file": "oj/contest.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-info",
+      "url": "https://example.invalid/6fb423a329bb.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 79,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'cid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getContestScoreboard",
+      "file": "oj/contest.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-scoreboard",
+      "url": "https://example.invalid/ab3e921af425.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 80,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'cid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getContestProblem",
+      "file": "oj/contest.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-problem",
+      "url": "https://example.invalid/79ed37d88b40.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 50,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'cid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getContestAccess",
+      "file": "oj/contest.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-access",
+      "url": "https://example.invalid/61d3145898ec.png",
+      "params": [
+        "cid"
+      ],
+      "httpStatus": 403,
+      "ms": 49,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getContestAnnouncement",
+      "file": "oj/contest.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-announcement",
+      "url": "https://example.invalid/6891849cb201.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 54,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'cid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getContestDiscussion",
+      "file": "oj/contest.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/contest-discussion",
+      "url": "https://example.invalid/59c08b42e0ad.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 64,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(20)",
+      "sample": "[{\"id\":22339004754816,\"title\":\"2024-2025 学年全球发明大会中国区竞赛活动省级赛（线上主题赛）协调单位名单 ( 第一批）\",\"titlePic\":\"\",\"description\":\"（已脱敏）\"\",\"content\":null,\"topPriority\":null,\"category\":null,\"uid\":null,\"author\":\"用户ec2c77\"\",\"avatar\":\"https://example.invalid/92c73f2b39f4.png\",\"titleName\":null,\"likeNum\":22,\"viewNum\":1866,\"hasLike\":false,\"selected\":nul"
+    },
+    {
+      "name": "getContestCodeDetail",
+      "file": "oj/contest.ts",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/contest-code-detail",
+      "url": "https://example.invalid/017dccb47bcd.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 53,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'cid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getProblemDetail",
+      "file": "oj/entrance-exam.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/exam/problem-detail",
+      "url": "https://example.invalid/52eff7603679.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 53,
+      "errCode": -1,
+      "errMsg": "receiveId is required.",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getTestInfo",
+      "file": "oj/entrance-exam.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/exam/test-info",
+      "url": "https://example.invalid/8c8434d10c1f.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 53,
+      "errCode": -1,
+      "errMsg": "receiveId is required.",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getTestJudgeResult",
+      "file": "oj/entrance-exam.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/submitRecord/get-test-judge-result",
+      "url": "https://example.invalid/4782b902b9c9.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 72,
+      "errCode": -1,
+      "errMsg": "testJudgeKey is required.",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getTimeRemain",
+      "file": "oj/entrance-exam.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/exam/get-time-remain",
+      "url": "https://example.invalid/962793271a2d.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 52,
+      "errCode": -1,
+      "errMsg": "testId is required.",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getRewardStatus",
+      "file": "oj/farm-share.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/user/farm/share/shareRewardStatus",
+      "url": "https://example.invalid/e37c773ca3fb.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 61,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{isFirstDownload,isFirstScan}",
+      "sample": "{\"isFirstDownload\":true,\"isFirstScan\":true}"
+    },
+    {
+      "name": "getObjectiveProblem",
+      "file": "oj/entrance-exam.ts",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/exam/objective-problem",
+      "url": "https://example.invalid/8ccbf027401e.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 62,
+      "errCode": -1,
+      "errMsg": "problemId is required.",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getFarmRule",
+      "file": "oj/farm.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/user/farm/farmRule",
+      "url": "https://example.invalid/70c13e0e6df9.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 61,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{certRule,appealPost,farmRule,problem}",
+      "sample": "{\"certRule\":\"https://htoj.com.cn/cpp/discuss/post/detail?id=22782262769408&type=1\",\"appealPost\":\"https://htoj.com.cn/cpp/discuss/post/detail?id=22782313767040&type=1\",\"farmRule\":\"https://htoj.com.cn/cpp/discuss/post/detail?id=22780248073600&type=1\",\"problem\":\"https://htoj.com.cn/cpp/oj/problem/detail?pid=22749207547648\"}"
+    },
+    {
+      "name": "getCertificateLevels",
+      "file": "oj/farm.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/api/user/award/apply/certificateLevels",
+      "url": "https://example.invalid/4d5e1871d2a0.png",
+      "params": [
+        "certType",
+        "certificateType"
+      ],
+      "httpStatus": 200,
+      "ms": 55,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'certificateType' for method parameter type Integer is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getCertificateTypes",
+      "file": "oj/farm.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/api/user/award/apply/certificateTypes",
+      "url": "https://example.invalid/9395b2d3dc33.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 56,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(10)",
+      "sample": "[{\"name\":\"CSP-J\",\"id\":1},{\"name\":\"CSP-S\",\"id\":2},{\"name\":\"NOIP\",\"id\":3},{\"name\":\"APIO\",\"id\":4},{\"name\":\"NOI D类\",\"id\":51},{\"name\":\"NOI\",\"id\":5},{\"name\":\"WC\",\"id\":6},{\"name\":\"IOI\",\"id\":8},{\"name\":\"GESP（python）\",\"id\":9},{\"name\":\"GESP（C++）\",\"id\":10}]"
+    },
+    {
+      "name": "getCertificateYears",
+      "file": "oj/farm.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/api/user/award/apply/certificateYears",
+      "url": "https://example.invalid/7e314a4b06f1.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 55,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(6)",
+      "sample": "[2026,2025,2024,2023,2022,2021]"
+    },
+    {
+      "name": "getUserMosaicWall",
+      "file": "oj/farm.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/user/farm/getUserMosaicWall",
+      "url": "https://example.invalid/30932df707c0.png",
+      "params": [
+        "uid"
+      ],
+      "httpStatus": 200,
+      "ms": 56,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{thumbCount,thumbed,userMosaicProgressDTO,userLargeMosaicDTO}",
+      "sample": "{\"thumbCount\":5,\"thumbed\":false,\"userMosaicProgressDTO\":[{\"index\":20221113,\"color\":1},{\"index\":20221126,\"color\":1},{\"index\":20221203,\"color\":1},{\"index\":20221204,\"color\":1},{\"index\":20221217,\"color\":1},{\"index\":20221218,\"color\":1},{\"index\":20230503,\"color\":1},{\"index\":20230507,\"color\":1},{\"index\":20230513,\"color\":1},{\"index\":20230514,\"color\":1},{\"index\":20230520,\"color\":1},{\"index\":20230608,\"color"
+    },
+    {
+      "name": "getBattleContestProblem",
+      "file": "oj/galaxy.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/get-battle-contest-problem",
+      "url": "https://example.invalid/d581eb8e6796.png",
+      "params": [
+        "problemId",
+        "exerciseId",
+        "pid"
+      ],
+      "httpStatus": 200,
+      "ms": 65,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'pid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getBattleContestDetail",
+      "file": "oj/galaxy.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/get-battle-contest-detail",
+      "url": "https://example.invalid/807d0ba8c4fe.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 65,
+      "errCode": 400,
+      "errMsg": "非履约学生用户不能参与！",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getBattleContestCount",
+      "file": "oj/galaxy.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-contest-count",
+      "url": "https://example.invalid/ae505d0c7753.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 65,
+      "errCode": 400,
+      "errMsg": "非履约学生用户不能参与！",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getFarmRecallCheck",
+      "file": "oj/farm.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/user/farm/recall-check",
+      "url": "https://example.invalid/30f399c6a136.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 65,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{needShow}",
+      "sample": "{\"needShow\":false}"
+    },
+    {
+      "name": "getBattleUnitProduct",
+      "file": "oj/galaxy.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-unit-product",
+      "url": "https://example.invalid/2f843e232da3.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 64,
+      "errCode": 400,
+      "errMsg": "非履约学生用户不能参与！",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getBattleContestRecord",
+      "file": "oj/galaxy.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-contest-record",
+      "url": "https://example.invalid/a14a0f3a00d2.png",
+      "params": [
+        "unitProductId"
+      ],
+      "httpStatus": 200,
+      "ms": 65,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'unitProductId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getBattleContestOvertake",
+      "file": "oj/galaxy.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-contest-overtake",
+      "url": "https://example.invalid/caa5705e4e1f.png",
+      "params": [
+        "exerciseId"
+      ],
+      "httpStatus": 200,
+      "ms": 66,
+      "errCode": 400,
+      "errMsg": "非履约学生用户不能参与！",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getBattleContestWrong",
+      "file": "oj/galaxy.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-contest-wrong",
+      "url": "https://example.invalid/c05a758b6ccd.png",
+      "params": [
+        "unitProductId"
+      ],
+      "httpStatus": 200,
+      "ms": 66,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'unitProductId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "guessGoods",
+      "file": "oj/galaxy.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/guess-goods",
+      "url": "https://example.invalid/7c8c26c8eb0f.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 50,
+      "errCode": 400,
+      "errMsg": "非履约学生用户不能参与！",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getBattleContestReport",
+      "file": "oj/galaxy.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-contest-report",
+      "url": "https://example.invalid/8935f222e331.png",
+      "params": [
+        "exerciseId"
+      ],
+      "httpStatus": 200,
+      "ms": 52,
+      "errCode": 400,
+      "errMsg": "非履约学生用户不能参与！",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getBattleExerciseWrong",
+      "file": "oj/galaxy.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-exercise-wrong",
+      "url": "https://example.invalid/f056325817fb.png",
+      "params": [
+        "exerciseId"
+      ],
+      "httpStatus": 200,
+      "ms": 53,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'exerciseId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "isHotBadgeShow",
+      "file": "oj/galaxy.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/hot-badge/show",
+      "url": "https://example.invalid/82becf1b8d48.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 56,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{showHot,showNew}",
+      "sample": "{\"showHot\":false,\"showNew\":false}"
+    },
+    {
+      "name": "getGroupHome",
+      "file": "oj/group.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-group-home",
+      "url": "https://example.invalid/253d70f56633.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 56,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'gid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getBattleContestReportByRecordId",
+      "file": "oj/galaxy.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/battle-contest-report-by-record",
+      "url": "https://example.invalid/e97451df3987.png",
+      "params": [
+        "recordId"
+      ],
+      "httpStatus": 403,
+      "ms": 56,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getContestList",
+      "file": "oj/group.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/group/get-contest-list",
+      "url": "https://example.invalid/1489725a904c.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 65,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'gid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getTrainingList",
+      "file": "oj/group.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/group/get-training-list",
+      "url": "https://example.invalid/436146cd10ff.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 66,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'gid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getAnnouncement",
+      "file": "oj/group.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/group/get-announcement-list",
+      "url": "https://example.invalid/3a2a8fdc41b5.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 51,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'gid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getProblemList",
+      "file": "oj/group.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/group/get-problem-list",
+      "url": "https://example.invalid/07d03a20ca19.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 52,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'gid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getMemberList",
+      "file": "oj/group.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/group/get-member-list",
+      "url": "https://example.invalid/f0db6d65ab98.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 57,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'gid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getMyGroupList",
+      "file": "oj/group.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/my-group-list",
+      "url": "https://example.invalid/460349440ba7.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 83,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(10/15)",
+      "sample": "{\"records\":[{\"id\":22824216940672,\"name\":\"2026-CSP备赛练习\",\"description\":\"（已脱敏）\"\",\"problemCount\":0,\"trainingCount\":3,\"contestCount\":4,\"zone\":\"cpp\"},{\"id\":22156385706112,\"name\":\"课程配套题库\",\"description\":\"（已脱敏）\"\",\"problemCount\":0,\"trainingCount\":10,\"contestCount\":68,\"zone\":\"cpp\"},{\"id\":22512447599360,\"name\":\"竞赛班GESP备赛练习\",\"description\":\"（已脱敏）\"\",\"problemCount\":0,"
+    },
+    {
+      "name": "getGroupProblems",
+      "file": "oj/group.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/group/group-problems",
+      "url": "https://example.invalid/5783c5502e53.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 62,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'gid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getGroupDetail",
+      "file": "oj/group.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/group/get",
+      "url": "https://example.invalid/0854a68358d5.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 61,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'gid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getMyProblemRecord",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/my/problemRecord",
+      "url": "https://example.invalid/5edadae4c40f.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 153,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(20/1485)",
+      "sample": "{\"records\":[{\"id\":22921361787904,\"problemId\":\"P13044\",\"title\":\"星系观测计划 2\",\"type\":null,\"difficulty\":{\"id\":0,\"name\":\"暂无评定\",\"color\":\"#CCCCCC\"},\"auth\":2,\"answerAuth\":1,\"codeShare\":true,\"tags\":[{\"id\":575,\"name\":\"数学\",\"status\":1,\"zone\":null,\"gmtCreate\":null,\"gmtModified\":null},{\"id\":1326,\"name\":\"极角排序\",\"status\":1,\"zone\":null,\"gmtCreate\":null,\"gmtModified\":null},{\"id\":915,\"name\":\"旋转卡壳\",\"status\":1,\"zone\":nul"
+    },
+    {
+      "name": "getMyContestRecord",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/my/contestRecord",
+      "url": "https://example.invalid/545a5d8d7b20.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 154,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(20/183)",
+      "sample": "{\"records\":[{\"id\":22031620062464,\"author\":\"用户e3b0c4\"\",\"title\":\"核桃编程 7月上普及组月赛\",\"type\":1,\"ioType\":1,\"typeDesc\":{\"id\":1,\"name\":\"OI\"},\"description\":\"（已脱敏）\""
+    },
+    {
+      "name": "getRegisteredContestList",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-registered-contest-list",
+      "url": "https://example.invalid/cbeeb1c9bb79.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 403,
+      "ms": 52,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getMyHomeRecord",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/my/homeData",
+      "url": "https://example.invalid/c02fac560ff4.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 403,
+      "ms": 51,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getMyNewUserData",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/my/newUserData",
+      "url": "https://example.invalid/3ecfe2aa137a.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 85,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{userId,userName,uid,description,avatar,ccfLevel,goldenTeacher,authenticationIcon,acCount,contestCount}",
+      "sample": "{\"userId\":8871358,\"userName\":\"用户8d31e4\"\",\"uid\":\"dfbb0f4b648a9c6abdbf0948799d66ca\",\"description\":\"（已脱敏）\"\",\"avatar\":\"https://example.invalid/9d28d38d8e02.jpg\",\"ccfLevel\":null,\"goldenTeacher\":false,\"authenticationIcon\":null,\"acCount\":1143,\"contestCount\":203,\"starCount\":44,\"posterCount\":1,\"problemSolutionCount\":1,\"badgeCount\":67,\"badg"
+    },
+    {
+      "name": "getNotRegisteredContestList",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-not-registered-contest-list",
+      "url": "https://example.invalid/72ecd0b2f867.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 93,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(4/4)",
+      "sample": "{\"records\":[{\"id\":22930270254208,\"author\":\"用户4f2f06\"\",\"title\":\"【HT-132-Div.1】核桃省选模拟赛\",\"type\":1,\"ioType\":2,\"typeDesc\":{\"id\":1,\"name\":\"OI\"},\"description\":\"（已脱敏）\""
+    },
+    {
+      "name": "getProblemRecommend",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/home-get-problem-recommend",
+      "url": "https://example.invalid/505680a18a7a.png",
+      "params": [
+        "configId"
+      ],
+      "httpStatus": 200,
+      "ms": 64,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'configId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getRecommendSections",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/home-get-recommend-sections",
+      "url": "https://example.invalid/265d56fe08d1.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 64,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(2)",
+      "sample": "[{\"id\":7,\"description\":\"（已脱敏）\"\"},{\"id\":6,\"description\":\"（已脱敏）\"\"}]"
+    },
+    {
+      "name": "getGoodsByWeek",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/goods-by-week",
+      "url": "https://example.invalid/9cf59249ff93.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 64,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{id,name,startTime,endTime,number,totalCount,totalCountLimit,goodsList,newest,isSpecial}",
+      "sample": "{\"id\":22921443729664,\"name\":\"小柴·植物大战僵尸2\",\"startTime\":1791028800000,\"endTime\":1792238400000,\"number\":null,\"totalCount\":99,\"totalCountLimit\":99,\"goodsList\":[{\"id\":22921440706560,\"url\":\"https://oj.htcdn-a.com/code-community/reward/b804d35b22a12bc36460fbdcccad5131.png\",\"video\":\"\",\"name\":\"小柴·探险家僵尸\",\"wear\":false,\"rarityCode\":1,\"rarityName\":\"普通\",\"goodsAnimation\":null,\"goodsNum\":null,\"goodsLevel\":null,\"le"
+    },
+    {
+      "name": "getHotContests",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/home-get-hot-contests",
+      "url": "https://example.invalid/d54ec110a8af.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 66,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(3)",
+      "sample": "[{\"id\":22930270254208,\"cid\":22930270254208,\"contestTitle\":\"【HT-132-Div.1】核桃省选模拟赛\",\"online\":null,\"onlineTime\":null,\"startTime\":1791435600000,\"endTime\":1791712800000,\"exerciseId\":null,\"exerciseTag\":null,\"type\":1,\"typeDesc\":{\"id\":1,\"name\":\"OI\"},\"status\":0,\"statusDesc\":{\"id\":0,\"name\":\"进行中\"},\"now\":1791636539068,\"registered\":false,\"avatarList\":[\"https://public.hetaoimg.com/code-community/markdownImg/pro"
+    },
+    {
+      "name": "offloadGoods",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/offload-goods",
+      "url": "https://example.invalid/9c845f57dfcd.png",
+      "params": [
+        "goodsId"
+      ],
+      "httpStatus": 200,
+      "ms": 58,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'goodsId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "decorateGoods",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/decorate-goods",
+      "url": "https://example.invalid/7e69b887b0c8.png",
+      "params": [
+        "goodsId"
+      ],
+      "httpStatus": 200,
+      "ms": 58,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'goodsId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "drawGoods",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/draw-goods",
+      "url": "https://example.invalid/d32ce15ae4a2.png",
+      "params": [
+        "drawCount",
+        "missionId"
+      ],
+      "httpStatus": 200,
+      "ms": 58,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'missionId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getNoviceTask",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-novice-task",
+      "url": "https://example.invalid/ee2294adf4ae.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 98,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{noviceType,missionList}",
+      "sample": "{\"noviceType\":2,\"missionList\":[{\"missionId\":22458328248704,\"missionName\":\"新手挑战任务\",\"missionRewardVo\":[{\"img\":\"https://oj.htcdn-a.com/code-community/reward/a181b9cf85257ecf72e78939d639e985.png\",\"description\":\"（已脱敏）\"\",\"num\":1}],\"totalCount\":5,\"completedCount\":0,\"missionStatus\":1,\"factorType\":9,\"tid\":22448103338112,\"pid\":22156387166336}]}"
+    },
+    {
+      "name": "getPosterList",
+      "file": "oj/home.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/homePosterList",
+      "url": "https://example.invalid/2213d95227c5.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 76,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(4)",
+      "sample": "[{\"id\":22782262769408,\"posterName\":\"【农场荣誉墙】奖项认证规则说明：把你的赛场荣誉点亮在农场里！\",\"posterContent\":null,\"uid\":\"7d5a684f70798ffb7db9b7f8d2cf5b51\",\"nickname\":\"用户1ce267\"\",\"goldenTeacher\":false,\"avatar\":\"https://example.invalid/92c73f2b39f4.png\",\"problemId\":0,\"viewCount\":null,\"thumbCount\":null,\"replyCount\":-16,\"isMine\":null,\"posterCategory\":{\"id\":1,\"name\":\"学术交流\"},\""
+    },
+    {
+      "name": "getCurLevelInfo",
+      "file": "oj/incentive.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/level/getCurLevelInfo",
+      "url": "https://example.invalid/2d6186787152.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 75,
+      "errCode": 500,
+      "errMsg": "Server Error!",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "checkMission",
+      "file": "oj/incentive.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/can-receive",
+      "url": "https://example.invalid/8ae4e77141fb.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 88,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "false",
+      "sample": "false"
+    },
+    {
+      "name": "getMissionList",
+      "file": "oj/incentive.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/list",
+      "url": "https://example.invalid/dee29283c789.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 139,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(31)",
+      "sample": "[{\"id\":22266965003776,\"missionId\":22234831962435,\"name\":\"元宵对战\",\"type\":3,\"status\":3,\"remainTime\":-51850462734,\"isLadder\":0,\"missionInfo\":[]},{\"id\":22269263554324,\"missionId\":22338869310976,\"name\":\"新手引导任务\",\"type\":1,\"status\":2,\"remainTime\":268470337266,\"isLadder\":0,\"missionInfo\":[{\"id\":22321373819395,\"name\":null,\"isComplete\":1,\"finishFactorCount\":1,\"totalFactorCount\":1,\"status\":2,\"rewardScore\":1,\"rew"
+    },
+    {
+      "name": "getUserBadgeList",
+      "file": "oj/incentive.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/backpack/user-badge-list",
+      "url": "https://example.invalid/e6be57f44f45.png",
+      "params": [
+        "uid"
+      ],
+      "httpStatus": 200,
+      "ms": 50,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'uid' for method parameter type String is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getAllLevelReward",
+      "file": "oj/incentive.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/level/reward",
+      "url": "https://example.invalid/820eb68df9f0.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 56,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(0)",
+      "sample": "[]"
+    },
+    {
+      "name": "getRandomList",
+      "file": "oj/incentive.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/random-list",
+      "url": "https://example.invalid/29f13294bdc5.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 59,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(0)",
+      "sample": "[]"
+    },
+    {
+      "name": "getMyBackpack",
+      "file": "oj/incentive.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/backpack/my-backpack",
+      "url": "https://example.invalid/5198855c3fb1.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 60,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(68)",
+      "sample": "[{\"id\":22302326785155,\"rewardId\":22302325480832,\"type\":5,\"name\":\"题解拓荒者\",\"image\":\"https://public.hetaoimg.com//code-community/reward/prod/aa5fea232eaff2d616bfee9874436dfc.png\",\"isEquip\":true,\"equipTime\":1742369280000},{\"id\":22315514749141,\"rewardId\":22338767319552,\"type\":5,\"name\":\"新手引导\",\"image\":\"https://public.hetaoimg.com//code-community/reward/prod/5cb40c3f1f18e46c10a39f215233c06f.png\",\"isEquip\":"
+    },
+    {
+      "file": "oj/monthlyContest.ts",
+      "name": "getContestReportDetail",
+      "method": "GET",
+      "path": "url",
+      "responseType": "ContestReportDto",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "reportId"
+      ],
+      "params": [
+        {
+          "name": "reportId",
+          "type": "string"
+        }
+      ],
+      "probe": "只读",
+      "verdict": "路径未解析（源码里是变量）"
+    },
+    {
+      "name": "getUserTabBadge",
+      "file": "oj/incentive.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/backpack/user-tab-badge",
+      "url": "https://example.invalid/63629a16ec41.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 57,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'uid' for method parameter type String is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getMyCountdownList",
+      "file": "oj/my.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/countdown/get-countdown-list",
+      "url": "https://example.invalid/38712583de79.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 62,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(0)",
+      "sample": "[]"
+    },
+    {
+      "name": "getMyLastIncomplete",
+      "file": "oj/my.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/my/lastIncomplete",
+      "url": "https://example.invalid/05f462061a46.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 78,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{problem,training,contest}",
+      "sample": "{\"problem\":{\"pid\":22169438826624,\"problemId\":\"P1000\",\"title\":\"新手引导-OJ题\",\"tid\":null,\"gid\":null,\"isAc\":true},\"training\":{\"tid\":22302141951872,\"title\":\"A5课程配套训练\",\"gid\":22169370776704,\"problemCount\":99,\"acCount\":54},\"contest\":{\"cid\":22516009968640,\"title\":\"A5期中考试\",\"startTime\":1790697600000,\"endTime\":1792079940000,\"gid\":22487067878400}}"
+    },
+    {
+      "file": "oj/my.ts",
+      "name": "getMaliJiejinSummary",
+      "method": "GET",
+      "path": "url",
+      "responseType": "HundredProblemVo[]",
+      "options": [],
+      "params": [],
+      "probe": "只读",
+      "verdict": "路径未解析（源码里是变量）"
+    },
+    {
+      "file": "oj/my.ts",
+      "name": "getMaliJiejinContent",
+      "method": "GET",
+      "path": "url",
+      "responseType": "HundredProblemList",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "index"
+      ],
+      "params": [
+        {
+          "name": "index",
+          "type": "number"
+        }
+      ],
+      "probe": "只读",
+      "verdict": "路径未解析（源码里是变量）"
+    },
+    {
+      "name": "getHundredProblem",
+      "file": "oj/my.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-hundred-problem",
+      "url": "https://example.invalid/81fedd3ab793.png",
+      "params": [],
+      "httpStatus": 404,
+      "ms": 56,
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getGoodsByMission",
+      "file": "oj/my.ts",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/get-goods",
+      "url": "https://example.invalid/0587935ba227.png",
+      "params": [
+        "goodsId",
+        "missionId"
+      ],
+      "httpStatus": 200,
+      "ms": 55,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'missionId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getUserGuideProblem",
+      "file": "oj/my.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-guide-problem",
+      "url": "https://example.invalid/026bd4e2f7c6.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 61,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "22169438826624",
+      "sample": "22169438826624"
+    },
+    {
+      "name": "getSubmissionList",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-submission-list",
+      "url": "https://example.invalid/b5d037290a01.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 71,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(20/0)",
+      "sample": "{\"records\":[{\"uid\":\"dfbb0f4b648a9c6abdbf0948799d66ca\",\"submitId\":52050545,\"username\":\"用户8d31e4\"\",\"pid\":22169438826624,\"displayPid\":\"P1000\",\"title\":\"新手引导-OJ题\",\"displayId\":null,\"submitTime\":1791099521878,\"status\":{\"id\":0,\"name\":\"Accepted\",\"shortName\":null,\"chineseName\":null},\"isMine\":null,\"time\":0,\"memory\":3412,\"length\":null,\"language\":\"C++17 With O2\",\"score\":100,\"cid\":0,\"tid\":0,\"gid\":0,\"source\":1},{"
+    },
+    {
+      "name": "getMySubmissionList",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-my-submission-list",
+      "url": "https://example.invalid/602f16782ef4.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 71,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(20/1427)",
+      "sample": "{\"records\":[{\"uid\":\"dfbb0f4b648a9c6abdbf0948799d66ca\",\"submitId\":52050545,\"username\":\"用户8d31e4\"\",\"pid\":22169438826624,\"displayPid\":\"P1000\",\"title\":\"新手引导-OJ题\",\"displayId\":null,\"submitTime\":1791099521878,\"status\":{\"id\":0,\"name\":\"Accepted\",\"shortName\":null,\"chineseName\":null},\"isMine\":null,\"time\":0,\"memory\":3412,\"length\":null,\"language\":\"C++17 With O2\",\"score\":100,\"cid\":0,\"tid\":0,\"gid\":0,\"source\":1},{"
+    },
+    {
+      "name": "getProblemList",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-list",
+      "url": "https://example.invalid/c7e8e7ddee11.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 72,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(20/38673)",
+      "sample": "{\"records\":[{\"pid\":22169438826624,\"problemId\":\"P1000\",\"title\":\"新手引导-OJ题\",\"difficulty\":{\"id\":1,\"name\":\"入门\",\"color\":\"#FF5100\"},\"owner\":null,\"type\":1,\"tags\":[{\"id\":557,\"name\":\"模拟\"},{\"id\":618,\"name\":\"顺序结构\"},{\"id\":1415,\"name\":\"简单输入输出\"}],\"acStatus\":{\"id\":4,\"name\":\"已通过\",\"shortName\":null,\"chineseName\":null},\"total\":188444,\"ac\":176585,\"rn\":null},{\"pid\":22031585468416,\"problemId\":\"P1001\",\"title\":\"禾木切西瓜\",\"di"
+    },
+    {
+      "name": "getTestJudgeResult",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-test-judge-result",
+      "url": "https://example.invalid/9e5808f2bff3.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 55,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'testJudgeKey' for method parameter type String is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getProblemLanguageAndCase",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-language-and-case",
+      "url": "https://example.invalid/24adc1b2894a.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 403,
+      "ms": 54,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getProblemDetail",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-problem-detail",
+      "url": "https://example.invalid/49aa45718236.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 55,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'problemId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getSubmissionDetail",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-submission-detail",
+      "url": "https://example.invalid/af8934614d7e.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 89,
+      "errCode": 400,
+      "errMsg": "此提交数据不存在！",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getSubmissionCaseList",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-submission-case-list",
+      "url": "https://example.invalid/3b4461d8c9d2.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 403,
+      "ms": 43,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getProblemChoiceDetail",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-choice-detail",
+      "url": "https://example.invalid/5526806168cb.png",
+      "params": [
+        "problemId"
+      ],
+      "httpStatus": 403,
+      "ms": 43,
+      "verdict": "网关拦截",
+      "errCode": 403,
+      "errMsg": "Gateway Error:Access Denied"
+    },
+    {
+      "name": "getProblemReplyCount",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/internal/problem/getProblemReplyCount",
+      "url": "https://example.invalid/7669916e097e.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 67,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'id' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getContestProblemIndex",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-problem-index",
+      "url": "https://example.invalid/f85715b2faa1.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 67,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'cid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getWarehousePrevNextProblem",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/warehouse/warehouse-problem",
+      "url": "https://example.invalid/e33937d7c912.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 51,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'wid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getIDEProblemRecommend",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/problem/ide-get-problem-recommend",
+      "url": "https://example.invalid/9d7c19de513f.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 52,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'currentPid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getTrainingPrevNextProblem",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/training-problem-skip",
+      "url": "https://example.invalid/ce4ec42bcad9.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 52,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'tid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getGroupPrevNextProblem",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/group/group-problem",
+      "url": "https://example.invalid/ee6b80e27700.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 70,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'gid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getNextTrainingProblemAfterAC",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/get-training-problem-navigation",
+      "url": "https://example.invalid/d5407c85b378.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 57,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{currentChapterPid,nextChapterPid,prevChapterPid,prevChapterName,prevChapterUnfinished,goodsNum,rocketColorUrl}",
+      "sample": "{\"currentChapterPid\":null,\"nextChapterPid\":null,\"prevChapterPid\":null,\"prevChapterName\":null,\"prevChapterUnfinished\":null,\"goodsNum\":null,\"rocketColorUrl\":null}"
+    },
+    {
+      "name": "getContestPrevNextProblem",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/contest-problem-skip",
+      "url": "https://example.invalid/7e424e7c9849.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 57,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'cid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getTrainingProblemDrawer",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/training-problem-drawer",
+      "url": "https://example.invalid/60e1e7b5d637.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 56,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'tid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getTrainingProblemList",
+      "file": "oj/problem.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-training-problems",
+      "url": "https://example.invalid/1addd13d2d1d.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 56,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'tid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getSolutionList",
+      "file": "oj/solution.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/problemSolution/get-problem-solution-list",
+      "url": "https://example.invalid/4762cb904b7e.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 61,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'pid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getProblemSolutionDetail",
+      "file": "oj/solution.ts",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/problemSolution/get-problem-solution-detail",
+      "url": "https://example.invalid/4664b158893b.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 61,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'posterId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getSolutionInviteResult",
+      "file": "oj/solution.ts",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/solution-invite/result",
+      "url": "https://example.invalid/215619cc7ab9.png",
+      "params": [
+        "submitId"
+      ],
+      "httpStatus": 200,
+      "ms": 72,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'submitId' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getTrainingList",
+      "file": "oj/training.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-training-list",
+      "url": "https://example.invalid/381ad74df0f2.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 226,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Page(20/26)",
+      "sample": "{\"records\":[{\"id\":22932620103424,\"trainingNo\":\"01736\",\"title\":\"CSP历年真题-答题技巧训练\",\"subtitle\":null,\"description\":null,\"author\":null,\"ownerVo\":null,\"auth\":null,\"problemCount\":25,\"acCount\":null,\"completeCount\":null,\"totalCount\":62,\"gmtModified\":null,\"nextPid\":null,\"zone\":null,\"languages\":null,\"status\":{\"id\":2,\"name\":\"未参加\",\"shortName\":null,\"chineseName\":null},\"isAttend\":null,\"imMark\":null,\"productLineIds"
+    },
+    {
+      "name": "getTrainingChapterPage",
+      "file": "oj/training.ts",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/api/get-training-chapter-page",
+      "url": "https://example.invalid/5af71a923d4d.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 59,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'tid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getTrainingProblemList",
+      "file": "oj/training.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-training-problem-list",
+      "url": "https://example.invalid/9abcf84beadb.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 59,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'tid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getTrainingDetail",
+      "file": "oj/training.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-training-detail",
+      "url": "https://example.invalid/d3856e744cfe.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 60,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'tid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getTrainingUserGuideNextProblem",
+      "file": "oj/training.ts",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/api/user-next-problem",
+      "url": "https://example.invalid/e776da06d151.png",
+      "params": [
+        "tid",
+        "gid"
+      ],
+      "httpStatus": 200,
+      "ms": 59,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'gid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getWarehouse",
+      "file": "oj/warehouse.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/warehouse/get",
+      "url": "https://example.invalid/e4c3e09e574b.png",
+      "params": [
+        "wid"
+      ],
+      "httpStatus": 200,
+      "ms": 61,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{id,title,author,auth,sort,gmtModified,zone,createTime,isCanUp,isCanDown}",
+      "sample": "{\"id\":1,\"title\":\"核桃题库\",\"author\":null,\"auth\":null,\"sort\":null,\"gmtModified\":null,\"zone\":null,\"createTime\":null,\"isCanUp\":null,\"isCanDown\":null,\"isCanDelete\":null,\"isCanModify\":null,\"type\":null}"
+    },
+    {
+      "name": "getWarehouseProblems",
+      "file": "oj/warehouse.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/warehouse/warehouse-problems",
+      "url": "https://example.invalid/706fe15bfa2c.png",
+      "params": [
+        "query"
+      ],
+      "httpStatus": 200,
+      "ms": 61,
+      "errCode": 400,
+      "errMsg": "The required request parameters are missing：Required request parameter 'wid' for method parameter type Long is not present",
+      "verdict": "路由存在（业务错误）"
+    },
+    {
+      "name": "getWarehouseList",
+      "file": "oj/warehouse.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/warehouse/list",
+      "url": "https://example.invalid/9dea926791f1.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 63,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "Array(5)",
+      "sample": "[{\"value\":1,\"label\":\"核桃题库\"},{\"value\":3,\"label\":\"洛谷\"},{\"value\":4,\"label\":\"核桃比赛\"},{\"value\":100,\"label\":\"Becoder\"},{\"value\":22,\"label\":\"历年真题\"}]"
+    },
+    {
+      "name": "getPersonalInfo",
+      "file": "user.ts",
+      "method": "GET",
+      "path": "/api/code-community/api/get-personal-info",
+      "url": "https://example.invalid/23b6c426c96c.png",
+      "params": [],
+      "httpStatus": 200,
+      "ms": 74,
+      "errCode": 0,
+      "errMsg": "success",
+      "verdict": "可用",
+      "shape": "object{uid,username,school,signature,nickname,realGrade,gender,qq,avatar,phoneNumber}",
+      "sample": "{\"uid\":null,\"username\":\"用户e3b0c4\"\",\"school\":\"某某中学\"\",\"signature\":\"（已脱敏）\"\",\"nickname\":\"用户8d31e4\"\",\"realGrade\":12,\"gender\":\"girl\",\"qq\":\"100000000\"\",\"avatar\":\"https://example.invalid/9d28d38d8e02.jpg\",\"phoneNumber\":null,\"userId\":8871358,\"province\":\"某省\"\",\"city\":\"某市\"\",\"schoolId\":9256331}"
+    },
+    {
+      "file": "user.ts",
+      "name": "getYsInClass",
+      "method": "GET",
+      "path": "url",
+      "responseType": "boolean",
+      "options": [],
+      "params": [],
+      "probe": "只读",
+      "verdict": "路径未解析（源码里是变量）"
+    }
+  ]
+}

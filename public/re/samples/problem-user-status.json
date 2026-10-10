@@ -1,0 +1,72 @@
+{
+  "errCode": 0,
+  "data": [
+    {
+      "id": 0,
+      "name": "Accepted",
+      "shortName": null,
+      "chineseName": null
+    },
+    {
+      "id": 4,
+      "name": "Wrong Answer",
+      "shortName": null,
+      "chineseName": null
+    },
+    {
+      "id": 1,
+      "name": "Presentation Error",
+      "shortName": null,
+      "chineseName": null
+    },
+    {
+      "id": 7,
+      "name": "Compile Error",
+      "shortName": null,
+      "chineseName": null
+    },
+    {
+      "id": 2,
+      "name": "Time Limit Exceeded",
+      "shortName": null,
+      "chineseName": null
+    },
+    {
+      "id": 3,
+      "name": "Memory Limit Exceeded",
+      "shortName": null,
+      "chineseName": null
+    },
+    {
+      "id": 5,
+      "name": "Runtime Error",
+      "shortName": null,
+      "chineseName": null
+    },
+    {
+      "id": 6,
+      "name": "Output Limit Exceeded",
+      "shortName": null,
+      "chineseName": null
+    },
+    {
+      "id": 8,
+      "name": "System Error",
+      "shortName": null,
+      "chineseName": null
+    },
+    {
+      "id": 49,
+      "name": "Cancelled",
+      "shortName": null,
+      "chineseName": null
+    },
+    {
+      "id": -10,
+      "name": "Judging",
+      "shortName": null,
+      "chineseName": null
+    }
+  ],
+  "errMsg": "success"
+}

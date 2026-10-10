@@ -1,0 +1,20 @@
+{
+  "errCode": 0,
+  "data": {
+    "uid": null,
+    "username": "用户e3b0c4",
+    "school": "某某中学",
+    "signature": "（签名已脱敏）",
+    "nickname": "用户8d31e4",
+    "realGrade": 12,
+    "gender": "girl",
+    "qq": "100000000",
+    "avatar": "https://example.invalid/ffe25f2d948f.jpg",
+    "phoneNumber": null,
+    "userId": 8871358,
+    "province": "某省",
+    "city": "某市",
+    "schoolId": 9256331
+  },
+  "errMsg": "success"
+}

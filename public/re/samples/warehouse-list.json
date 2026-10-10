@@ -1,0 +1,26 @@
+{
+  "errCode": 0,
+  "data": [
+    {
+      "value": 1,
+      "label": "核桃题库"
+    },
+    {
+      "value": 3,
+      "label": "洛谷"
+    },
+    {
+      "value": 4,
+      "label": "核桃比赛"
+    },
+    {
+      "value": 100,
+      "label": "Becoder"
+    },
+    {
+      "value": 22,
+      "label": "历年真题"
+    }
+  ],
+  "errMsg": "success"
+}

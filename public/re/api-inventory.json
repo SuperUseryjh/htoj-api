@@ -1,0 +1,4870 @@
+{
+  "generatedAt": "2026-10-10T12:53:56.154Z",
+  "consts": {
+    "GATEWAY_PREFIX_COMMON": "/api/htoj-biz-gateway",
+    "GATEWAY_PREFIX_FORUM": "/api/code-community-forum",
+    "OJ_API_BASE": "https://api.htoj.com.cn",
+    "HETAO_API_BASE": "https://api.hetao101.com",
+    "IM_API_BASE": "https://im.hetao101.com"
+  },
+  "count": 307,
+  "api": [
+    {
+      "file": "activity/csp.ts",
+      "name": "getMockRankInfo",
+      "method": "GET",
+      "path": "url",
+      "responseType": "Record<string, any>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "any"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "activity/csp.ts",
+      "name": "getMockRankList",
+      "method": "GET",
+      "path": "url",
+      "responseType": "Pagination<Record<string, any>>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "any"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "activity/csp.ts",
+      "name": "getMockShowRank",
+      "method": "GET",
+      "path": "url",
+      "responseType": "number",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "any"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getProblemTag",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-tag",
+      "responseType": "IdNameOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getProblemTags",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-tags",
+      "responseType": "IdNameOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getClassificationList",
+      "method": "GET",
+      "path": "/api/code-community/api/tag/get-classification-list",
+      "responseType": "ClassificationTagVO[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getProblemDifficulty",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-difficulty",
+      "responseType": "IdNameOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getProblemSource",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-source",
+      "responseType": "IdNameOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getProblemUserStatus",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-user-status",
+      "responseType": "IdNameOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getZoneDataList",
+      "method": "GET",
+      "path": "/api/code-community/api/zone-data-list",
+      "responseType": "Record<string, SelectOption[]>",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "types"
+      ],
+      "params": [
+        {
+          "name": "types",
+          "type": "string | string[]"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getLanguage",
+      "method": "GET",
+      "path": "/api/code-community/api/get-language",
+      "responseType": "IdNameOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getSensitiveCheckResult",
+      "method": "GET",
+      "path": "/api/code-community/api/get-sensitive-check-result",
+      "responseType": "boolean",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "type",
+        "content"
+      ],
+      "params": [
+        {
+          "name": "type"
+        },
+        {
+          "name": "content"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadZip",
+      "method": "POST",
+      "path": "/api/code-community/api/file/upload-zip",
+      "responseType": "UploadZipResVO",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "file",
+          "type": "File"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadJudgeFile",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/upload-files",
+      "responseType": "UploadJudgeFileVO[]",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "files",
+          "type": "File[]"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadTestSampleFiles",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/upload-test-case",
+      "responseType": "SingleCaseVo",
+      "options": [
+        "body",
+        "query"
+      ],
+      "queryFields": [
+        "pid"
+      ],
+      "params": [
+        {
+          "name": "files",
+          "type": "File[]"
+        },
+        {
+          "name": "pid",
+          "type": "number"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadGroupJudgeFile",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/upload-group-files",
+      "responseType": "UploadJudgeFileVO[]",
+      "options": [
+        "body",
+        "query"
+      ],
+      "queryFields": [
+        "gid"
+      ],
+      "params": [
+        {
+          "name": "files",
+          "type": "File[]"
+        },
+        {
+          "name": "gid",
+          "type": "any"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadJudgeCaseFile",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/upload-group-case",
+      "responseType": "SingleCaseVo",
+      "options": [
+        "body",
+        "query"
+      ],
+      "queryFields": [
+        "gid"
+      ],
+      "params": [
+        {
+          "name": "files",
+          "type": "File[]"
+        },
+        {
+          "name": "gid",
+          "type": "number"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "downloadJudgeCaseFile",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/download-group-case",
+      "responseType": "{ url: string }",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ file: string[]; gid: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadAvatar",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/content/upload-avatar",
+      "responseType": "UploadJudgeFileVO[]",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "file",
+          "type": "File"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadMarkdownFile",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/upload/upload-image",
+      "responseType": "{ url: string }",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "file",
+          "type": "File"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadConsumerMarkdownFile",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/content/upload-md-img",
+      "responseType": "{ url: string }",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "file",
+          "type": "File"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "getArticleDetail",
+      "method": "GET",
+      "path": "/api/code-community/api/get-announcement-info",
+      "responseType": "ArticleVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "aid"
+      ],
+      "params": [
+        {
+          "name": "aid",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "toggleArticleLike",
+      "method": "GET",
+      "path": "/api/code-community/api/announcement-like",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "aid",
+        "toLike"
+      ],
+      "params": [
+        {
+          "name": "aid",
+          "type": "number"
+        },
+        {
+          "name": "toLike",
+          "type": "boolean"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "common.ts",
+      "name": "getRegionList",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-region-list",
+      "responseType": "CityDataVO[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getSchoolList",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-school-list",
+      "responseType": "IdNameOption[]",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "keyword"
+      ],
+      "params": [
+        {
+          "name": "keyword",
+          "type": "string"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "searchOISchool",
+      "method": "GET",
+      "path": "/api/code-community/api/oi-school/search",
+      "responseType": "OiSchoolVO[]",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "schoolName"
+      ],
+      "params": [
+        {
+          "name": "schoolName",
+          "type": "string"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getGradeList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-grade-list",
+      "responseType": "RealGradeVO[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getGrowthGradeList",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/common/get-grade-list",
+      "responseType": "RealGradeVO[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "searchProblem",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/common/searchProblem",
+      "responseType": "SearchProblemItemVO[]",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "keyword"
+      ],
+      "params": [
+        {
+          "name": "keyword",
+          "type": "string"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getAuthReward",
+      "method": "GET",
+      "path": "/api/code-community-heart-beat/api/reward/v2/authReward",
+      "responseType": "RewardVo[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getOiProvinces",
+      "method": "GET",
+      "path": "/api/code-community/api/oi-school/provinces",
+      "responseType": "string[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadAwardImage",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/upload/upload-award-file",
+      "responseType": "{ url: string }",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "file",
+          "type": "File"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "getPublicUploadToken",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/file/token-for-test",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "dirType"
+      ],
+      "params": [
+        {
+          "name": "dirType"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadAnswerFile",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/upload-answer-file",
+      "responseType": "{ url: string }",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "file",
+          "type": "File"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "getAdditionalFileList",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/file/get-additional-file-list",
+      "responseType": "AdditionalFileVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "uploadKey"
+      ],
+      "params": [
+        {
+          "name": "uploadKey",
+          "type": "string"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "common.ts",
+      "name": "getGroupAdditionalFileList",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/file/get-group-additional-file-list",
+      "responseType": "AdditionalFileVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "uploadKey",
+        "gid"
+      ],
+      "params": [
+        {
+          "name": "uploadKey",
+          "type": "string"
+        },
+        {
+          "name": "gid",
+          "type": "number"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadSampleCase",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/upload-sample-case",
+      "responseType": "SingleCaseVo",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "files",
+          "type": "File[]"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "downloadSampleCase",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/download-sample-case",
+      "responseType": "FileUrlVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ file: string[]; gid: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadGroupSampleCase",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/upload-group-sample-case",
+      "responseType": "SingleCaseVo",
+      "options": [
+        "body",
+        "query"
+      ],
+      "queryFields": [
+        "gid"
+      ],
+      "params": [
+        {
+          "name": "files",
+          "type": "File[]"
+        },
+        {
+          "name": "gid",
+          "type": "number"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "downloadGroupSampleCase",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/download-group-sample-case",
+      "responseType": "FileUrlVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  file: string[];\n  gid: number;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadAdditionalFiles",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/upload-additional-files",
+      "responseType": "FileVo[]",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "files",
+          "type": "File[]"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "uploadGroupAdditionalFiles",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/upload-group-additional-files",
+      "responseType": "FileVo[]",
+      "options": [
+        "body",
+        "query"
+      ],
+      "queryFields": [
+        "gid"
+      ],
+      "params": [
+        {
+          "name": "files",
+          "type": "File[]"
+        },
+        {
+          "name": "gid",
+          "type": "number"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "downloadAdditionalFiles",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/download-additional-files",
+      "responseType": "FileUrlVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "file"
+      ],
+      "params": [
+        {
+          "name": "file",
+          "type": "string"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "downloadGroupAdditionalFiles",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/download-group-additional-files",
+      "responseType": "FileUrlVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "file",
+        "gid"
+      ],
+      "params": [
+        {
+          "name": "file",
+          "type": "string"
+        },
+        {
+          "name": "gid",
+          "type": "number"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "common.ts",
+      "name": "getProblemSolutionPermissionOptions",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/admin/common/v2/problem-solution-permission",
+      "responseType": "SolutionPermissionOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "common.ts",
+      "name": "getTrainingSolutionPermissionOptions",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/admin/common/v2/training-solution-permission",
+      "responseType": "SolutionPermissionOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "groupCommon.ts",
+      "name": "uploadMarkdownFile",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/upload/group/upload-image?gid=${gid}",
+      "responseType": "{ url: string }",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "gid",
+          "type": "string"
+        },
+        {
+          "name": "file",
+          "type": "File"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "groupCommon.ts",
+      "name": "getCommonUploadToken",
+      "method": "GET",
+      "path": "/api/code-community/api/file/upload-group-token?gid=${gid}",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "dirType"
+      ],
+      "params": [
+        {
+          "name": "gid",
+          "type": "string"
+        },
+        {
+          "name": "dirType"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "groupCommon.ts",
+      "name": "getCommonUploadCaseList",
+      "method": "GET",
+      "path": "/api/code-community/api/file/get-group-case-list?gid=${gid}",
+      "responseType": "UploadCaseListVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "uploadKey"
+      ],
+      "params": [
+        {
+          "name": "gid",
+          "type": "string"
+        },
+        {
+          "name": "uploadKey"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "groupCommon.ts",
+      "name": "getCommonUploadProblem",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/file/get-group-problem?gid=${gid}",
+      "responseType": "UploadProblemVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "uploadKey"
+      ],
+      "params": [
+        {
+          "name": "gid",
+          "type": "string"
+        },
+        {
+          "name": "uploadKey"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "im.ts",
+      "name": "postMsgSend",
+      "method": "POST",
+      "path": "url",
+      "responseType": "MsgSendResponseVO",
+      "options": [
+        "body",
+        "headers"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "MsgVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "im.ts",
+      "name": "postMsgReadStatus",
+      "method": "POST",
+      "path": "https://im.hetao101.com/im-business/v1/msgReadStatus",
+      "responseType": "MsgReadStatusResponseVO",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "MsgReadStatusRequestVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "im.ts",
+      "name": "getBusiOnlineStatus",
+      "method": "POST",
+      "path": "https://im.hetao101.com/im-business/v1/getBusiOnlineStatus",
+      "responseType": "BusiOnlineStatusResponseVO",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "BusiOnlineStatusRequestVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "im.ts",
+      "name": "getUnreadMsgCounts",
+      "method": "GET",
+      "path": "https://im.hetao101.com/im-business/v1/unreadMsgCounts",
+      "responseType": "UnreadMsgCountsResponseVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ user: string }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "im.ts",
+      "name": "getMsgHistory",
+      "method": "POST",
+      "path": "https://im.hetao101.com/im-business/v1/msgHistory",
+      "responseType": "MsgHistoryResponseVO",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "MsgHistoryRequestVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "im.ts",
+      "name": "uploadImFile",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/upload/upload-im-file",
+      "responseType": "{ url: string }",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "file",
+          "type": "File"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "im.ts",
+      "name": "getCodeSummary",
+      "method": "POST",
+      "path": "/api/code-community/api/im-business/get-code-summary",
+      "responseType": "CodeVo",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{ code: string; pid: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "im.ts",
+      "name": "getClassTutor",
+      "method": "GET",
+      "path": "url",
+      "responseType": "IMTeacherResp",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ gid: string; tid: string }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "login.ts",
+      "name": "getCountryCodes",
+      "method": "GET",
+      "path": "https://api.hetao101.com/login/v2/countryCodes",
+      "responseType": "CountryCodeVO[]",
+      "options": [
+        "headers"
+      ],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "login.ts",
+      "name": "sendVerifyCode",
+      "method": "POST",
+      "path": "url",
+      "options": [
+        "body",
+        "headers"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "VerifyCodeRequestVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "login.ts",
+      "name": "loginByVerifyCode",
+      "method": "POST",
+      "path": "url",
+      "responseType": "LoginResponseVO",
+      "options": [
+        "body",
+        "headers"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "LoginByVerifyCodeRequestVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "login.ts",
+      "name": "loginByWechat",
+      "method": "POST",
+      "path": "https://api.hetao101.com/login/v2/account/oauth/mobileWeiXin",
+      "responseType": "LoginResponseVO",
+      "options": [
+        "query",
+        "body",
+        "headers"
+      ],
+      "queryFields": [
+        "mode",
+        "openType"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "LoginByWechatRequestVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "login.ts",
+      "name": "loginByCode",
+      "method": "GET",
+      "path": "https://api.hetao101.com/login/v2/account/oauth/tokenByCode",
+      "responseType": "LoginResponseVO",
+      "options": [
+        "query",
+        "headers",
+        "timeout"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "LoginByCodeRequestVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "login.ts",
+      "name": "createTempCodeByToken",
+      "method": "GET",
+      "path": "https://api.hetao101.com/login/v2/account/oauth/codeByToken",
+      "responseType": "{ code: string }",
+      "options": [
+        "headers"
+      ],
+      "params": [],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "login.ts",
+      "name": "loginByPassword",
+      "method": "POST",
+      "path": "https://api.hetao101.com/login/v2/account/oauth/password",
+      "responseType": "LoginResponseVO",
+      "options": [
+        "body",
+        "headers"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "LoginByPasswordRequestVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "login.ts",
+      "name": "loginByFeishu",
+      "method": "POST",
+      "path": "https://api.hetao101.com/login/v2/account/oauth/staff/token",
+      "responseType": "LoginResponseVO",
+      "options": [
+        "body",
+        "headers"
+      ],
+      "bodyFields": [
+        "staffToken",
+        "crmStaffId"
+      ],
+      "params": [
+        {
+          "name": "staffToken",
+          "type": "string"
+        },
+        {
+          "name": "crmStaffId",
+          "type": "number"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "login.ts",
+      "name": "getWechatConfigInfo",
+      "method": "GET",
+      "path": "https://api.hetao101.com/login/v1/wechat/configInfo",
+      "responseType": "{ appId: string }",
+      "options": [
+        "query",
+        "headers"
+      ],
+      "queryFields": [
+        "mode"
+      ],
+      "params": [
+        {
+          "name": "mode"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "login.ts",
+      "name": "changeToken",
+      "method": "GET",
+      "path": "url",
+      "responseType": "{ token: string }",
+      "options": [
+        "query",
+        "headers"
+      ],
+      "queryFields": [
+        "device"
+      ],
+      "params": [
+        {
+          "name": "device"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "login.ts",
+      "name": "getWechatLoginQrcode",
+      "method": "GET",
+      "path": "https://api.hetao101.com/login/v1/wechat/miniprogram/qrcode",
+      "responseType": "{ ticketBase64: string; sessionId: string }",
+      "options": [
+        "query",
+        "headers"
+      ],
+      "queryFields": [
+        "mode"
+      ],
+      "params": [
+        {
+          "name": "mode"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "login.ts",
+      "name": "getWechatLoginCheck",
+      "method": "GET",
+      "path": "https://api.hetao101.com/login/v1/wechat/miniprogram/loginCheck",
+      "responseType": "{\n    qrCodeStatus: number;\n    token?: string;\n    userInfo?: UserVO;\n  }",
+      "options": [
+        "query",
+        "headers"
+      ],
+      "queryFields": [
+        "sid"
+      ],
+      "params": [
+        {
+          "name": "sid",
+          "type": "string"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "message.ts",
+      "name": "getMessageCenter",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/user/message/center",
+      "responseType": "MessageCenterVo",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  category?: number;\n  onlyUnread?: boolean;\n  pageNum?: number;\n  pageSize?: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "message.ts",
+      "name": "setMessageRead",
+      "method": "POST",
+      "path": "/api/code-community-forum/gwpub/user/message/read",
+      "responseType": "number",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "messageId"
+      ],
+      "params": [
+        {
+          "name": "messageId",
+          "type": "number"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "message.ts",
+      "name": "setMessageReadAll",
+      "method": "POST",
+      "path": "/api/code-community-forum/gwpub/user/message/readAll",
+      "responseType": "number",
+      "options": [],
+      "params": [],
+      "probe": "写接口"
+    },
+    {
+      "file": "message.ts",
+      "name": "getUnreadCount",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/user/message/unreadCount",
+      "responseType": "UnreadCountVo",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/activity.ts",
+      "name": "getActivityDetail",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/battle/activity",
+      "responseType": "ActivityDetailVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "missionId"
+      ],
+      "params": [
+        {
+          "name": "missionId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/activity.ts",
+      "name": "getMyRewardDetail",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/battle/myReward",
+      "responseType": "MyRewardDetaillVO[]",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "missionId"
+      ],
+      "params": [
+        {
+          "name": "missionId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/activity.ts",
+      "name": "checkRewardBySubmission",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/battle/reward",
+      "responseType": "CheckRewardBySubmissionVO",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/activity.ts",
+      "name": "getDuanwuActivityDetail",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/battle/duanwuActivity",
+      "responseType": "DuanwuActivityMissionVo",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/aiSolution.ts",
+      "name": "getAiSolutionEntry",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/aiSolutionVersion/entry",
+      "responseType": "AiSolutionEntryVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "pid"
+      ],
+      "params": [
+        {
+          "name": "pid",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/aiSolution.ts",
+      "name": "getAiSolutionLanding",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/aiSolutionVersion/landing",
+      "responseType": "AiSolutionLandingVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "pid"
+      ],
+      "params": [
+        {
+          "name": "pid",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/aiSolution.ts",
+      "name": "getAiSolutionVersionDetail",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/aiSolutionVersion/detail",
+      "responseType": "AiSolutionVersionItemVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "id"
+      ],
+      "params": [
+        {
+          "name": "versionId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/aiSolution.ts",
+      "name": "submitAiSolutionVersionAppeal",
+      "method": "POST",
+      "path": "/api/code-community-forum/gwpub/aiSolutionVersion/appeal",
+      "options": [
+        "body"
+      ],
+      "bodyFields": [
+        "versionId",
+        "appealReason"
+      ],
+      "params": [
+        {
+          "name": "versionId",
+          "type": "number"
+        },
+        {
+          "name": "appealReason",
+          "type": "string"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/aiSolution.ts",
+      "name": "getAiSolutionVersionInfo",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/aiSolutionVersion/get-info",
+      "responseType": "AiSolutionVersionDiffVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "pid"
+      ],
+      "params": [
+        {
+          "name": "pid",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/aiSolution.ts",
+      "name": "submitAiSolutionVersion",
+      "method": "POST",
+      "path": "/api/code-community-forum/gwpub/aiSolutionVersion/submit",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "params",
+          "type": "AiSolutionVersionSubmitVo"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/aiSolution.ts",
+      "name": "getMyEnhanceList",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/user/aiSolution/enhance/my",
+      "responseType": "Pagination<UserMyEnhanceListVo>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "MyEnhanceListQuery"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/aiSolutionComment.ts",
+      "name": "getInlineCommentList",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/solutionInlineComment/list",
+      "responseType": "SolutionInlineCommentGroupVo[]",
+      "options": [
+        "query"
+      ],
+      "params": [
+        {
+          "name": "params",
+          "type": "{\n  targetId: number;\n  /** 2=AI初始 6=改进版本 */\n  targetType: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/aiSolutionComment.ts",
+      "name": "createInlineComment",
+      "method": "POST",
+      "path": "/api/code-community-forum/gwpub/solutionInlineComment/create",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "dto",
+          "type": "SolutionInlineCommentCreateVo"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/aiSolutionComment.ts",
+      "name": "replyInlineComment",
+      "method": "POST",
+      "path": "/api/code-community-forum/gwpub/solutionInlineComment/reply",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "dto",
+          "type": "SolutionInlineCommentReplyVo"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/aiSolutionComment.ts",
+      "name": "createOnAnchorInlineComment",
+      "method": "POST",
+      "path": "/api/code-community-forum/gwpub/solutionInlineComment/createOnAnchor",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "dto",
+          "type": "SolutionInlineAnchorCommentVo"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/article.ts",
+      "name": "getHomeArticleList",
+      "method": "GET",
+      "path": "/api/code-community/api/home-discussion",
+      "responseType": "Pagination<ArticleVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "ArticleListRequestVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/article.ts",
+      "name": "getArticleDetail",
+      "method": "GET",
+      "path": "/api/code-community/api/get-discussion-detail",
+      "responseType": "ArticleVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "did"
+      ],
+      "params": [
+        {
+          "name": "did",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/article.ts",
+      "name": "toggleArticleLike",
+      "method": "GET",
+      "path": "/api/code-community/api/discussion-like",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "did",
+        "toLike"
+      ],
+      "params": [
+        {
+          "name": "did",
+          "type": "number"
+        },
+        {
+          "name": "toLike",
+          "type": "boolean"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/banner.ts",
+      "name": "getHomeCarousel",
+      "method": "GET",
+      "path": "/api/code-community/api/home-carousel",
+      "responseType": "SliderVO[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/banner.ts",
+      "name": "getHomeCarouselNew",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/home-slider",
+      "responseType": "SliderVOBiz[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getChallengeBaseInfoDictionary",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/user/get-base-info-dictionary",
+      "responseType": "ChallengeDictDTO",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getChallengeInfo",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/get-info",
+      "responseType": "ChallengeInfoDTO",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getChallengeUserInfo",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/user/get-info",
+      "responseType": "ChallengeUserHomeVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ admissionId: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getChallengeUserBaseInfo",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/user/get-base-info",
+      "responseType": "UserBaseInfoDTO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ admissionId: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getChallengeTeacherInfo",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/user/get-teacher-info",
+      "responseType": "string",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  location: number;\n  testId?: number;\n  examGroup?: string;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "postChallengeSubscribeAlert",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/challenge/user/subscribe-alert",
+      "responseType": "boolean",
+      "options": [],
+      "params": [
+        {
+          "name": "body",
+          "type": "UserSubscribeDTO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "postChallengeSetOpenId",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/challenge/user/set-openId",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ openId: string }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "postChallengeSubmitBaseInfo",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/challenge/user/submit-base-info",
+      "responseType": "number",
+      "options": [],
+      "params": [
+        {
+          "name": "body",
+          "type": "UserBaseInfoDTO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "postChallengeConfirmIdentity",
+      "method": "POST",
+      "path": "/api/code-community-growth/gwpub/challenge/user/confirm-identity",
+      "options": [],
+      "params": [
+        {
+          "name": "body",
+          "type": "ConfirmIdentityDTO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "postLeaderboardThumbUp",
+      "method": "POST",
+      "path": "/api/code-community-growth/gwpub/challenge/leaderboard/thumb-up",
+      "options": [],
+      "params": [
+        {
+          "name": "body",
+          "type": "ThumbDTO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "postLeaderboardCancelThumbUp",
+      "method": "POST",
+      "path": "/api/code-community-growth/gwpub/challenge/leaderboard/cancel-thumb-up",
+      "options": [],
+      "params": [
+        {
+          "name": "body",
+          "type": "ThumbDTO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getChallengeTeamLeaderboard",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/leaderboard/team",
+      "responseType": "LeaderboardVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  admissionId: number;\n  examGroup?: string;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getChallengeProblemLeaderboard",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/leaderboard/problem",
+      "responseType": "LeaderboardVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  admissionId: number;\n  examGroup?: string;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getChallengeAccuracyLeaderboard",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/leaderboard/accuracy",
+      "responseType": "LeaderboardVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  admissionId: number;\n  examGroup?: string;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getCommonGradeList",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/common/get-grade-list",
+      "responseType": "GradeVO[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getCommonRegionList",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/common/get-region-list",
+      "responseType": "RegionDTO[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getChallengeIdentityStatus",
+      "method": "GET",
+      "path": "/api/code-community-growth/gwpub/challenge/user/identity-status",
+      "responseType": "UserIdentityVO",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "postChallengeStartTest",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/challenge/start-test",
+      "responseType": "ChallengeTestProblemVo",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testId: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "postChallengeSubmit",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/challenge/submit",
+      "responseType": "ChallengeResultDto",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testId: number }"
+        },
+        {
+          "name": "body",
+          "type": "ChallengeSubmitDto"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "postChallengeNextProblem",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/challenge/next-problem",
+      "responseType": "ChallengeTestProblemVo",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testId: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getChallengeUsedTime",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/used-time",
+      "responseType": "number",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testId: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "postChallengeCumulativeTime",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/challenge/cumulative-time",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testId: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getChallengeSessionResult",
+      "method": "GET",
+      "path": "/api/code-community-growth/gwpub/challenge/session-result",
+      "responseType": "ChallengeSessionResultVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testId: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "getChallengeAnswerSummary",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/challenge/answer-summary",
+      "responseType": "ChallengeAnswerSummaryVo",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testId: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "postChallengeUserThumb",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/challenge/user-thumb",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  testId: number;\n  rankType?: number;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/challenge.ts",
+      "name": "postChallengeUserUnthumb",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/challenge/user-unthumb",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  testId: number;\n  rankType?: number;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "getPosterCategory",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/common/posterCategory",
+      "responseType": "IdNameOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "getPosterStatus",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/common/posterStatus",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "getPosterList",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/listPoster",
+      "responseType": "Pagination<PosterListVo>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  posterCategoryId: number;\n  currentPage: number;\n  limit: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "getMyPoster",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/myPoster",
+      "responseType": "Pagination<PosterListVo>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  posterType: number; // 1讨论 2题解\n  posterSearchType: number; // 1我发布的 2我回复的\n  zone: string;\n  currentPage: number;\n  limit: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "createPost",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/poster/post",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n    posterType: number;\n  }"
+        },
+        {
+          "name": "data",
+          "type": "{\n    posterCategoryId: number;\n    posterContent: string;\n    posterName: string;\n    problemId?: number;\n    syncPoster?: number;\n    allowComment?: number;\n  }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "updatePost",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/poster/update",
+      "options": [
+        "body",
+        "query"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{\n    posterCategoryId: number;\n    posterContent: string;\n    posterName: string;\n    problemId?: number;\n    syncPoster?: number;\n    allowComment?: number;\n  }"
+        },
+        {
+          "name": "query",
+          "type": "{ posterId: number; posterType: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "getDetail",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/detail",
+      "responseType": "PosterDetailVo",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ posterId: number; posterType: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "replyPoster",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/poster/reply",
+      "responseType": "PosterReplyListVo",
+      "options": [
+        "query",
+        "body"
+      ],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n    posterId: number;\n    posterType: number;\n  }"
+        },
+        {
+          "name": "data",
+          "type": "{ replyId: number; replyContent: string }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "giveThumb",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/poster/thumb",
+      "options": [
+        "query"
+      ],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  posterId: number;\n  posterReplyId: number;\n  posterType: number;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "giveUnThumb",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/poster/unThumb",
+      "options": [
+        "query"
+      ],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  posterId: number;\n  posterReplyId: number;\n  posterType: number;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "pinReply",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/poster/topReply",
+      "options": [
+        "query"
+      ],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  posterId: number;\n  posterReplyId: number;\n  posterType: number;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "unpinReply",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/poster/unTopReply",
+      "options": [
+        "query"
+      ],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  posterId: number;\n  posterReplyId: number;\n  posterType: number;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "deletePoster",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/poster/deletePoster",
+      "options": [
+        "query"
+      ],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ posterId: number; posterType: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "deleteReply",
+      "method": "POST",
+      "path": "/api/code-community-forum/api/poster/deleteReply",
+      "options": [
+        "query"
+      ],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  posterId: number;\n  posterReplyId: number;\n  posterType: number;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "toggleVisibleReply",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/hiddenReply",
+      "options": [
+        "query"
+      ],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  posterReplyId: number;\n  posterStatus: number;\n}"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "getReplyList",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/replyList",
+      "responseType": "Pagination<PosterReplyListVo>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  posterId: number;\n  currentPage: number;\n  limit: number;\n  posterType: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "getSimplePoster",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/simplePoster",
+      "responseType": "PosterSimpleInfoVo",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ categoryId: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "getPosterView",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/view",
+      "responseType": "PosterDetailVo",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ posterId: number; posterType: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/community.ts",
+      "name": "getPosterGoodsInfo",
+      "method": "GET",
+      "path": "url",
+      "responseType": "PosterSimpleInfoVo",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "getContestList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-list",
+      "responseType": "Pagination<ContestVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "ContestListRequestVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "getContestDetail",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-detail",
+      "responseType": "ContestVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "id"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "getTypeList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-type-list",
+      "responseType": "IdNameOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "getStatusList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-status-list",
+      "responseType": "IdNameOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "getContestInfo",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-info",
+      "responseType": "ContestVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "ContestInfoRequestVo"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "getContestScoreboard",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-scoreboard",
+      "responseType": "Pagination<ContestDetailScoreResponseVo>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "ContestInfoRequestVo"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "getContestProblem",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-problem",
+      "responseType": "Pagination<ContestDetailProblemVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "ContestInfoRequestVo"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "getContestAnnouncement",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-announcement",
+      "responseType": "Pagination<AnnouncementListVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "ContestInfoRequestVo"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "toggleArticleLike",
+      "method": "GET",
+      "path": "/api/code-community/api/contest-announcement-like",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "aid",
+        "toLike"
+      ],
+      "params": [
+        {
+          "name": "aid",
+          "type": "number"
+        },
+        {
+          "name": "toLike",
+          "type": "boolean"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "getContestAccess",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-access",
+      "responseType": "{ access: boolean }",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "cid"
+      ],
+      "params": [
+        {
+          "name": "cid",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "registerContest",
+      "method": "POST",
+      "path": "/api/code-community/api/register-contest",
+      "responseType": "{ registerState: number }",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{\n  cid: number;\n  password?: string;\n  gid?: number;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "startContest",
+      "method": "POST",
+      "path": "/api/code-community/api/start-contest",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{ cid: number; gid?: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "preGatherInfo",
+      "method": "POST",
+      "path": "/api/code-community/api/pre-gather-info",
+      "responseType": "PreGatherInfoVO",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{\n  cid?: number;\n  gid?: number;\n  gatherType?: number;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "gatherInfo",
+      "method": "POST",
+      "path": "/api/code-community/api/gather-info",
+      "responseType": "{ registerState: number }",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "GatherInfoVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "getContestDiscussion",
+      "method": "GET",
+      "path": "/api/code-community/api/contest-discussion",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "setUserShareCode",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/contest-user-share-code",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ cid: number; userShareCode: 0 | 1 }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/contest.ts",
+      "name": "getContestCodeDetail",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/contest-code-detail",
+      "responseType": "JudgeDetailVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  cid: number;\n  uid: string;\n  pid: number;\n  submitId: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/entrance-exam.ts",
+      "name": "getTestInfo",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/exam/test-info",
+      "responseType": "TestInfoVo",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ receiveId: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/entrance-exam.ts",
+      "name": "getProblemDetail",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/exam/problem-detail",
+      "responseType": "CommonResultProblemDetailVo",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  receiveId: number;\n  problemId: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/entrance-exam.ts",
+      "name": "createTest",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/exam/create-test",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testId: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/entrance-exam.ts",
+      "name": "submitTest",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/exam/submit",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testId: number }"
+        },
+        {
+          "name": "body",
+          "type": "SubmitJudgeDTO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/entrance-exam.ts",
+      "name": "submitProblemJudge",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/submitRecord/submit-problem-judge",
+      "options": [],
+      "params": [
+        {
+          "name": "body",
+          "type": "SubmitJudgeDTO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/entrance-exam.ts",
+      "name": "getTestJudgeResult",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/submitRecord/get-test-judge-result",
+      "responseType": "TestJudgeVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testJudgeKey: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/entrance-exam.ts",
+      "name": "submitProblemTestJudge",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/submitRecord/submit-problem-test-judge",
+      "responseType": "string",
+      "options": [],
+      "params": [
+        {
+          "name": "body",
+          "type": "TestJudgeDTO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/entrance-exam.ts",
+      "name": "getSubmitRecordDetail",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/submitRecord/submit-record-detail",
+      "responseType": "JudgeDetailVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ submitId: number }"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/entrance-exam.ts",
+      "name": "getObjectiveProblem",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/exam/objective-problem",
+      "responseType": "ObjectiveIndexVo[]",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ problemId: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/entrance-exam.ts",
+      "name": "switchTest",
+      "method": "POST",
+      "path": "/api/code-community-growth/api/exam/switch-test",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testId: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/entrance-exam.ts",
+      "name": "getSubmitRecordList",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/submitRecord/submit-record-list",
+      "responseType": "PageJudgeListVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testId: number }"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/entrance-exam.ts",
+      "name": "getTimeRemain",
+      "method": "GET",
+      "path": "/api/code-community-growth/api/exam/get-time-remain",
+      "responseType": "number",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ testId: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/farm-share.ts",
+      "name": "getRewardStatus",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/user/farm/share/shareRewardStatus",
+      "responseType": "ShareRewardStatusVo",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/farm-share.ts",
+      "name": "notifyDownload",
+      "method": "POST",
+      "path": "/api/code-community-actuator/gwpub/user/farm/share/downloadSuccess",
+      "responseType": "DownloadRewardVo",
+      "options": [],
+      "params": [],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/farm-share.ts",
+      "name": "getQRCodeCache",
+      "method": "POST",
+      "path": "/api/code-community-actuator/gwpub/user/farm/share/queryQrCodeCache",
+      "responseType": "QrCodeCacheVo",
+      "options": [
+        "body"
+      ],
+      "bodyFields": [
+        "md5"
+      ],
+      "params": [
+        {
+          "name": "md5",
+          "type": "string"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/farm-share.ts",
+      "name": "generateQRCode",
+      "method": "POST",
+      "path": "/api/code-community-actuator/gwpub/user/farm/share/generateShareQrCode",
+      "responseType": "QrCodeVo",
+      "options": [
+        "body"
+      ],
+      "bodyFields": [
+        "imageUrl",
+        "md5"
+      ],
+      "params": [
+        {
+          "name": "imageUrl",
+          "type": "string"
+        },
+        {
+          "name": "md5",
+          "type": "string"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/farm.ts",
+      "name": "getFarmRule",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/user/farm/farmRule",
+      "responseType": "FarmRuleVo",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/farm.ts",
+      "name": "getUserMosaicWall",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/user/farm/getUserMosaicWall",
+      "responseType": "UserMosaicWallVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "uid"
+      ],
+      "params": [
+        {
+          "name": "uid",
+          "type": "string"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/farm.ts",
+      "name": "addAndQueryRemain",
+      "method": "POST",
+      "path": "/api/code-community-actuator/gwpub/api/user/award/apply/addAndQueryRemain",
+      "responseType": "AwardApplyResultVo",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "UserAwardApplyDTO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/farm.ts",
+      "name": "addBatch",
+      "method": "POST",
+      "path": "/api/code-community-actuator/gwpub/api/user/award/apply/addBatch",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{ awardList: UserAwardApplyDTO[] }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/farm.ts",
+      "name": "getReceivedCertificates",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/api/user/award/apply/receivedCertificates",
+      "responseType": "UserCertificateVO[]",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "uid"
+      ],
+      "params": [
+        {
+          "name": "uid",
+          "type": "string"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/farm.ts",
+      "name": "getUserAwardApplyList",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/api/user/award/apply/my/awards",
+      "responseType": "AwardCertificateAuditRecordVO[]",
+      "options": [],
+      "params": [],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/farm.ts",
+      "name": "getUserUnreceivedAwardList",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/api/user/award/apply/my/unreceived-awards",
+      "responseType": "AwardCertificateAuditRecordVO[]",
+      "options": [],
+      "params": [],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/farm.ts",
+      "name": "receiveAward",
+      "method": "POST",
+      "path": "/api/code-community-actuator/gwpub/api/user/award/apply/my/awards/receive",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "number[]"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/farm.ts",
+      "name": "getCertificateTypes",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/api/user/award/apply/certificateTypes",
+      "responseType": "{ id: number; name: string }[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/farm.ts",
+      "name": "getCertificateLevels",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/api/user/award/apply/certificateLevels",
+      "responseType": "{ id: number; name: string }[]",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "certificateType"
+      ],
+      "params": [
+        {
+          "name": "certType",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/farm.ts",
+      "name": "getCertificateYears",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/api/user/award/apply/certificateYears",
+      "responseType": "number[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/farm.ts",
+      "name": "getFarmRecallCheck",
+      "method": "GET",
+      "path": "/api/code-community-actuator/gwpub/user/farm/recall-check",
+      "responseType": "FarmRecallVO",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "getStartBattleContest",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/start-battle-contest",
+      "responseType": "BattleContestProblemVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "exerciseId"
+      ],
+      "params": [
+        {
+          "name": "exerciseId",
+          "type": "number"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "getBattleContestProblem",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/get-battle-contest-problem",
+      "responseType": "BattleContestProblemDetailVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "pid",
+        "exerciseId"
+      ],
+      "params": [
+        {
+          "name": "problemId",
+          "type": "number"
+        },
+        {
+          "name": "exerciseId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "submitProblemJudge",
+      "method": "POST",
+      "path": "/api/htoj-biz-gateway/gwpub/judge/submit-problem-judge",
+      "responseType": "unknown",
+      "options": [
+        "query",
+        "body"
+      ],
+      "queryFields": [
+        "exerciseId"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "SubmitProblemRequestVO"
+        },
+        {
+          "name": "exerciseId",
+          "type": "number"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "getSubmitBattleContestCheck",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/submit-battle-contest-check",
+      "responseType": "number",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "pid",
+        "exerciseId"
+      ],
+      "params": [
+        {
+          "name": "pid",
+          "type": "number"
+        },
+        {
+          "name": "exerciseId",
+          "type": "number"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "submitBattleContest",
+      "method": "POST",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/submit-battle-contest",
+      "responseType": "SubmitBattleContestVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "exerciseId"
+      ],
+      "params": [
+        {
+          "name": "exerciseId",
+          "type": "number"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "getBattleContestDetail",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/get-battle-contest-detail",
+      "responseType": "BattleContestDetailVo",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "getBattleContestCount",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-contest-count",
+      "responseType": "BattleContestRecordVo",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "getBattleContestOvertake",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-contest-overtake",
+      "responseType": "OvertakeBattleContestVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "exerciseId"
+      ],
+      "params": [
+        {
+          "name": "exerciseId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "getBattleContestRecord",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-contest-record",
+      "responseType": "BattleContestRecordItemVo[]",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "unitProductId"
+      ],
+      "params": [
+        {
+          "name": "unitProductId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "getBattleContestWrong",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-contest-wrong",
+      "responseType": "BattleContestWrongVo[]",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "unitProductId"
+      ],
+      "params": [
+        {
+          "name": "unitProductId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "getBattleUnitProduct",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-unit-product",
+      "responseType": "UnitProductVo[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "getBattleExerciseWrong",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-exercise-wrong",
+      "responseType": "UserBattleContestProblemDetailVo[]",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "exerciseId"
+      ],
+      "params": [
+        {
+          "name": "exerciseId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "getBattleContestReport",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/battle-contest-report",
+      "responseType": "BattleContestReportVo",
+      "options": [],
+      "params": [
+        {
+          "name": "exerciseId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "guessGoods",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/battle/v2/guess-goods",
+      "responseType": "UnitGoodsVo",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "isHotBadgeShow",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/hot-badge/show",
+      "responseType": "YinheBadgeShowVo",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "viewNewBadge",
+      "method": "POST",
+      "path": "/api/htoj-biz-gateway/api/new-badge/view",
+      "responseType": "boolean",
+      "options": [],
+      "params": [],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/galaxy.ts",
+      "name": "getBattleContestReportByRecordId",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/battle-contest-report-by-record",
+      "responseType": "BattleContestReportVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "recordId"
+      ],
+      "params": [
+        {
+          "name": "recordId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/group.ts",
+      "name": "getGroupHome",
+      "method": "GET",
+      "path": "/api/code-community/api/get-group-home",
+      "responseType": "GroupInfoVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ gid: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/group.ts",
+      "name": "getTrainingList",
+      "method": "GET",
+      "path": "/api/code-community/api/group/get-training-list",
+      "responseType": "Pagination<TrainingVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ gid: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/group.ts",
+      "name": "getContestList",
+      "method": "GET",
+      "path": "/api/code-community/api/group/get-contest-list",
+      "responseType": "Pagination<ContestVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ gid: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/group.ts",
+      "name": "getProblemList",
+      "method": "GET",
+      "path": "/api/code-community/api/group/get-problem-list",
+      "responseType": "Pagination<ProblemVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ gid: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/group.ts",
+      "name": "getAnnouncement",
+      "method": "GET",
+      "path": "/api/code-community/api/group/get-announcement-list",
+      "responseType": "Pagination<AnnouncementItemVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ gid: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/group.ts",
+      "name": "getMyGroupList",
+      "method": "GET",
+      "path": "/api/code-community/api/my-group-list",
+      "responseType": "Pagination<GroupListRequestVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "any"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/group.ts",
+      "name": "joinGroup",
+      "method": "POST",
+      "path": "/api/code-community/api/access-group",
+      "responseType": "JoinGroupResponseVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "code"
+      ],
+      "params": [
+        {
+          "name": "code",
+          "type": "string"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/group.ts",
+      "name": "applyJoinGroup",
+      "method": "PUT",
+      "path": "/api/code-community/api/group/apply-join",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "gid",
+        "reason"
+      ],
+      "params": [
+        {
+          "name": "gid",
+          "type": "number"
+        },
+        {
+          "name": "reason",
+          "type": "string"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/group.ts",
+      "name": "getMemberList",
+      "method": "GET",
+      "path": "/api/code-community/api/group/get-member-list",
+      "responseType": "Pagination<CGroupMemberListResVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "any"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/group.ts",
+      "name": "getGroupProblems",
+      "method": "GET",
+      "path": "/api/code-community/api/group/group-problems",
+      "responseType": "DrawerProblemListVo[]",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  currentPid: number;\n  direct: number;\n  gid: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/group.ts",
+      "name": "getGroupDetail",
+      "method": "GET",
+      "path": "/api/code-community/api/group/get",
+      "responseType": "GroupVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ gid: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getMyProblemRecord",
+      "method": "GET",
+      "path": "/api/code-community/api/my/problemRecord",
+      "responseType": "Pagination<ProblemVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ pass?: boolean }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getMyContestRecord",
+      "method": "GET",
+      "path": "/api/code-community/api/my/contestRecord",
+      "responseType": "Pagination<ContestVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "ContestListRequestVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getRegisteredContestList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-registered-contest-list",
+      "responseType": "Pagination<ContestVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "ContestListRequestVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getNotRegisteredContestList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-not-registered-contest-list",
+      "responseType": "Pagination<ContestVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "ContestListRequestVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getMyHomeRecord",
+      "method": "GET",
+      "path": "/api/code-community/api/my/homeData",
+      "responseType": "HomeInfoVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "any"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getMyNewUserData",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/my/newUserData",
+      "responseType": "MyHomeDataVo",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "any"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getApplyList",
+      "method": "GET",
+      "path": "/api/code-community/api/group/my-apply-list",
+      "responseType": "Pagination<CMyGroupApplylistResVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "any"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getHotContests",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/home-get-hot-contests",
+      "responseType": "Array<HotContestVO>",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getRecommendSections",
+      "method": "GET",
+      "path": "/api/code-community/api/home-get-recommend-sections",
+      "responseType": "Array<ProblemRecommendSectionVO>",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getProblemRecommend",
+      "method": "GET",
+      "path": "/api/code-community/api/home-get-problem-recommend",
+      "responseType": "ProblemRecommendVO[]",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "configId"
+      ],
+      "params": [
+        {
+          "name": "configId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getGoodsByWeek",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/goods-by-week",
+      "responseType": "GoodsMissionVO",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "drawGoods",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/draw-goods",
+      "responseType": "DrawGoodsVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "drawCount",
+        "missionId"
+      ],
+      "params": [
+        {
+          "name": "drawCount",
+          "type": "number"
+        },
+        {
+          "name": "missionId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "decorateGoods",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/decorate-goods",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "goodsId"
+      ],
+      "params": [
+        {
+          "name": "goodsId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "offloadGoods",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/offload-goods",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "goodsId"
+      ],
+      "params": [
+        {
+          "name": "goodsId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getNoviceTask",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-novice-task",
+      "responseType": "NoviceTaskList",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/home.ts",
+      "name": "getPosterList",
+      "method": "GET",
+      "path": "/api/code-community-forum/api/poster/homePosterList",
+      "responseType": "PosterListVo[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/incentive.ts",
+      "name": "getCurLevelInfo",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/level/getCurLevelInfo",
+      "responseType": "CurrentLevelInfoVO",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/incentive.ts",
+      "name": "checkMission",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/can-receive",
+      "responseType": "boolean",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/incentive.ts",
+      "name": "getMissionList",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/list",
+      "responseType": "MissionVO[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/incentive.ts",
+      "name": "getReward",
+      "method": "PUT",
+      "path": "/api/code-community-actuator/api/user/mission/get-reward",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{ userMissionId: number; ladderId?: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/incentive.ts",
+      "name": "getRandomMission",
+      "method": "POST",
+      "path": "/api/code-community-actuator/api/user/mission/draw-mission",
+      "responseType": "MissionVO",
+      "options": [],
+      "params": [],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/incentive.ts",
+      "name": "getMyBackpack",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/backpack/my-backpack",
+      "responseType": "RewardVO[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/incentive.ts",
+      "name": "toggleEquip",
+      "method": "PUT",
+      "path": "/api/code-community-actuator/api/user/backpack/onoff-outfit",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{ id: number; isEquip: boolean }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/incentive.ts",
+      "name": "getAllLevelReward",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/level/reward",
+      "responseType": "LevelRewardVO[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/incentive.ts",
+      "name": "getRandomList",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/random-list",
+      "responseType": "IdNameOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/incentive.ts",
+      "name": "getUserBadgeList",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/backpack/user-badge-list",
+      "responseType": "UserBudgeList",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "uid"
+      ],
+      "params": [
+        {
+          "name": "uid",
+          "type": "string"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/incentive.ts",
+      "name": "getUserTabBadge",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/backpack/user-tab-badge",
+      "responseType": "UserBudgeDetailList",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  tabId: number;\n  uid: string;\n  missionTime?: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/monthlyContest.ts",
+      "name": "getContestReportDetail",
+      "method": "GET",
+      "path": "url",
+      "responseType": "ContestReportDto",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "reportId"
+      ],
+      "params": [
+        {
+          "name": "reportId",
+          "type": "string"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/monthlyContest.ts",
+      "name": "getContestSettlementReport",
+      "method": "GET",
+      "path": "url",
+      "responseType": "ContestReportSummaryDto",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "cid"
+      ],
+      "params": [
+        {
+          "name": "cid",
+          "type": "number"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/my.ts",
+      "name": "getMyLastIncomplete",
+      "method": "GET",
+      "path": "/api/code-community/api/my/lastIncomplete",
+      "responseType": "MyLastIncompleteVO",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/my.ts",
+      "name": "getMyCountdownList",
+      "method": "GET",
+      "path": "/api/code-community/api/countdown/get-countdown-list",
+      "responseType": "ContestCountdownDTO[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/my.ts",
+      "name": "getHundredProblem",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-hundred-problem",
+      "responseType": "HundredProblemList[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/my.ts",
+      "name": "getMaliJiejinSummary",
+      "method": "GET",
+      "path": "url",
+      "responseType": "HundredProblemVo[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/my.ts",
+      "name": "getMaliJiejinContent",
+      "method": "GET",
+      "path": "url",
+      "responseType": "HundredProblemList",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "index"
+      ],
+      "params": [
+        {
+          "name": "index",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/my.ts",
+      "name": "getGoodsByMission",
+      "method": "GET",
+      "path": "/api/code-community-actuator/api/user/mission/get-goods",
+      "responseType": "GoodsVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "goodsId",
+        "missionId"
+      ],
+      "params": [
+        {
+          "name": "goodsId",
+          "type": "number"
+        },
+        {
+          "name": "missionId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/my.ts",
+      "name": "getUserGuideProblem",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-guide-problem",
+      "responseType": "number",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getProblemList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-list",
+      "responseType": "Pagination<ProblemVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "ProblemListRequestVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getSubmissionList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-submission-list",
+      "responseType": "Pagination<ProblemVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "SubmissionListRequestVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getMySubmissionList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-my-submission-list",
+      "responseType": "Pagination<ProblemVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  cid?: number;\n  pid: number;\n  tid?: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "submitProblemJudge",
+      "method": "POST",
+      "path": "/api/code-community/api/submit-problem-judge",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "SubmitProblemRequestVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "submitProblemTestJudge",
+      "method": "POST",
+      "path": "/api/code-community/api/submit-problem-test-judge",
+      "responseType": "string",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "TestProblemJudegeRequestVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getTestJudgeResult",
+      "method": "GET",
+      "path": "/api/code-community/api/get-test-judge-result",
+      "responseType": "GetTestJudgeResultResponseVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "GetTestJudgeResultRequestQueryVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "downloadSingleCaseData",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/file/download-test-case",
+      "responseType": "FileUrlVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ file: string; pid: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getSubmissionDetail",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-submission-detail",
+      "responseType": "GetSubmissionDetailResponseVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "GetSubmissionDetailRequestQueryVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getProblemLanguageAndCase",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-language-and-case",
+      "responseType": "GetProblemLanguageAndCaseResponseVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "GetProblemDetailRequestQueryVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getProblemDetail",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-problem-detail",
+      "responseType": "ProblemDetailVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  problemId: number;\n  cid?: number;\n  tid?: number;\n  gid?: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getProblemChoiceDetail",
+      "method": "GET",
+      "path": "/api/code-community/api/get-problem-choice-detail",
+      "responseType": "ProblemChoiceDetailVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "problemId"
+      ],
+      "params": [
+        {
+          "name": "problemId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getSubmissionCaseList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-submission-case-list",
+      "responseType": "TestCaseGroupItemVO[]",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ submitId: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getContestProblemIndex",
+      "method": "GET",
+      "path": "/api/code-community/api/get-contest-problem-index",
+      "responseType": "Pagination<ContestProblemIndexVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ cid: number; gid?: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getProblemReplyCount",
+      "method": "GET",
+      "path": "/api/code-community-forum/internal/problem/getProblemReplyCount",
+      "responseType": "number",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ id: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "likeProblem",
+      "method": "POST",
+      "path": "/api/code-community/api/problem/like",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ pid: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "unlikeProblem",
+      "method": "POST",
+      "path": "/api/code-community/api/problem/unlike",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ pid: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "dislikeProblem",
+      "method": "POST",
+      "path": "/api/code-community/api/problem/dislike",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ pid: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "undislikeProblem",
+      "method": "POST",
+      "path": "/api/code-community/api/problem/undislike",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ pid: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getIDEProblemRecommend",
+      "method": "GET",
+      "path": "/api/code-community/api/problem/ide-get-problem-recommend",
+      "responseType": "ProblemRecommendVO[]",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  currentPid: number;\n  gid?: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getWarehousePrevNextProblem",
+      "method": "GET",
+      "path": "/api/code-community/api/warehouse/warehouse-problem",
+      "responseType": "number",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  currentPid: number;\n  direct: 1 | 2;\n  wid: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getGroupPrevNextProblem",
+      "method": "GET",
+      "path": "/api/code-community/api/group/group-problem",
+      "responseType": "number",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  currentPid: number;\n  direct: 1 | 2;\n  gid: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getTrainingPrevNextProblem",
+      "method": "GET",
+      "path": "/api/code-community/api/training-problem-skip",
+      "responseType": "number",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  currentPid: number;\n  direct: 1 | 2;\n  tid: number;\n  gid?: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getContestPrevNextProblem",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/contest-problem-skip",
+      "responseType": "number",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  currentPid: number;\n  direct: 1 | 2;\n  cid: number;\n  gid?: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getNextTrainingProblemAfterAC",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/gwpub/get-training-problem-navigation",
+      "responseType": "any",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  submitId: number;\n  pid: number;\n  tid: number;\n  gid?: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getTrainingProblemDrawer",
+      "method": "GET",
+      "path": "/api/code-community/api/training-problem-drawer",
+      "responseType": "DrawerTrainingChapterListVo[]",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  currentPid: number;\n  tid: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getTrainingProblemList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-training-problems",
+      "responseType": "DrawerProblemListVo[]",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  chapterId: number;\n  tid: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "getShareLink",
+      "method": "POST",
+      "path": "/api/htoj-biz-gateway/api/get-short-link",
+      "responseType": "string",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{ url: string }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/problem.ts",
+      "name": "storeAnswer",
+      "method": "POST",
+      "path": "/api/code-community/api/contest-store-answer",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{\n  cid: number;\n  gid?: number;\n  pid: number;\n  answer: { [key: string]: string };\n  version: number;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/solution.ts",
+      "name": "getSolutionList",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/problemSolution/get-problem-solution-list",
+      "responseType": "Pagination<SolutionVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "SolutionListRequestVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/solution.ts",
+      "name": "getProblemSolutionDetail",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/problemSolution/get-problem-solution-detail",
+      "responseType": "PosterDetailVo & SolutionDetailExtension",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  posterId: number;\n  posterType: number;\n  tid?: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/solution.ts",
+      "name": "submitProblemSolutionAppeal",
+      "method": "POST",
+      "path": "/api/code-community-forum/gwpub/problemSolution/appeal",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "ProblemSolutionAppealVo"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/solution.ts",
+      "name": "toggleSolutionLike",
+      "method": "GET",
+      "path": "/api/code-community/api/problem-solution-like",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "sid",
+        "toLike"
+      ],
+      "params": [
+        {
+          "name": "sid",
+          "type": "number"
+        },
+        {
+          "name": "toLike",
+          "type": "boolean"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/solution.ts",
+      "name": "deleteSolution",
+      "method": "DELETE",
+      "path": "/api/code-community/api/delete-problem-solution",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "sid"
+      ],
+      "params": [
+        {
+          "name": "sid",
+          "type": "number"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/solution.ts",
+      "name": "canCreateSolution",
+      "method": "GET",
+      "path": "/api/code-community/api/solution/can-create",
+      "responseType": "boolean",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "pid"
+      ],
+      "params": [
+        {
+          "name": "pid",
+          "type": "number"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/solution.ts",
+      "name": "getSolutionCreateInfo",
+      "method": "GET",
+      "path": "/api/code-community/api/solution/create-info",
+      "responseType": "ProblemAndCodeVo",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "pid"
+      ],
+      "params": [
+        {
+          "name": "pid",
+          "type": "number"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "oj/solution.ts",
+      "name": "postSolutionUnlock",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/solution/problem-solution-unlock",
+      "responseType": "number",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  pid: number;\n  sid: number;\n  tid?: number;\n  gid?: number;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/solution.ts",
+      "name": "postDurationHeartbeat",
+      "method": "POST",
+      "path": "/api/code-community-websocket/gwpub/duration/heartbeat",
+      "responseType": "DurationHeartbeatVO",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "DurationHeartbeatRequest"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/solution.ts",
+      "name": "getSolutionInviteResult",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/solution-invite/result",
+      "responseType": "SolutionInviteResultVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "submitId"
+      ],
+      "params": [
+        {
+          "name": "submitId",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/training.ts",
+      "name": "getTrainingList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-training-list",
+      "responseType": "Pagination<TrainingVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "TrainingListRequestVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/training.ts",
+      "name": "getTrainingDetail",
+      "method": "GET",
+      "path": "/api/code-community/api/get-training-detail",
+      "responseType": "TrainingInfoVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{ tid: number; gid?: number }"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/training.ts",
+      "name": "getTrainingProblemList",
+      "method": "GET",
+      "path": "/api/code-community/api/get-training-problem-list",
+      "responseType": "Pagination<TrainingChapterProblemVO>",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "TrainingProblemRequestVO"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/training.ts",
+      "name": "postRegisterTraining",
+      "method": "POST",
+      "path": "/api/code-community/api/register-training",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{ tid: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/training.ts",
+      "name": "getTrainingChapterPage",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/api/get-training-chapter-page",
+      "responseType": "QueryPageVO",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  tid: number;\n  tcid: number;\n  gid?: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/training.ts",
+      "name": "getTrainingUserGuideNextProblem",
+      "method": "GET",
+      "path": "/api/code-community/gwpub/api/user-next-problem",
+      "responseType": "number",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "tid",
+        "gid"
+      ],
+      "params": [
+        {
+          "name": "tid",
+          "type": "number"
+        },
+        {
+          "name": "gid",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/warehouse.ts",
+      "name": "getWarehouseList",
+      "method": "GET",
+      "path": "/api/code-community/api/warehouse/list",
+      "responseType": "SelectOption[]",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/warehouse.ts",
+      "name": "getWarehouseProblems",
+      "method": "GET",
+      "path": "/api/code-community/api/warehouse/warehouse-problems",
+      "responseType": "DrawerProblemListVo[]",
+      "options": [],
+      "params": [
+        {
+          "name": "query",
+          "type": "{\n  currentPid: number;\n  direct: 0 | 1 | 2;\n  wid: number;\n}"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/warehouse.ts",
+      "name": "getWarehouse",
+      "method": "GET",
+      "path": "/api/code-community/api/warehouse/get",
+      "responseType": "WarehouseVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "wid"
+      ],
+      "params": [
+        {
+          "name": "wid",
+          "type": "number"
+        }
+      ],
+      "probe": "只读"
+    },
+    {
+      "file": "user.ts",
+      "name": "getSignInUserInfo",
+      "method": "GET",
+      "path": "/api/htoj-biz-gateway/api/get-user-info",
+      "responseType": "UserVO",
+      "options": [
+        "query"
+      ],
+      "queryFields": [
+        "loginSource",
+        "adtag",
+        "distinguish"
+      ],
+      "params": [
+        {
+          "name": "loginSource",
+          "type": "string"
+        },
+        {
+          "name": "adtag",
+          "type": "string"
+        }
+      ],
+      "probe": "疑似写操作（GET）"
+    },
+    {
+      "file": "user.ts",
+      "name": "fillUserInfo",
+      "method": "POST",
+      "path": "/api/htoj-biz-gateway/api/fill-user-info",
+      "responseType": "UserVO",
+      "options": [
+        "body",
+        "headers"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "UpdateUserRequestVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "user.ts",
+      "name": "bindPhoneNumber",
+      "method": "POST",
+      "path": "/api/htoj-biz-gateway/api/bind-user-phone",
+      "responseType": "UserVO",
+      "options": [
+        "body",
+        "headers"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "UpdateUserRequestVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "user.ts",
+      "name": "getPersonalInfo",
+      "method": "GET",
+      "path": "/api/code-community/api/get-personal-info",
+      "responseType": "PersonalInfoVO",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "user.ts",
+      "name": "personalInfoSet",
+      "method": "POST",
+      "path": "/api/code-community/api/personal-info-set",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "PersonalInfoVO"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "user.ts",
+      "name": "preferenceInfoSet",
+      "method": "POST",
+      "path": "/api/code-community/api/preference-info-set",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "PreferenceInfo"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "user.ts",
+      "name": "preferenceInfoUpdateAvatar",
+      "method": "POST",
+      "path": "/api/code-community/gwpub/api/update-avatar",
+      "options": [
+        "body"
+      ],
+      "bodyFields": [
+        "avatar"
+      ],
+      "params": [
+        {
+          "name": "avatar",
+          "type": "string"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "user.ts",
+      "name": "setUserDefault",
+      "method": "POST",
+      "path": "/api/code-community/api/set-user-default",
+      "options": [],
+      "params": [],
+      "probe": "写接口"
+    },
+    {
+      "file": "user.ts",
+      "name": "setUserNickname",
+      "method": "POST",
+      "path": "/api/code-community/api/set-user-nickname",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{\n  avatar: string;\n  nickname: string;\n  uid: string;\n}"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "user.ts",
+      "name": "generateUserInfo",
+      "method": "POST",
+      "path": "/api/code-community/api/generate-user-info",
+      "responseType": "UserInfoGenerateVO",
+      "options": [],
+      "params": [],
+      "probe": "写接口"
+    },
+    {
+      "file": "user.ts",
+      "name": "gatherCodeLevel",
+      "method": "POST",
+      "path": "/api/code-community/api/gather-code-level",
+      "options": [
+        "body"
+      ],
+      "params": [
+        {
+          "name": "data",
+          "type": "{ codeLevel: number }"
+        }
+      ],
+      "probe": "写接口"
+    },
+    {
+      "file": "user.ts",
+      "name": "getYsInClass",
+      "method": "GET",
+      "path": "url",
+      "responseType": "boolean",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    }
+  ],
+  "typeDefs": {}
+}

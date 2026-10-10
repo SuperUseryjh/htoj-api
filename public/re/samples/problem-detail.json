@@ -1,0 +1,120 @@
+{
+  "errCode": 0,
+  "data": {
+    "problemBaseVO": {
+      "id": 22169438826624,
+      "problemId": "P1000",
+      "title": "新手引导-OJ题",
+      "edit": null,
+      "editable": false,
+      "content": "### 题目描述\n\n输入一个数，并将这个数原封不动地输出。\n\n### 输入\n\n一个正整数，可以用int类型定义。\n\n### 输出\n\n一个正整数。\n\n### 样例\n\n```input1\n5\n```\n```output1\n5\n```\n\n\n\n",
+      "difficulty": {
+        "id": 1,
+        "name": "入门",
+        "color": "#FF5100"
+      },
+      "source": {
+        "id": 1,
+        "name": "核桃编程官方"
+      },
+      "type": 1,
+      "tags": [
+        {
+          "id": 557,
+          "name": "模拟"
+        },
+        {
+          "id": 618,
+          "name": "顺序结构"
+        },
+        {
+          "id": 1415,
+          "name": "简单输入输出"
+        }
+      ],
+      "showProblemSolution": true,
+      "showJudgeRecord": true,
+      "zone": "cpp",
+      "historyResult": null,
+      "total": 184718,
+      "ac": 173021,
+      "wid": 1
+    },
+    "problemChoiceDetailVO": null,
+    "problemOjDetailVO": {
+      "problemLanguage": [
+        {
+          "id": 6,
+          "name": "C++14 With O2"
+        },
+        {
+          "id": 7,
+          "name": "C++17 With O2"
+        },
+        {
+          "id": 10,
+          "name": "Python3"
+        }
+      ],
+      "ioMode": {
+        "id": 1,
+        "name": "标准IO"
+      },
+      "sampleCaseList": null,
+      "timeLimit": 1000,
+      "memoryLimit": 256,
+      "stackLimit": 256,
+      "timeLimitMax": 1000,
+      "memoryLimitMax": 256,
+      "stackLimitMax": 256,
+      "judgeMode": {
+        "value": "default",
+        "name": "传统题"
+      },
+      "ioReadFileName": "case.in",
+      "ioWriteFileName": "case.out"
+    },
+    "problemObjectiveDetailVO": null,
+    "ownerVo": {
+      "uid": "3adc3226deec9ef53503785de1cdead7",
+      "nickname": "用户24debb",
+      "avatar": "https://example.invalid/910af96b61ab.jpg",
+      "ccfLevel": null,
+      "authenticationIcon": null,
+      "userId": null
+    },
+    "isGuide": true,
+    "isGuideTraining": null,
+    "modelAnswer": "    #include<iostream>\n    using namespace std;\n    int main()\n    {\n        int a;\n        cin>>a;\n        cout<<a<<endl;\n        return 0;\n    }",
+    "budge": "https://public.hetaoimg.com/code-community/reward/prod/5cb40c3f1f18e46c10a39f215233c06f.png",
+    "budgeName": null,
+    "likeCount": 584,
+    "dislikeCount": 233,
+    "gid": null,
+    "noPrev": true,
+    "noNext": false,
+    "accepted": false,
+    "hideResult": null,
+    "special": null,
+    "chapterIndex": null,
+    "totalProblemNum": null,
+    "currentProblemNum": null,
+    "finishedProblemNum": null,
+    "guideConfigVo": {
+      "guideProblemId": 22169438826624,
+      "guideModelAnswer": "    #include<iostream>\n    using namespace std;\n    int main()\n    {\n        int a;\n        cin>>a;\n        cout<<a<<endl;\n        return 0;\n    }",
+      "guideBudge": "https://public.hetaoimg.com/code-community/reward/prod/5cb40c3f1f18e46c10a39f215233c06f.png",
+      "guideTrainingId": 22448103338112,
+      "guideBudgeId": null,
+      "guideTrainingBudgeId": null
+    },
+    "trainingImMark": null,
+    "additionalFiles": null,
+    "zipSize": null,
+    "isRocket": 0,
+    "onlyUpload": false,
+    "like": false,
+    "dislike": false
+  },
+  "errMsg": "success"
+}

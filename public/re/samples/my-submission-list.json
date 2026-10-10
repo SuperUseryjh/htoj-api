@@ -1,0 +1,66 @@
+{
+  "errCode": 0,
+  "data": {
+    "records": [
+      {
+        "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+        "submitId": 51980181,
+        "username": "用户8d31e4",
+        "pid": 22169438826624,
+        "displayPid": "P1000",
+        "title": "新手引导-OJ题",
+        "displayId": null,
+        "submitTime": 1790854350847,
+        "status": {
+          "id": 0,
+          "name": "Accepted",
+          "shortName": null,
+          "chineseName": null
+        },
+        "isMine": null,
+        "time": 0,
+        "memory": 3392,
+        "length": null,
+        "language": "C++17 With O2",
+        "score": 100,
+        "cid": 0,
+        "tid": 0,
+        "gid": 0,
+        "source": 1
+      },
+      {
+        "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+        "submitId": 45224983,
+        "username": "用户8d31e4",
+        "pid": 22169438826624,
+        "displayPid": "P1000",
+        "title": "新手引导-OJ题",
+        "displayId": null,
+        "submitTime": 1783416941739,
+        "status": {
+          "id": 4,
+          "name": "Wrong Answer",
+          "shortName": null,
+          "chineseName": null
+        },
+        "isMine": null,
+        "time": 0,
+        "memory": 3312,
+        "length": null,
+        "language": "C++14 With O2",
+        "score": 0,
+        "cid": 0,
+        "tid": 0,
+        "gid": 0,
+        "source": 1
+      }
+    ],
+    "total": 2,
+    "size": 2,
+    "current": 1,
+    "orders": [],
+    "searchCount": true,
+    "pages": 1
+  },
+  "errMsg": "success"
+}

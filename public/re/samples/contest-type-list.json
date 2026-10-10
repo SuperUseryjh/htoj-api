@@ -1,0 +1,30 @@
+{
+  "errCode": 0,
+  "data": [
+    {
+      "id": 1,
+      "name": "OI"
+    },
+    {
+      "id": 2,
+      "name": "ACM"
+    },
+    {
+      "id": 3,
+      "name": "乐多"
+    },
+    {
+      "id": 4,
+      "name": "IOI"
+    },
+    {
+      "id": 5,
+      "name": "IOI(OFS)"
+    },
+    {
+      "id": 6,
+      "name": "严格IOI"
+    }
+  ],
+  "errMsg": "success"
+}

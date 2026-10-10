@@ -1,0 +1,14 @@
+{
+  "errCode": 0,
+  "data": [
+    {
+      "id": 1,
+      "name": "学术交流"
+    },
+    {
+      "id": 2,
+      "name": "日常灌水"
+    }
+  ],
+  "errMsg": "success"
+}

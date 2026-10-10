@@ -1,0 +1,21 @@
+{
+  "errCode": 0,
+  "data": {
+    "status": {
+      "id": 0,
+      "name": "Success",
+      "shortName": null,
+      "chineseName": "运行通过"
+    },
+    "resultCode": 1,
+    "time": 0,
+    "memory": 3392,
+    "userInput": "5",
+    "userOutput": "5",
+    "userOutputFile": "/mnt/caseData/judgeExe/player/20261001/TEST_JUDGE_2d531063feaa6b6e2f3b522d5181c3a9/20261001.out",
+    "expectedOutput": null,
+    "stderr": "",
+    "problemJudgeMode": null
+  },
+  "errMsg": "success"
+}

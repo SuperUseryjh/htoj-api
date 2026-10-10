@@ -1,0 +1,33 @@
+{
+  "errCode": 0,
+  "data": {
+    "id": 22302141951872,
+    "trainingNo": "00218",
+    "title": "A5课程配套训练",
+    "subtitle": "欲穷千里目，更上一层楼",
+    "description": "这里是【A5 课程配套训练】\n\n请点击右上角的【开始练习】加入这个题单。\n\n点击【题目】可以看到所有习题。",
+    "author": "cd88ee8246c43366ab5dd91b5fece3c8",
+    "ownerVo": {
+      "uid": "cd88ee8246c43366ab5dd91b5fece3c8",
+      "nickname": "用户d1cbe9",
+      "avatar": "https://example.invalid/de6364223ad7.png",
+      "ccfLevel": null,
+      "authenticationIcon": null,
+      "userId": null
+    },
+    "auth": 2,
+    "problemCount": 99,
+    "acCount": 54,
+    "completeCount": 0,
+    "totalCount": 999,
+    "gmtModified": 1773125838000,
+    "nextPid": 22355190302720,
+    "zone": "cpp",
+    "languages": null,
+    "status": null,
+    "isAttend": true,
+    "imMark": 3,
+    "productLineIds": []
+  },
+  "errMsg": "success"
+}

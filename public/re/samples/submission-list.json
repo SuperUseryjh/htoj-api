@@ -1,0 +1,92 @@
+{
+  "errCode": 0,
+  "data": {
+    "records": [
+      {
+        "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+        "submitId": 51204677,
+        "username": "用户8d31e4",
+        "pid": 22243802306048,
+        "displayPid": "LGP11576",
+        "title": "[CCC 2020] Dog Treats",
+        "displayId": null,
+        "submitTime": 1789289786535,
+        "status": {
+          "id": 0,
+          "name": "Accepted",
+          "shortName": null,
+          "chineseName": null
+        },
+        "isMine": null,
+        "time": 4,
+        "memory": 812,
+        "length": null,
+        "language": "C++17 With O2",
+        "score": 100,
+        "cid": 0,
+        "tid": 22302141951872,
+        "gid": 22169370776704,
+        "source": 1
+      },
+      {
+        "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+        "submitId": 51200624,
+        "username": "用户8d31e4",
+        "pid": 22243802306048,
+        "displayPid": "LGP11576",
+        "title": "[CCC 2020] Dog Treats",
+        "displayId": null,
+        "submitTime": 1789288653297,
+        "status": {
+          "id": 0,
+          "name": "Accepted",
+          "shortName": null,
+          "chineseName": null
+        },
+        "isMine": null,
+        "time": 4,
+        "memory": 860,
+        "length": null,
+        "language": "C++17 With O2",
+        "score": 100,
+        "cid": 0,
+        "tid": 22302141951872,
+        "gid": 22169370776704,
+        "source": 1
+      },
+      {
+        "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+        "submitId": 51196180,
+        "username": "用户8d31e4",
+        "pid": 22069044965120,
+        "displayPid": "LGP3373",
+        "title": "【必做题】【模板】线段树 2",
+        "displayId": null,
+        "submitTime": 1789287332715,
+        "status": {
+          "id": 0,
+          "name": "Accepted",
+          "shortName": null,
+          "chineseName": null
+        },
+        "isMine": null,
+        "time": 276,
+        "memory": 11076,
+        "length": null,
+        "language": "C++17 With O2",
+        "score": 100,
+        "cid": 0,
+        "tid": 22302141951872,
+        "gid": 22169370776704,
+        "source": 1
+      }
+    ],
+    "total": 0,
+    "size": 3,
+    "current": 1,
+    "orders": [],
+    "searchCount": true,
+    "pages": 0
+  },
+  "errMsg": "success"
+}

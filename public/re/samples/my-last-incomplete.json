@@ -1,0 +1,28 @@
+{
+  "errCode": 0,
+  "data": {
+    "problem": {
+      "pid": 22243802306048,
+      "problemId": "LGP11576",
+      "title": "[CCC 2020] Dog Treats",
+      "tid": 22302141951872,
+      "gid": 22169370776704,
+      "isAc": true
+    },
+    "training": {
+      "tid": 22302141951872,
+      "title": "A5课程配套训练",
+      "gid": 22169370776704,
+      "problemCount": 99,
+      "acCount": 54
+    },
+    "contest": {
+      "cid": 22921376372096,
+      "title": "【HT-131-MLS】核桃国庆马拉松 & XRCOI Round 11",
+      "startTime": 1790744400000,
+      "endTime": 1791280800000,
+      "gid": null
+    }
+  },
+  "errMsg": "success"
+}

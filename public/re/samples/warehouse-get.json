@@ -1,0 +1,19 @@
+{
+  "errCode": 0,
+  "data": {
+    "id": 1,
+    "title": "核桃题库",
+    "author": null,
+    "auth": null,
+    "sort": null,
+    "gmtModified": null,
+    "zone": null,
+    "createTime": null,
+    "isCanUp": null,
+    "isCanDown": null,
+    "isCanDelete": null,
+    "isCanModify": null,
+    "type": null
+  },
+  "errMsg": "success"
+}

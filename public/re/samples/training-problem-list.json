@@ -1,0 +1,1050 @@
+{
+  "errCode": 0,
+  "data": {
+    "records": [
+      {
+        "trainingChapterVO": {
+          "id": 1468,
+          "tid": 22302141951872,
+          "name": "和式",
+          "sort": null
+        },
+        "problemVOList": [
+          {
+            "pid": 22069047049600,
+            "problemId": "LGP8772",
+            "title": "【必做题】[蓝桥杯 2022 省 A] 求和",
+            "difficulty": {
+              "id": 2,
+              "name": "普及-",
+              "color": "#FF8000"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 69267,
+                "name": "前缀和"
+              },
+              {
+                "id": 69268,
+                "name": "差分"
+              },
+              {
+                "id": 69269,
+                "name": "蓝桥杯省赛"
+              },
+              {
+                "id": 69266,
+                "name": "2022"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 2661,
+            "ac": 1506,
+            "rn": 1
+          },
+          {
+            "pid": 22069045878656,
+            "problemId": "LGP5686",
+            "title": "【必做题】[CSP-S2019 江西] 和积和",
+            "difficulty": {
+              "id": 3,
+              "name": "普及/提高-",
+              "color": "#FFB700"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 202794,
+                "name": "前缀和"
+              },
+              {
+                "id": 300186,
+                "name": "递推"
+              },
+              {
+                "id": 344324,
+                "name": "分治"
+              },
+              {
+                "id": 300185,
+                "name": "数学"
+              },
+              {
+                "id": 59690,
+                "name": "2019"
+              },
+              {
+                "id": 300187,
+                "name": "数论"
+              },
+              {
+                "id": 59691,
+                "name": "CSP S 提高级"
+              },
+              {
+                "id": 172513,
+                "name": "CSP-S 提高级"
+              },
+              {
+                "id": 309952,
+                "name": "江西"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 3764,
+            "ac": 1993,
+            "rn": 2
+          },
+          {
+            "pid": 22069044928256,
+            "problemId": "LGP2671",
+            "title": "【选做题】[NOIP2015 普及组] 求和",
+            "difficulty": {
+              "id": 4,
+              "name": "普及+/提高",
+              "color": "#00B42A"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 49086,
+                "name": "2015"
+              },
+              {
+                "id": 49088,
+                "name": "NOIp 普及组"
+              },
+              {
+                "id": 201141,
+                "name": "枚举"
+              },
+              {
+                "id": 49089,
+                "name": "排序"
+              },
+              {
+                "id": 49090,
+                "name": "前缀和"
+              },
+              {
+                "id": 49087,
+                "name": "线性数据结构"
+              },
+              {
+                "id": 217807,
+                "name": "分类讨论"
+              },
+              {
+                "id": 209495,
+                "name": "哈希表"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 1782,
+            "ac": 979,
+            "rn": 3
+          },
+          {
+            "pid": 22069046084224,
+            "problemId": "LGP6284",
+            "title": "【必做题】[COCI2016-2017#1] Tarifa",
+            "difficulty": {
+              "id": 1,
+              "name": "入门",
+              "color": "#FF5100"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 200696,
+                "name": "模拟"
+              },
+              {
+                "id": 61325,
+                "name": "2016"
+              },
+              {
+                "id": 61326,
+                "name": "COCI（克罗地亚）"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 933,
+            "ac": 696,
+            "rn": 4
+          }
+        ],
+        "nextPid": 22355190302720,
+        "isAttend": true
+      },
+      {
+        "trainingChapterVO": {
+          "id": 1470,
+          "tid": 22302141951872,
+          "name": "离散化",
+          "sort": null
+        },
+        "problemVOList": [
+          {
+            "pid": 22069044584576,
+            "problemId": "LGP1496",
+            "title": "【必做题】火烧赤壁",
+            "difficulty": {
+              "id": 2,
+              "name": "普及-",
+              "color": "#FF8000"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 322145,
+                "name": "模拟"
+              },
+              {
+                "id": 200076,
+                "name": "排序"
+              },
+              {
+                "id": 45019,
+                "name": "O2优化"
+              },
+              {
+                "id": 344005,
+                "name": "差分"
+              },
+              {
+                "id": 200077,
+                "name": "贪心"
+              },
+              {
+                "id": 45018,
+                "name": "离散化"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 867,
+            "ac": 521,
+            "rn": 1
+          },
+          {
+            "pid": 22069044776704,
+            "problemId": "LGP2205",
+            "title": "【必做题】[USACO13JAN] Painting the Fence S",
+            "difficulty": {
+              "id": 5,
+              "name": "提高+/省选-",
+              "color": "#1884FF"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 47020,
+                "name": "模拟"
+              },
+              {
+                "id": 198577,
+                "name": "排序"
+              },
+              {
+                "id": 47024,
+                "name": "USACO"
+              },
+              {
+                "id": 47021,
+                "name": "数学"
+              },
+              {
+                "id": 198576,
+                "name": "差分"
+              },
+              {
+                "id": 47022,
+                "name": "2013"
+              },
+              {
+                "id": 47023,
+                "name": "线段树"
+              },
+              {
+                "id": 47025,
+                "name": "离散化"
+              },
+              {
+                "id": 344120,
+                "name": "扫描线"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 650,
+            "ac": 402,
+            "rn": 2
+          },
+          {
+            "pid": 22069044812160,
+            "problemId": "LGP3740",
+            "title": "【选做题】[HAOI2014] 贴海报",
+            "difficulty": {
+              "id": 4,
+              "name": "普及+/提高",
+              "color": "#00B42A"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 47509,
+                "name": "枚举"
+              },
+              {
+                "id": 47506,
+                "name": "线段树"
+              },
+              {
+                "id": 198918,
+                "name": "贪心"
+              },
+              {
+                "id": 47504,
+                "name": "2014"
+              },
+              {
+                "id": 47507,
+                "name": "各省省选"
+              },
+              {
+                "id": 47505,
+                "name": "河南"
+              },
+              {
+                "id": 365526,
+                "name": "并查集"
+              },
+              {
+                "id": 47508,
+                "name": "离散化"
+              },
+              {
+                "id": 344132,
+                "name": "分块"
+              },
+              {
+                "id": 322161,
+                "name": "颜色段均摊（珂朵莉树 ODT）"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 705,
+            "ac": 360,
+            "rn": 3
+          },
+          {
+            "pid": 22069047454080,
+            "problemId": "LGB3893",
+            "title": "【必做题】[NICA #3] 一键三连",
+            "difficulty": {
+              "id": 1,
+              "name": "入门",
+              "color": "#FF5100"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 203714,
+                "name": "模拟"
+              },
+              {
+                "id": 72903,
+                "name": "O2优化"
+              },
+              {
+                "id": 72904,
+                "name": "顺序结构"
+              },
+              {
+                "id": 72902,
+                "name": "语言入门（请选择[入门与面试]题库）"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 529,
+            "ac": 488,
+            "rn": 4
+          }
+        ],
+        "nextPid": 22355190302720,
+        "isAttend": true
+      },
+      {
+        "trainingChapterVO": {
+          "id": 1615,
+          "tid": 22302141951872,
+          "name": "最近公共祖先",
+          "sort": null
+        },
+        "problemVOList": [
+          {
+            "pid": 22069044969472,
+            "problemId": "LGP3379",
+            "title": "【必做题】【模板】最近公共祖先（LCA）",
+            "difficulty": {
+              "id": 3,
+              "name": "普及/提高-",
+              "color": "#FFB700"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 49526,
+                "name": "O2优化"
+              },
+              {
+                "id": 326428,
+                "name": "模板题"
+              },
+              {
+                "id": 220671,
+                "name": "倍增"
+              },
+              {
+                "id": 49527,
+                "name": "最近公共祖先,LCA"
+              },
+              {
+                "id": 158834,
+                "name": "最近公共祖先 LCA"
+              },
+              {
+                "id": 209554,
+                "name": "最近公共祖先(LCA)"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 1120,
+            "ac": 663,
+            "rn": 1
+          },
+          {
+            "pid": 22069045274112,
+            "problemId": "LGP3884",
+            "title": "【必做题】[JLOI2009] 二叉树问题",
+            "difficulty": {
+              "id": 3,
+              "name": "普及/提高-",
+              "color": "#FFB700"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 53336,
+                "name": "深度优先搜索,DFS"
+              },
+              {
+                "id": 53334,
+                "name": "各省省选"
+              },
+              {
+                "id": 53335,
+                "name": "吉林"
+              },
+              {
+                "id": 205099,
+                "name": "广度优先搜索"
+              },
+              {
+                "id": 53333,
+                "name": "2009"
+              },
+              {
+                "id": 159225,
+                "name": "深度优先搜索 DFS"
+              },
+              {
+                "id": 309815,
+                "name": "最近公共祖先 LCA"
+              },
+              {
+                "id": 210557,
+                "name": "最近公共祖先(LCA)"
+              },
+              {
+                "id": 215540,
+                "name": "树 的遍历"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 702,
+            "ac": 410,
+            "rn": 2
+          },
+          {
+            "pid": 22320127445120,
+            "problemId": "P5503",
+            "title": "【必做题】[ABC209D] Collision",
+            "difficulty": {
+              "id": 3,
+              "name": "普及/提高-",
+              "color": "#FFB700"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": null,
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 468,
+            "ac": 353,
+            "rn": 3
+          },
+          {
+            "pid": 22069045406848,
+            "problemId": "LGP4281",
+            "title": "【选做题】[AHOI2008] 紧急集合 / 聚会",
+            "difficulty": {
+              "id": 5,
+              "name": "提高+/省选-",
+              "color": "#1884FF"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 202939,
+                "name": "枚举"
+              },
+              {
+                "id": 55137,
+                "name": "各省省选"
+              },
+              {
+                "id": 55135,
+                "name": "2008"
+              },
+              {
+                "id": 55140,
+                "name": "树链剖分"
+              },
+              {
+                "id": 55136,
+                "name": "倍增"
+              },
+              {
+                "id": 55138,
+                "name": "安徽"
+              },
+              {
+                "id": 55139,
+                "name": "最近公共祖先,LCA"
+              },
+              {
+                "id": 159416,
+                "name": "最近公共祖先 LCA"
+              },
+              {
+                "id": 209959,
+                "name": "最近公共祖先(LCA)"
+              },
+              {
+                "id": 218127,
+                "name": "树上倍增"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 914,
+            "ac": 395,
+            "rn": 4
+          },
+          {
+            "pid": 22069044918272,
+            "problemId": "LGP2637",
+            "title": "【必做题】第一次，第二次，成交！",
+            "difficulty": {
+              "id": 1,
+              "name": "入门",
+              "color": "#FF5100"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 48992,
+                "name": "模拟"
+              },
+              {
+                "id": 48994,
+                "name": "枚举"
+              },
+              {
+                "id": 199561,
+                "name": "排序"
+              },
+              {
+                "id": 48993,
+                "name": "USACO"
+              },
+              {
+                "id": 309616,
+                "name": "2008"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 1891,
+            "ac": 889,
+            "rn": 5
+          }
+        ],
+        "nextPid": 22355190302720,
+        "isAttend": true
+      },
+      {
+        "trainingChapterVO": {
+          "id": 1633,
+          "tid": 22302141951872,
+          "name": "树上差分",
+          "sort": null
+        },
+        "problemVOList": [
+          {
+            "pid": 22069045068544,
+            "problemId": "LGP3128",
+            "title": "【必做题】[USACO15DEC] Max Flow P",
+            "difficulty": {
+              "id": 4,
+              "name": "普及+/提高",
+              "color": "#00B42A"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 50669,
+                "name": "2015"
+              },
+              {
+                "id": 50670,
+                "name": "USACO"
+              },
+              {
+                "id": 172204,
+                "name": "差分"
+              },
+              {
+                "id": 200598,
+                "name": "深度优先搜索"
+              },
+              {
+                "id": 50673,
+                "name": "栈"
+              },
+              {
+                "id": 50672,
+                "name": "树链剖分"
+              },
+              {
+                "id": 50671,
+                "name": "最近公共祖先,LCA"
+              },
+              {
+                "id": 158947,
+                "name": "最近公共祖先 LCA"
+              },
+              {
+                "id": 209377,
+                "name": "最近公共祖先(LCA)"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 747,
+            "ac": 499,
+            "rn": 1
+          },
+          {
+            "pid": 22106699094912,
+            "problemId": "LGP10931",
+            "title": "【选做题】闇の連鎖",
+            "difficulty": {
+              "id": 4,
+              "name": "普及+/提高",
+              "color": "#00B42A"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 289856,
+                "name": "差分"
+              },
+              {
+                "id": 203621,
+                "name": "深度优先搜索"
+              },
+              {
+                "id": 289855,
+                "name": "树链剖分"
+              },
+              {
+                "id": 215011,
+                "name": "树上差分"
+              },
+              {
+                "id": 289854,
+                "name": "最近公共祖先 LCA"
+              },
+              {
+                "id": 210151,
+                "name": "最近公共祖先(LCA)"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 611,
+            "ac": 346,
+            "rn": 2
+          },
+          {
+            "pid": 22317876580736,
+            "problemId": "LGP11967",
+            "title": "【选做题】[GESP202503 八级] 割裂",
+            "difficulty": {
+              "id": 4,
+              "name": "普及+/提高",
+              "color": "#00B42A"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 175947,
+                "name": "GESP"
+              },
+              {
+                "id": 175946,
+                "name": "差分"
+              },
+              {
+                "id": 175943,
+                "name": "倍增"
+              },
+              {
+                "id": 175944,
+                "name": "2025"
+              },
+              {
+                "id": 175945,
+                "name": "最近公共祖先 LCA"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 1347,
+            "ac": 644,
+            "rn": 3
+          },
+          {
+            "pid": 22069046651264,
+            "problemId": "LGB2044",
+            "title": "【必做题】有一门课不及格的学生",
+            "difficulty": {
+              "id": 1,
+              "name": "入门",
+              "color": "#FF5100"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 196527,
+                "name": "模拟"
+              },
+              {
+                "id": 66033,
+                "name": "分支结构"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 14986,
+            "ac": 10937,
+            "rn": 4
+          }
+        ],
+        "nextPid": 22355190302720,
+        "isAttend": true
+      },
+      {
+        "trainingChapterVO": {
+          "id": 1634,
+          "tid": 22302141951872,
+          "name": "树上倍增",
+          "sort": null
+        },
+        "problemVOList": [
+          {
+            "pid": 22334393066240,
+            "problemId": "P5531",
+            "title": "【必做题】CF609E Minimum spanning tree for each edge",
+            "difficulty": {
+              "id": 5,
+              "name": "提高+/省选-",
+              "color": "#1884FF"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": null,
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 708,
+            "ac": 333,
+            "rn": 1
+          },
+          {
+            "pid": 22069044703104,
+            "problemId": "LGP1967",
+            "title": "【选做题】[NOIP2013 提高组] 货车运输",
+            "difficulty": {
+              "id": 5,
+              "name": "提高+/省选-",
+              "color": "#1884FF"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 46243,
+                "name": "NOIp 提高组"
+              },
+              {
+                "id": 46240,
+                "name": "2013"
+              },
+              {
+                "id": 46239,
+                "name": "贪心"
+              },
+              {
+                "id": 46238,
+                "name": "图论"
+              },
+              {
+                "id": 46242,
+                "name": "并查集"
+              },
+              {
+                "id": 46244,
+                "name": "生成树"
+              },
+              {
+                "id": 344085,
+                "name": "树链剖分"
+              },
+              {
+                "id": 46241,
+                "name": "倍增"
+              },
+              {
+                "id": 46245,
+                "name": "最近公共祖先,LCA"
+              },
+              {
+                "id": 218154,
+                "name": "最小生成树"
+              },
+              {
+                "id": 300023,
+                "name": "Kruskal 重构树"
+              },
+              {
+                "id": 158460,
+                "name": "最近公共祖先 LCA"
+              },
+              {
+                "id": 209994,
+                "name": "最近公共祖先(LCA)"
+              },
+              {
+                "id": 218155,
+                "name": "树上倍增"
+              },
+              {
+                "id": 214853,
+                "name": "Kruskal 算法"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 793,
+            "ac": 437,
+            "rn": 2
+          },
+          {
+            "pid": 22069044769792,
+            "problemId": "LGP1887",
+            "title": "【必做题】乘积最大3",
+            "difficulty": {
+              "id": 1,
+              "name": "入门",
+              "color": "#FF5100"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": [
+              {
+                "id": 46961,
+                "name": "数学"
+              },
+              {
+                "id": 46962,
+                "name": "洛谷原创"
+              },
+              {
+                "id": 204785,
+                "name": "贪心"
+              },
+              {
+                "id": 204786,
+                "name": "构造"
+              }
+            ],
+            "acStatus": {
+              "id": 4,
+              "name": "已通过",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 564,
+            "ac": 366,
+            "rn": 3
+          },
+          {
+            "pid": 22355190302720,
+            "problemId": "P5583",
+            "title": "【必做题】树上k级祖先",
+            "difficulty": {
+              "id": 3,
+              "name": "普及/提高-",
+              "color": "#FFB700"
+            },
+            "owner": null,
+            "type": 1,
+            "tags": null,
+            "acStatus": {
+              "id": 2,
+              "name": "未提交",
+              "shortName": null,
+              "chineseName": null
+            },
+            "total": 507,
+            "ac": 350,
+            "rn": 4
+          }
+        ],
+        "nextPid": 22355190302720,
+        "isAttend": true
+      }
+    ],
+    "total": 24,
+    "size": 5,
+    "current": 1,
+    "orders": [],
+    "searchCount": true,
+    "pages": 5
+  },
+  "errMsg": "success"
+}

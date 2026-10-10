@@ -1,0 +1,15 @@
+{
+  "name": "htoj-api-docs",
+  "private": true,
+  "type": "module",
+  "description": "核桃 OJ 非官方 API 文档站点（VitePress）。站点根就是本目录。",
+  "scripts": {
+    "sync": "node .vitepress/prepare.mjs",
+    "dev": "node .vitepress/prepare.mjs && vitepress dev",
+    "build": "node .vitepress/prepare.mjs && vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.0"
+  }
+}

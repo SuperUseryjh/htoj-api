@@ -1,0 +1,135 @@
+{
+  "errCode": 0,
+  "data": [
+    {
+      "id": 22921381069568,
+      "cid": 22921381069568,
+      "contestTitle": "【HT-131-Div.1】核桃省选模拟赛",
+      "online": null,
+      "onlineTime": null,
+      "startTime": 1790744400000,
+      "endTime": 1791280800000,
+      "exerciseId": null,
+      "exerciseTag": null,
+      "type": 1,
+      "typeDesc": {
+        "id": 1,
+        "name": "OI"
+      },
+      "status": 0,
+      "statusDesc": {
+        "id": 0,
+        "name": "进行中"
+      },
+      "now": 1790853605137,
+      "registered": false,
+      "avatarList": [
+        "https://example.invalid/05ecb4bbd7d0.jpg"
+      ],
+      "matchType": 1,
+      "matchTypeDesc": {
+        "id": 1,
+        "name": "核桃周赛"
+      },
+      "zone": "cpp",
+      "owner": "19af82490f250ba5e484307b49b6216b",
+      "gid": null,
+      "ownerVo": {
+        "uid": "19af82490f250ba5e484307b49b6216b",
+        "nickname": "用户855e0b",
+        "avatar": "https://example.invalid/de6364223ad7.png",
+        "ccfLevel": null,
+        "authenticationIcon": null,
+        "userId": null
+      },
+      "count": 74
+    },
+    {
+      "id": 22921376372096,
+      "cid": 22921376372096,
+      "contestTitle": "【HT-131-MLS】核桃国庆马拉松 & XRCOI Round 11",
+      "online": null,
+      "onlineTime": null,
+      "startTime": 1790744400000,
+      "endTime": 1791280800000,
+      "exerciseId": null,
+      "exerciseTag": null,
+      "type": 3,
+      "typeDesc": {
+        "id": 3,
+        "name": "乐多"
+      },
+      "status": 0,
+      "statusDesc": {
+        "id": 0,
+        "name": "进行中"
+      },
+      "now": 1790853605137,
+      "registered": true,
+      "avatarList": [
+        "https://example.invalid/ba9f5f9ea38d.jpg"
+      ],
+      "matchType": 1,
+      "matchTypeDesc": {
+        "id": 1,
+        "name": "核桃周赛"
+      },
+      "zone": "cpp",
+      "owner": "19af82490f250ba5e484307b49b6216b",
+      "gid": null,
+      "ownerVo": {
+        "uid": "19af82490f250ba5e484307b49b6216b",
+        "nickname": "用户855e0b",
+        "avatar": "https://example.invalid/de6364223ad7.png",
+        "ccfLevel": null,
+        "authenticationIcon": null,
+        "userId": null
+      },
+      "count": 258
+    },
+    {
+      "id": 22921395096192,
+      "cid": 22921395096192,
+      "contestTitle": "【HT-131-Div.4】核桃语法组周赛",
+      "online": null,
+      "onlineTime": null,
+      "startTime": 1790744400000,
+      "endTime": 1791280800000,
+      "exerciseId": null,
+      "exerciseTag": null,
+      "type": 3,
+      "typeDesc": {
+        "id": 3,
+        "name": "乐多"
+      },
+      "status": 0,
+      "statusDesc": {
+        "id": 0,
+        "name": "进行中"
+      },
+      "now": 1790853605137,
+      "registered": false,
+      "avatarList": [
+        "https://example.invalid/9a7ee87f62e0.jpg"
+      ],
+      "matchType": 1,
+      "matchTypeDesc": {
+        "id": 1,
+        "name": "核桃周赛"
+      },
+      "zone": "cpp",
+      "owner": "19af82490f250ba5e484307b49b6216b",
+      "gid": null,
+      "ownerVo": {
+        "uid": "19af82490f250ba5e484307b49b6216b",
+        "nickname": "用户855e0b",
+        "avatar": "https://example.invalid/de6364223ad7.png",
+        "ccfLevel": null,
+        "authenticationIcon": null,
+        "userId": null
+      },
+      "count": 230
+    }
+  ],
+  "errMsg": "success"
+}

@@ -1,0 +1,61 @@
+{
+  "errCode": 0,
+  "data": {
+    "submitId": 51980181,
+    "resultCode": 1,
+    "canCreateProblemSolution": false,
+    "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+    "pid": 22169438826624,
+    "type": 1,
+    "problemId": "P1000",
+    "userCode": "// 代码已脱敏",
+    "language": "C++17 With O2",
+    "additionalCaseResults": [],
+    "caseResults": null,
+    "caseGroups": [
+      {
+        "groupNum": 1,
+        "calculateTypeCode": 1,
+        "calculateTypeName": "SUM",
+        "groupScore": 100,
+        "caseResult": [
+          {
+            "pid": 22169438826624,
+            "submitId": 51980181,
+            "uid": null,
+            "caseId": null,
+            "time": 0,
+            "memory": 3392,
+            "score": 100,
+            "status": {
+              "id": 0,
+              "name": "Accepted",
+              "shortName": "AC",
+              "chineseName": null
+            },
+            "seq": 1,
+            "message": "",
+            "groupNum": 1,
+            "calculateType": null
+          }
+        ]
+      }
+    ],
+    "cid": null,
+    "gid": null,
+    "runResult": null,
+    "tid": null,
+    "objectiveScore": 0,
+    "score": 100,
+    "answers": null,
+    "firstAc": true,
+    "cheatTag": null,
+    "unfinishedProblemNum": null,
+    "budge": null,
+    "budgeName": null,
+    "showAiButton": null,
+    "afterContestSubmit": null,
+    "guideConfig": null
+  },
+  "errMsg": "success"
+}

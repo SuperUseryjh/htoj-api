@@ -1,0 +1,56 @@
+{
+  "errCode": 0,
+  "data": {
+    "difficulty": [
+      {
+        "type": "difficulty",
+        "value": 0,
+        "label": "暂无评定",
+        "color": "#CCCCCC"
+      },
+      {
+        "type": "difficulty",
+        "value": 1,
+        "label": "入门",
+        "color": "#FF5100"
+      },
+      {
+        "type": "difficulty",
+        "value": 2,
+        "label": "普及-",
+        "color": "#FF8000"
+      },
+      {
+        "type": "difficulty",
+        "value": 3,
+        "label": "普及/提高-",
+        "color": "#FFB700"
+      },
+      {
+        "type": "difficulty",
+        "value": 4,
+        "label": "普及+/提高",
+        "color": "#00B42A"
+      },
+      {
+        "type": "difficulty",
+        "value": 5,
+        "label": "提高+/省选-",
+        "color": "#1884FF"
+      },
+      {
+        "type": "difficulty",
+        "value": 6,
+        "label": "省选/NOI-",
+        "color": "#B12EF6"
+      },
+      {
+        "type": "difficulty",
+        "value": 7,
+        "label": "NOI/NOI+/CTSC",
+        "color": "#050547"
+      }
+    ]
+  },
+  "errMsg": "success"
+}

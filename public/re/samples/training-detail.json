@@ -1,0 +1,33 @@
+{
+  "errCode": 0,
+  "data": {
+    "id": 22338793157760,
+    "trainingNo": "00240",
+    "title": "顺序结构",
+    "subtitle": "顺序结构",
+    "description": "# 顺序结构题单\n\n## 📚 模块简介\n顺序结构是编程中最基础的结构，代码按照书写顺序依次执行。通过本题单的练习，你可以掌握变量的定义、基本的输入输出操作以及简单的数学运算，为后续学习打下坚实基础。\n\n## 🎯 题单目标\n- 掌握变量的定义与初始化。\n- 熟悉基本的输入输出操作。\n- 学会使用顺序结构解决简单的数学问题。\n\n## 🚀 使用建议\n- 仔细阅读每道题目的要求，理解题目背景。\n- 逐步调试代码，确保每一步的执行结果符合预期。\n- 多尝试不同的输入数据，验证代码的正确性。\n\n## 🌟 题单亮点\n- **基础性强**：题目简单易懂，适合初学者入门。\n- **覆盖面广**：涵盖变量、输入输出、数学运算等基础知识点。\n- **实用性强**：帮助你掌握编程的基本操作，为后续学习奠定基础。\n\n希望你通过本题单的练习，能够熟练掌握顺序结构的编程方法，开启编程之旅！",
+    "author": "3adc3226deec9ef53503785de1cdead7",
+    "ownerVo": {
+      "uid": "3adc3226deec9ef53503785de1cdead7",
+      "nickname": "用户24debb",
+      "avatar": "https://example.invalid/910af96b61ab.jpg",
+      "ccfLevel": null,
+      "authenticationIcon": null,
+      "userId": null
+    },
+    "auth": 2,
+    "problemCount": 45,
+    "acCount": 0,
+    "completeCount": 0,
+    "totalCount": 62755,
+    "gmtModified": 1767604358000,
+    "nextPid": 22069046619264,
+    "zone": "cpp",
+    "languages": null,
+    "status": null,
+    "isAttend": false,
+    "imMark": 0,
+    "productLineIds": []
+  },
+  "errMsg": "success"
+}

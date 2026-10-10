@@ -1,0 +1,256 @@
+{
+  "errCode": 0,
+  "data": {
+    "records": [
+      {
+        "id": 85387,
+        "displayId": 3,
+        "cid": 22921376372096,
+        "pid": 22920859951104,
+        "displayTitle": "环灯巡夜",
+        "indexTitle": "A",
+        "type": 1,
+        "color": null,
+        "ac": null,
+        "total": null,
+        "status": {
+          "id": 1,
+          "name": "Accepted",
+          "score": 100
+        },
+        "difficulty": null,
+        "difficultyDesc": null,
+        "tags": null,
+        "problemId": "P13034",
+        "rn": null
+      },
+      {
+        "id": 85395,
+        "displayId": 4,
+        "cid": 22921376372096,
+        "pid": 22920981299840,
+        "displayTitle": "永恒 II",
+        "indexTitle": "B",
+        "type": 1,
+        "color": null,
+        "ac": null,
+        "total": null,
+        "status": {
+          "id": 1,
+          "name": "Accepted",
+          "score": 100
+        },
+        "difficulty": null,
+        "difficultyDesc": null,
+        "tags": null,
+        "problemId": "P13043",
+        "rn": null
+      },
+      {
+        "id": 85396,
+        "displayId": 5,
+        "cid": 22921376372096,
+        "pid": 22921361787904,
+        "displayTitle": "星系观测计划 2",
+        "indexTitle": "C",
+        "type": 1,
+        "color": null,
+        "ac": null,
+        "total": null,
+        "status": {
+          "id": 1,
+          "name": "Accepted",
+          "score": 95
+        },
+        "difficulty": null,
+        "difficultyDesc": null,
+        "tags": null,
+        "problemId": "P13044",
+        "rn": null
+      },
+      {
+        "id": 85388,
+        "displayId": 6,
+        "cid": 22921376372096,
+        "pid": 22920864967168,
+        "displayTitle": "灯色校准",
+        "indexTitle": "D",
+        "type": 1,
+        "color": null,
+        "ac": null,
+        "total": null,
+        "status": {
+          "id": 1,
+          "name": "Accepted",
+          "score": 100
+        },
+        "difficulty": null,
+        "difficultyDesc": null,
+        "tags": null,
+        "problemId": "P13035",
+        "rn": null
+      },
+      {
+        "id": 85394,
+        "displayId": 7,
+        "cid": 22921376372096,
+        "pid": 22920939703936,
+        "displayTitle": "gcd",
+        "indexTitle": "E",
+        "type": 1,
+        "color": null,
+        "ac": null,
+        "total": null,
+        "status": {
+          "id": 1,
+          "name": "Accepted",
+          "score": 100
+        },
+        "difficulty": null,
+        "difficultyDesc": null,
+        "tags": null,
+        "problemId": "P13041",
+        "rn": null
+      },
+      {
+        "id": 85390,
+        "displayId": 8,
+        "cid": 22921376372096,
+        "pid": 22920879847296,
+        "displayTitle": "子序列",
+        "indexTitle": "F",
+        "type": 1,
+        "color": null,
+        "ac": null,
+        "total": null,
+        "status": {
+          "id": 1,
+          "name": "Accepted",
+          "score": 90.3
+        },
+        "difficulty": null,
+        "difficultyDesc": null,
+        "tags": null,
+        "problemId": "P13037",
+        "rn": null
+      },
+      {
+        "id": 85392,
+        "displayId": 9,
+        "cid": 22921376372096,
+        "pid": 22920907607808,
+        "displayTitle": "夏に透明",
+        "indexTitle": "G",
+        "type": 1,
+        "color": null,
+        "ac": null,
+        "total": null,
+        "status": {
+          "id": 1,
+          "name": "Accepted",
+          "score": 90.3
+        },
+        "difficulty": null,
+        "difficultyDesc": null,
+        "tags": null,
+        "problemId": "P13039",
+        "rn": null
+      },
+      {
+        "id": 85393,
+        "displayId": 10,
+        "cid": 22921376372096,
+        "pid": 22920919856640,
+        "displayTitle": "非前缀max",
+        "indexTitle": "H",
+        "type": 1,
+        "color": null,
+        "ac": null,
+        "total": null,
+        "status": {
+          "id": 2,
+          "name": "未提交",
+          "score": -1
+        },
+        "difficulty": null,
+        "difficultyDesc": null,
+        "tags": null,
+        "problemId": "P13040",
+        "rn": null
+      },
+      {
+        "id": 85391,
+        "displayId": 11,
+        "cid": 22921376372096,
+        "pid": 22920896458240,
+        "displayTitle": "巨大困难题",
+        "indexTitle": "I",
+        "type": 1,
+        "color": null,
+        "ac": null,
+        "total": null,
+        "status": {
+          "id": 1,
+          "name": "Accepted",
+          "score": 100
+        },
+        "difficulty": null,
+        "difficultyDesc": null,
+        "tags": null,
+        "problemId": "P13038",
+        "rn": null
+      },
+      {
+        "id": 85386,
+        "displayId": 12,
+        "cid": 22921376372096,
+        "pid": 22920683175168,
+        "displayTitle": "转向",
+        "indexTitle": "J",
+        "type": 1,
+        "color": null,
+        "ac": null,
+        "total": null,
+        "status": {
+          "id": 2,
+          "name": "未提交",
+          "score": -1
+        },
+        "difficulty": null,
+        "difficultyDesc": null,
+        "tags": null,
+        "problemId": "P13029",
+        "rn": null
+      },
+      {
+        "id": 85389,
+        "displayId": 13,
+        "cid": 22921376372096,
+        "pid": 22920869303296,
+        "displayTitle": "中心复盘",
+        "indexTitle": "K",
+        "type": 1,
+        "color": null,
+        "ac": null,
+        "total": null,
+        "status": {
+          "id": 1,
+          "name": "Accepted",
+          "score": 100
+        },
+        "difficulty": null,
+        "difficultyDesc": null,
+        "tags": null,
+        "problemId": "P13036",
+        "rn": null
+      }
+    ],
+    "total": 11,
+    "size": 100,
+    "current": 1,
+    "orders": [],
+    "searchCount": true,
+    "pages": 1
+  },
+  "errMsg": "success"
+}

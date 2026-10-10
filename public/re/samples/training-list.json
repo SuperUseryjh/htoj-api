@@ -1,0 +1,95 @@
+{
+  "errCode": 0,
+  "data": {
+    "records": [
+      {
+        "id": 22835247096576,
+        "trainingNo": "01464",
+        "title": "往年CSP-S初赛题单",
+        "subtitle": null,
+        "description": null,
+        "author": null,
+        "ownerVo": null,
+        "auth": null,
+        "problemCount": 7,
+        "acCount": null,
+        "completeCount": null,
+        "totalCount": 3848,
+        "gmtModified": null,
+        "nextPid": null,
+        "zone": null,
+        "languages": null,
+        "status": {
+          "id": 2,
+          "name": "未参加",
+          "shortName": null,
+          "chineseName": null
+        },
+        "isAttend": null,
+        "imMark": null,
+        "productLineIds": null
+      },
+      {
+        "id": 22835246977536,
+        "trainingNo": "01463",
+        "title": "往年CSP-J初赛题单",
+        "subtitle": null,
+        "description": null,
+        "author": null,
+        "ownerVo": null,
+        "auth": null,
+        "problemCount": 7,
+        "acCount": null,
+        "completeCount": null,
+        "totalCount": 7806,
+        "gmtModified": null,
+        "nextPid": null,
+        "zone": null,
+        "languages": null,
+        "status": {
+          "id": 2,
+          "name": "未参加",
+          "shortName": null,
+          "chineseName": null
+        },
+        "isAttend": null,
+        "imMark": null,
+        "productLineIds": null
+      },
+      {
+        "id": 22633999856384,
+        "trainingNo": "01091",
+        "title": "一阶段 趣味C++课后作业",
+        "subtitle": null,
+        "description": null,
+        "author": null,
+        "ownerVo": null,
+        "auth": null,
+        "problemCount": 14,
+        "acCount": null,
+        "completeCount": null,
+        "totalCount": 30361,
+        "gmtModified": null,
+        "nextPid": null,
+        "zone": null,
+        "languages": null,
+        "status": {
+          "id": 2,
+          "name": "未参加",
+          "shortName": null,
+          "chineseName": null
+        },
+        "isAttend": null,
+        "imMark": null,
+        "productLineIds": null
+      }
+    ],
+    "total": 25,
+    "size": 3,
+    "current": 1,
+    "orders": [],
+    "searchCount": true,
+    "pages": 9
+  },
+  "errMsg": "success"
+}
