@@ -136,6 +136,83 @@ const data = await fetch(
 
 响应字段在列表 record 的基础上补充（样例确认）：`now`、`started`、`remainTime`、`contestRemainTime`、`registerState`、`sameUser`、`submitFlag`、`answerFlag`、`hideResult`、`hideScoreboard`、`showUserScore`、`shareCode`、`userShareCode`、`showMaxTime`、`reportId`、`rewardList`、`ownerVo`、`zone`、`languages`、`scene`、`cspImitationSwitch`、`homeBackgroundImage`、`homeBottomColor`、`userMobile` 等。
 
+> 响应示例（依据实测抓包 `re/samples/contest-info.json`，已脱敏）
+
+```json
+{
+  "id": 22921376372096,
+  "author": "用户4f2f06",
+  "title": "【HT-131-MLS】核桃国庆马拉松 & XRCOI Round 11",
+  "type": 3,
+  "ioType": 1,
+  "typeDesc": { "id": 3, "name": "乐多" },
+  "description": "…",
+  "status": 0,
+  "statusDesc": { "id": 0, "name": "进行中" },
+  "now": 1790854171462,
+  "startTime": 1790744400000,
+  "endTime": 1791280800000,
+  "duration": 536400,
+  "sealRank": false,
+  "openPrint": false,
+  "sealRankTime": 1790744400000,
+  "rankShowName": "用户16f78a",
+  "openRank": false,
+  "oiRankScoreType": "Recent",
+  "count": 263,
+  "submitCount": null,
+  "problemCount": 11,
+  "registered": null,
+  "started": true,
+  "remainTime": 426628,
+  "contestRemainTime": 426628,
+  "avatarList": [],
+  "needPassword": false,
+  "needPasswordAfterEnd": false,
+  "allowSubmitAfterEnd": true,
+  "matchType": 1,
+  "matchTypeDesc": { "id": 1, "name": "核桃周赛" },
+  "monthlyContest": false,
+  "contestGroupId": null,
+  "contestGroupName": null,
+  "reportId": null,
+  "rewardList": [],
+  "zone": "cpp",
+  "languages": null,
+  "registerState": 3,
+  "owner": null,
+  "gid": 0,
+  "hideResult": 0,
+  "hideScoreboard": 0,
+  "ownerVo": {
+    "uid": "19af82490f250ba5e484307b49b6216b",
+    "nickname": "用户855e0b",
+    "avatar": "https://example.invalid/de6364223ad7.png",
+    "ccfLevel": null,
+    "authenticationIcon": null,
+    "userId": null
+  },
+  "sameUser": false,
+  "isMock": false,
+  "top": null,
+  "submitFlag": 0,
+  "answerFlag": 1,
+  "needGather": null,
+  "showRegisterCount": null,
+  "productLineIds": null,
+  "scene": null,
+  "cspImitationSwitch": 0,
+  "showUserScore": 1,
+  "shareCode": 1,
+  "userShareCode": 1,
+  "showMaxTime": 1,
+  "homeBackgroundImage": "",
+  "homeBottomColor": "",
+  "userMobile": null,
+  "ioTypeName": "标准IO"
+}
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community/api/get-contest-info?cid=22921376372096`,
@@ -154,6 +231,12 @@ const remainSeconds = data.data.remainTime; // 个人剩余时间，单位秒
 路径 `/api/code-community/api/get-contest-detail?id=`，需登录。
 
 **实测被网关拒绝**：`403 Gateway Error:Access Denied`。前端源码里仍保留调用，但页面实际已改用 [`get-contest-info`](#比赛详情--剩余时间)。当前不可用，不建议使用。
+
+> 响应骨架（旧接口已被网关拒绝，无响应样例，结构未知，**未实测**）
+
+```json
+null
+```
 
 ---
 
@@ -365,6 +448,12 @@ const data = await fetch(
 
 响应未提供样例，未验证。
 
+> 响应骨架（写操作，源码未声明响应类型，**未实测**）
+
+```json
+null
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/api/contest-announcement-like?aid=22339004754816&toLike=true`,
@@ -418,6 +507,12 @@ const data = await fetch(`${BASE}/api/code-community/api/contest-discussion`, {
 
 **实测被网关拒绝**：`403 Gateway Error:Access Denied`。当前不可用。
 
+> 响应骨架（字段依据正文源码签名 `{ access: boolean }`，**未实测**）
+
+```json
+{ "access": false }
+```
+
 ---
 
 ## 比赛报名
@@ -442,6 +537,12 @@ const data = await fetch(`${BASE}/api/code-community/api/contest-discussion`, {
 | `1` | 待收集信息（还需要补报名信息，**此时只能到网页端完成**） |
 | `2` | 校验通过、无需报名直接解锁 |
 | `3` | 已报名 |
+
+> 响应骨架（字段依据正文，**未实测**）
+
+```json
+{ "registerState": 0 }
+```
 
 ```js
 const data = await fetch(`${BASE}/api/code-community/api/register-contest`, {
@@ -470,6 +571,12 @@ const data = await fetch(`${BASE}/api/code-community/api/register-contest`, {
 
 响应无业务数据字段（源码未声明泛型），报名后未开始的话 `get-contest-problem` 会返回「请先开始比赛」。
 
+> 响应骨架（源码未声明泛型，无业务数据字段，**未实测**）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/start-contest`, {
   method: "POST",
@@ -496,6 +603,12 @@ await fetch(`${BASE}/api/code-community/api/start-contest`, {
 
 响应类型 `PreGatherInfoVO`，具体字段未验证（无样例）。
 
+> 响应骨架（依据类型 `PreGatherInfoVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(`${BASE}/api/code-community/api/pre-gather-info`, {
   method: "POST",
@@ -515,6 +628,12 @@ const data = await fetch(`${BASE}/api/code-community/api/pre-gather-info`, {
 请求体类型 `GatherInfoVO`，字段未验证（无样例）。
 
 响应 `{ registerState: number }`，枚举同[比赛报名](#比赛报名)。
+
+> 响应骨架（字段依据正文，**未实测**）
+
+```json
+{ "registerState": 0 }
+```
 
 ```js
 const data = await fetch(`${BASE}/api/code-community/api/gather-info`, {
@@ -538,6 +657,12 @@ const data = await fetch(`${BASE}/api/code-community/api/gather-info`, {
 | `userShareCode` | number | 是 | `1` 开放，`0` 不开放 |
 
 参数走 query。
+
+> 响应骨架（写操作，源码未声明响应类型，**未实测**）
+
+```json
+null
+```
 
 ```js
 await fetch(
@@ -565,6 +690,12 @@ await fetch(
 
 响应类型 `JudgeDetailVO`，未提供样例、字段未验证。
 
+> 响应骨架（依据类型 `JudgeDetailVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community/gwpub/contest-code-detail?cid=22921376372096&uid=xxx&pid=22920859951104&submitId=51960700`,
@@ -586,6 +717,12 @@ const data = await fetch(
 
 响应类型 `ContestReportDto`，字段未验证。
 
+> 响应骨架（依据类型 `ContestReportDto` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community/gwpub/monthly-contest/report?reportId=xxx`,
@@ -606,6 +743,12 @@ const data = await fetch(
 | `cid` | number | 是 | 比赛 id |
 
 响应类型 `ContestReportSummaryDto`，字段未验证。
+
+> 响应骨架（依据类型 `ContestReportSummaryDto` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(

@@ -67,6 +67,12 @@ const HEADERS = {
   `The required request parameters are missing：Required request parameter 'gid' for method parameter type Long is not present`。
 - `GroupInfoVO` 在 [htoj-api.d.ts](./htoj-api.d.ts) 中未定名，且无抓包样例，**字段未验证**；已知页面至少会读取 `name`。
 
+> 响应骨架（**未实测**；`GroupInfoVO` 未在仓库定名、字段未验证，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community/api/get-group-home?gid=22156385706112`,
@@ -94,6 +100,48 @@ const data = await fetch(
 - **`gid` 必填**，缺失报 Java 校验原文（同上）：`... Required request parameter 'gid' for method parameter type Long is not present`。
 - 记录字段与 [trainings.md](./trainings.md) 的题单列表一致（`id` / `trainingNo` / `title` / `ownerVo` / `problemCount` / `acCount` / `isAttend` 等），此处不再重复。
 - 探针未带 `gid`，未取到有效样本，故标 ⚠️。
+
+> 响应示例（依据实测抓包 `re/samples/training-list.json`，已脱敏；`records` 仅保留 1 条）
+
+```json
+{
+  "records": [
+    {
+      "id": 22835247096576,
+      "trainingNo": "01464",
+      "title": "往年CSP-S初赛题单",
+      "subtitle": null,
+      "description": null,
+      "author": null,
+      "ownerVo": null,
+      "auth": null,
+      "problemCount": 7,
+      "acCount": null,
+      "completeCount": null,
+      "totalCount": 3848,
+      "gmtModified": null,
+      "nextPid": null,
+      "zone": null,
+      "languages": null,
+      "status": {
+        "id": 2,
+        "name": "未参加",
+        "shortName": null,
+        "chineseName": null
+      },
+      "isAttend": null,
+      "imMark": null,
+      "productLineIds": null
+    }
+  ],
+  "total": 25,
+  "size": 3,
+  "current": 1,
+  "orders": [],
+  "searchCount": true,
+  "pages": 9
+}
+```
 
 ```js
 const data = await fetch(
@@ -126,6 +174,92 @@ const data = await fetch(
 - **`gid` 必填**，缺失报 Java 校验原文（同上）。
 - 探针未带 `gid`，未取到有效样本，故标 ⚠️；`limit` 是否有上限未单独验证。
 
+> 响应示例（依据实测抓包 `re/samples/contest-list.json`，已脱敏；`records` 仅保留 1 条，`description` 截断）
+
+```json
+{
+  "records": [
+    {
+      "id": 22921395096192,
+      "author": "用户4f2f06",
+      "title": "【HT-131-Div.4】核桃语法组周赛",
+      "type": 3,
+      "ioType": 1,
+      "typeDesc": {
+        "id": 3,
+        "name": "乐多"
+      },
+      "description": "…",
+      "status": 0,
+      "statusDesc": {
+        "id": 0,
+        "name": "进行中"
+      },
+      "now": null,
+      "startTime": 1790744400000,
+      "endTime": 1791280800000,
+      "duration": 5400,
+      "sealRank": null,
+      "openPrint": null,
+      "sealRankTime": null,
+      "rankShowName": null,
+      "openRank": false,
+      "oiRankScoreType": "Recent",
+      "count": 0,
+      "submitCount": null,
+      "problemCount": 4,
+      "registered": false,
+      "started": null,
+      "remainTime": null,
+      "contestRemainTime": null,
+      "avatarList": [],
+      "needPassword": false,
+      "needPasswordAfterEnd": false,
+      "allowSubmitAfterEnd": true,
+      "matchType": null,
+      "matchTypeDesc": null,
+      "monthlyContest": false,
+      "contestGroupId": null,
+      "contestGroupName": null,
+      "reportId": null,
+      "rewardList": null,
+      "zone": null,
+      "languages": null,
+      "registerState": null,
+      "owner": null,
+      "gid": null,
+      "hideResult": null,
+      "hideScoreboard": null,
+      "ownerVo": null,
+      "sameUser": null,
+      "isMock": null,
+      "top": false,
+      "submitFlag": null,
+      "answerFlag": null,
+      "needGather": null,
+      "showRegisterCount": null,
+      "productLineIds": null,
+      "scene": null,
+      "cspImitationSwitch": 0,
+      "showUserScore": null,
+      "shareCode": null,
+      "userShareCode": null,
+      "showMaxTime": null,
+      "homeBackgroundImage": null,
+      "homeBottomColor": null,
+      "ioTypeName": "标准IO",
+      "userMobile": null
+    }
+  ],
+  "total": 432,
+  "size": 3,
+  "current": 1,
+  "orders": [],
+  "searchCount": true,
+  "pages": 144
+}
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community/api/group/get-contest-list?gid=22156385706112&currentPage=1&limit=20&type=1`,
@@ -156,6 +290,45 @@ const data = await fetch(
 - 多选字段逗号拼接，空数组不下发。
 - 探针未带 `gid`，未取到有效样本，故标 ⚠️。
 
+> 响应示例（依据实测抓包 `re/samples/problem-list.json`，已脱敏；`records` 仅保留 1 条）
+
+```json
+{
+  "records": [
+    {
+      "pid": 22169438826624,
+      "problemId": "P1000",
+      "title": "新手引导-OJ题",
+      "difficulty": {
+        "id": 1,
+        "name": "入门",
+        "color": "#FF5100"
+      },
+      "owner": null,
+      "type": 1,
+      "tags": [
+        { "id": 557, "name": "模拟" }
+      ],
+      "acStatus": {
+        "id": 3,
+        "name": "未通过",
+        "shortName": null,
+        "chineseName": null
+      },
+      "total": 184718,
+      "ac": 173021,
+      "rn": null
+    }
+  ],
+  "total": 38665,
+  "size": 3,
+  "current": 1,
+  "orders": [],
+  "searchCount": true,
+  "pages": 12889
+}
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community/api/group/get-problem-list?gid=22156385706112&currentPage=1&limit=20&difficulty=1,2`,
@@ -182,6 +355,20 @@ const data = await fetch(
 - **`gid` 必填**，缺失报 Java 校验原文（同上）。
 - 公告条目类型 `Announcement` 在 [htoj-api.d.ts](./htoj-api.d.ts) 中为开放对象（`Record<string, unknown>`），**字段未验证**（无抓包样例）。
 - 探针未带 `gid`，未取到有效样本，故标 ⚠️。
+
+> 响应骨架（依据类型 `Pagination<Announcement>` 推导，**未实测**；`Announcement` 为开放对象 `Record<string, unknown>`，`records` 元素字段未定义）
+
+```json
+{
+  "records": [{}],
+  "total": 0,
+  "size": 20,
+  "current": 1,
+  "pages": 0,
+  "orders": [],
+  "searchCount": true
+}
+```
 
 ```js
 const data = await fetch(
@@ -278,6 +465,23 @@ const data = await fetch(
 
 > 页面逻辑：`groupAuth === 2`（直接通过）时直接跳转；`groupAuth === 3`（需审核）时若 `memberAuth === 3` 则跳转，否则弹出申请面板。
 
+> 响应骨架（字段依据正文所列源码初始化对象 `JoinGroupResponseVO`，**未实测**）
+
+```json
+{
+  "groupId": 0,
+  "groupZone": "",
+  "existed": false,
+  "groupAuth": 0,
+  "groupDesc": "",
+  "groupName": "",
+  "memberAuth": 0,
+  "owner": "",
+  "ownerAvatar": "",
+  "reason": ""
+}
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community/api/access-group?code=<inviteCode>`,
@@ -302,6 +506,12 @@ const data = await fetch(
 
 - 源码未声明响应泛型，**响应结构未验证**（无样例）。
 - 申请成功后前端仅把本地 `memberAuth` 置为 `1`（已申请），不依赖响应体。
+
+> 响应骨架（**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ```js
 await fetch(
@@ -330,6 +540,20 @@ await fetch(
 - `CGroupMemberListResVO` 无独立定义、无抓包样例，**record 字段未验证**。
 - 探针未带 `gid`，未取到有效样本，故标 ⚠️。
 
+> 响应骨架（依据类型 `Pagination<CGroupMemberListResVO>` 推导，**未实测**；`records` 元素 `CGroupMemberListResVO` 无定义、字段未验证）
+
+```json
+{
+  "records": [{}],
+  "total": 0,
+  "size": 30,
+  "current": 1,
+  "pages": 0,
+  "orders": [],
+  "searchCount": true
+}
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community/api/group/get-member-list?gid=22156385706112&currentPage=1&limit=30`,
@@ -356,6 +580,12 @@ const data = await fetch(
 - **`gid` 必填**，缺失报 Java 校验原文（同上）。
 - 响应是数组（非分页），`DrawerProblemListVo` 字段**未验证**（无样例）；题目列表页同类型接口 [warehouse/warehouse-problems](./problems.md#题库题目列表) 的样本为空数组。
 - 与 [problems.md 的「小组内上一题 / 下一题」](./problems.md#小组内上一题--下一题)（路径 `/api/code-community/api/group/group-problem`，**单数**）**不是同一接口**，本接口是复数 `group-problems`。
+
+> 响应骨架（依据类型 `DrawerProblemListVo[]` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(
@@ -420,6 +650,14 @@ const data = await fetch(
 
 响应类型 `{ url: string }`（源码声明），**未验证**。
 
+> 响应骨架（依据源码声明类型 `{ url: string }` 推导，**未实测**）
+
+```json
+{
+  "url": ""
+}
+```
+
 ```js
 const form = new FormData();
 form.append("image", file); // file 为浏览器 File 对象
@@ -449,6 +687,12 @@ const data = await fetch(
 - 探针 URL 中 `gid` 仍是未替换的占位符 `gid=${gid}`，故 `gid` 的必填性以源码签名为准（源码形参必传）。
 - 响应为 COS 临时密钥（结构**未验证**，无样例）。
 
+> 响应骨架（**未实测**；COS 临时密钥结构未验证，无样例，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community/api/file/upload-group-token?gid=22156385706112&dirType=zipFile`,
@@ -476,6 +720,12 @@ const data = await fetch(
 - `gid` 在探针 URL 中为未替换的占位符，必填性以源码签名为准。
 - `UploadCaseListVO` 无独立定义、无样例，**字段未验证**。
 
+> 响应骨架（依据类型 `UploadCaseListVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community/api/file/get-group-case-list?gid=22156385706112&uploadKey=<key>`,
@@ -502,6 +752,12 @@ const data = await fetch(
   `The required request parameters are missing：Required request parameter 'uploadKey' for method parameter type String is not present`。
 - `gid` 在探针 URL 中为未替换的占位符，必填性以源码签名为准。
 - `UploadProblemVO` 无独立定义、无样例，**字段未验证**。
+
+> 响应骨架（依据类型 `UploadProblemVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(

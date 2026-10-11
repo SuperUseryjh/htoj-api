@@ -104,6 +104,23 @@ The required request parameters are missing：Required request parameter 'upload
 | `startTime` | number | 密钥生效时间（仅 COS 用到） |
 | `expiredTime` | number | 密钥过期时间（仅 COS 用到） |
 
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "cloudId": 0,
+  "region": "",
+  "accessKeyId": "",
+  "accessKeySecret": "",
+  "securityToken": "",
+  "bucketName": "",
+  "dir": "",
+  "host": "",
+  "startTime": 0,
+  "expiredTime": 0
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/gwpub/file/token-for-test?dirType=slider`,
@@ -127,6 +144,12 @@ await fetch(
 
 响应类型 `UploadZipResVO` **未验证**（不在 [htoj-api.d.ts](./htoj-api.d.ts) 中，源码里也没有消费点，无法确认字段）。
 
+> 响应骨架（依据类型 `UploadZipResVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const form = new FormData();
 form.append("file", zipFile);
@@ -148,6 +171,16 @@ await fetch(`${BASE}/api/code-community/api/file/upload-zip`, {
 | `file` | File | 是 | 重复追加，支持多份 |
 
 响应字段（依据 `components/base/UploadJudgeFile.vue` 使用处）：`fileName`（文件名，用于去重即回显）。其余字段未确认。
+
+> 响应骨架（字段依据正文（源码用法），**未实测**；仅列已确认字段 `fileName`）
+
+```json
+[
+  {
+    "fileName": ""
+  }
+]
+```
 
 ```js
 const form = new FormData();
@@ -172,6 +205,15 @@ await fetch(`${BASE}/api/code-community/gwpub/file/upload-files`, {
 
 响应字段（依据 `pages/oj/problem/detail/components/codeEditor.service.ts` 与 `FormDispatchSampleTable.service.ts`）：`inUrl`（输入文件地址）、`outUrl`（输出文件地址）。
 
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "inUrl": "",
+  "outUrl": ""
+}
+```
+
 ```js
 const form = new FormData();
 form.append("file", inFile);
@@ -192,6 +234,15 @@ await fetch(
 | --- | --- | --- | --- | --- |
 | `file` | File | 是 | body | `.in` / `.out` 成对 |
 | `gid` | number | 是 | query | 小组 id |
+
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "inUrl": "",
+  "outUrl": ""
+}
+```
 
 ```js
 const form = new FormData();
@@ -216,6 +267,14 @@ await fetch(
 
 响应：`data` 为 `{ "url": "<下载地址>" }`。
 
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "url": ""
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/gwpub/file/download-group-case?file=a.in&file=a.out&gid=22156385706112`,
@@ -238,6 +297,15 @@ await fetch(
 | `file` | File | 是 | `.in` / `.out` 成对，字段名 `file` |
 
 > 与本页「上传测试点文件」不同：本接口不带 `pid`（样例在上传后由业务侧关联）。
+
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "inUrl": "",
+  "outUrl": ""
+}
+```
 
 ```js
 const form = new FormData();
@@ -263,6 +331,14 @@ await fetch(`${BASE}/api/code-community/gwpub/file/upload-sample-case`, {
 
 响应 `FileUrlVO`（依据 `FormDispatchSampleTable.service.ts` 取 `res.url` 打开）：字段 `url`（下载地址）。类型定义不在 [htoj-api.d.ts](./htoj-api.d.ts) 中。
 
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "url": ""
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/gwpub/file/download-sample-case?file=a.in&file=a.out&gid=0`,
@@ -281,6 +357,12 @@ await fetch(
 | `file` | File | 是 | 重复追加，支持多份 |
 
 响应类型 `FileVo[]` **未验证**（不在 [htoj-api.d.ts](./htoj-api.d.ts) 中，源码无消费点）。仅拿到「解压后 info」的场景用的是 [`getAdditionalFileList`](#附加文件列表)（`AdditionalFileVo`），两者不要混淆。
+
+> 响应骨架（依据类型 `FileVo[]` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const form = new FormData();
@@ -301,6 +383,14 @@ await fetch(`${BASE}/api/code-community/gwpub/file/upload-additional-files`, {
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | `file` | string | 是 | 单个文件路径 |
+
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "url": ""
+}
+```
 
 ```js
 await fetch(
@@ -326,6 +416,16 @@ await fetch(
 | `file` | File | 是 | body | 重复追加，支持多份 |
 | `gid` | number | 是 | query | 小组 id |
 
+> 响应骨架（字段依据正文（源码用法），**未实测**；仅列已确认字段 `fileName`）
+
+```json
+[
+  {
+    "fileName": ""
+  }
+]
+```
+
 ```js
 const form = new FormData();
 files.forEach((f) => form.append("file", f));
@@ -345,6 +445,15 @@ await fetch(
 | --- | --- | --- | --- | --- |
 | `file` | File | 是 | body | `.in` / `.out` 成对 |
 | `gid` | number | 是 | query | 小组 id |
+
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "inUrl": "",
+  "outUrl": ""
+}
+```
 
 ```js
 const form = new FormData();
@@ -367,6 +476,14 @@ await fetch(
 | `file` | string[] | 是 | 文件路径列表 |
 | `gid` | number | 是 | 小组 id |
 
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "url": ""
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/gwpub/file/download-group-sample-case?file=a.in&file=a.out&gid=22156385706112`,
@@ -384,6 +501,12 @@ await fetch(
 | --- | --- | --- | --- | --- |
 | `file` | File | 是 | body | 重复追加，支持多份 |
 | `gid` | number | 是 | query | 小组 id |
+
+> 响应骨架（依据类型 `FileVo[]` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const form = new FormData();
@@ -404,6 +527,14 @@ await fetch(
 | --- | --- | --- | --- |
 | `file` | string | 是 | 单个文件路径 |
 | `gid` | number | 是 | 小组 id |
+
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "url": ""
+}
+```
 
 ```js
 await fetch(
@@ -430,6 +561,16 @@ await fetch(
 
 响应类型 `AdditionalFileVo` **未验证**（不在 [htoj-api.d.ts](./htoj-api.d.ts) 中）。同族类型的字段线索（来自 `pages/admin/problem/components/OjDetail.service.ts` 的 `handleChangeDispatchFiles`）：`additionalSamples`（下发样例数组）、`additionalAttachments`（附件数组）、`additionalFileKey`（zip 文件标识，提交时作为 `extraZipFile` 回传）。上述字段是否为本接口返回，未确认。
 
+> 响应骨架（字段依据正文（源码用法），**未实测**；字段取自同族消费点，是否为本接口返回未确认）
+
+```json
+{
+  "additionalSamples": null,
+  "additionalAttachments": null,
+  "additionalFileKey": null
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/gwpub/file/get-additional-file-list?uploadKey=xxx`,
@@ -449,6 +590,16 @@ await fetch(
 | `gid` | number | 是 | 小组 id |
 
 响应类型 `AdditionalFileVo`，字段同 [附加文件列表](#附加文件列表)，未验证。
+
+> 响应骨架（字段依据正文（源码用法），**未实测**；字段取自同族消费点，是否为本接口返回未确认）
+
+```json
+{
+  "additionalSamples": null,
+  "additionalAttachments": null,
+  "additionalFileKey": null
+}
+```
 
 ```js
 await fetch(
@@ -470,6 +621,16 @@ await fetch(
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | `image` | File | 是 | 头像图片 |
+
+> 响应骨架（字段依据正文（源码用法），**未实测**；仅列已确认字段 `fileName`）
+
+```json
+[
+  {
+    "fileName": ""
+  }
+]
+```
 
 ```js
 const form = new FormData();
@@ -493,6 +654,14 @@ await fetch(`${BASE}/api/code-community-forum/api/content/upload-avatar`, {
 
 响应：`data` 为 `{ "url": "<图片地址>" }`。
 
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "url": ""
+}
+```
+
 ```js
 const form = new FormData();
 form.append("image", imgFile);
@@ -515,6 +684,14 @@ await fetch(`${BASE}/api/code-community-forum/api/upload/upload-image`, {
 
 > 与「上传 Markdown 图片」路径不同（`content/upload-md-img` vs `upload/upload-image`），选哪个取决于发帖场景；小组版图床 `upload/group/upload-image?gid=${gid}` 见 [groups.md](./groups.md)。
 
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "url": ""
+}
+```
+
 ```js
 const form = new FormData();
 form.append("image", imgFile);
@@ -534,6 +711,14 @@ await fetch(`${BASE}/api/code-community-forum/api/content/upload-md-img`, {
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | `file` | File | 是 | 奖项图片 |
+
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "url": ""
+}
+```
 
 ```js
 const form = new FormData();
@@ -556,6 +741,14 @@ await fetch(`${BASE}/api/code-community-forum/api/upload/upload-award-file`, {
 | `file` | File | 是 | 答案文件 |
 
 响应：`data` 为 `{ "url": "<文件地址>" }`（依据 `codeEditor.service.ts` 取 `res.url`）。
+
+> 响应骨架（字段依据正文（源码用法），**未实测**）
+
+```json
+{
+  "url": ""
+}
+```
 
 ```js
 const form = new FormData();

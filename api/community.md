@@ -86,10 +86,13 @@ const HEADERS = {
 
 无参数，返回分类字典数组（`{ id, name }[]`，等价 [htoj-api.d.ts](./htoj-api.d.ts) 的 `IdName`）。
 
-响应（依据 `re/samples/poster-category.json`）：
+> 响应示例（依据实测抓包 `re/samples/poster-category.json`，已脱敏）
 
 ```json
-{ "errCode": 0, "data": [{ "id": 1, "name": "学术交流" }, { "id": 2, "name": "日常灌水" }], "errMsg": "success" }
+[
+  { "id": 1, "name": "学术交流" },
+  { "id": 2, "name": "日常灌水" }
+]
 ```
 
 ```js
@@ -112,6 +115,19 @@ await fetch(`${BASE}/api/code-community-forum/api/common/posterCategory`, { head
 | 6 | 公开 | 正常展示 |
 
 `PosterVO.status` / `PosterVO.statusName` 取这里的值（实测帖子 `status=6 statusName="公开"`）。
+
+> 响应示例（依据实测抓包 `re/api-probe.json` 探针样本，已脱敏）
+
+```json
+[
+  { "id": 1, "name": "审核中" },
+  { "id": 2, "name": "机审不通过" },
+  { "id": 3, "name": "人审不通过" },
+  { "id": 4, "name": "用户主动删除" },
+  { "id": 5, "name": "管理删除" },
+  { "id": 6, "name": "公开" }
+]
+```
 
 ### 讨论列表
 
@@ -149,6 +165,58 @@ await fetch(`${BASE}/api/code-community-forum/api/common/posterCategory`, { head
 | `label` / `refuseReason` | — | 标签 / 拒因 |
 | `aiAuditSuggestion` / `appealStatus` / `appealReason` / `appealTime` / `appealRejectReason` / `rejectType` / `rejectReason` / `appealCount` | — | 审核 / 申诉相关，实测帖子均 null |
 
+> 响应示例（依据实测抓包 `re/samples/poster-list.json`，已脱敏；`records` 仅保留 1 条，`posterContent` 截断）
+
+```json
+{
+  "records": [
+    {
+      "id": 22890486283904,
+      "posterName": "🎉 新功能上线！AI题解来啦，欢迎大家一起「共创」和「讨论」",
+      "posterContent": "…",
+      "uid": "2274e9e4a13dde2d3370b05d72e04c78",
+      "nickname": "用户8cd8f8",
+      "goldenTeacher": false,
+      "avatar": "https://example.invalid/c9c63a25046c.jpg",
+      "problemId": 0,
+      "viewCount": null,
+      "thumbCount": 17,
+      "replyCount": 193,
+      "isMine": false,
+      "posterCategory": null,
+      "top": true,
+      "zone": "cpp",
+      "thumbed": null,
+      "publishTime": 1788319240000,
+      "updateTime": null,
+      "publishArea": "某地",
+      "authenticationIcon": null,
+      "ccfLevel": null,
+      "remarkName": "用户e19796",
+      "posterType": 1,
+      "status": 6,
+      "statusName": "公开",
+      "label": null,
+      "refuseReason": null,
+      "aiAuditSuggestion": null,
+      "appealStatus": null,
+      "appealReason": null,
+      "appealTime": null,
+      "appealRejectReason": null,
+      "rejectType": null,
+      "rejectReason": null,
+      "appealCount": null
+    }
+  ],
+  "total": 9770,
+  "size": 3,
+  "current": 1,
+  "orders": [],
+  "searchCount": true,
+  "pages": 3257
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community-forum/api/poster/listPoster?posterCategoryId=1&currentPage=1&limit=20`,
@@ -172,6 +240,58 @@ await fetch(
 
 响应 `records[]` 与「讨论列表」同构（`PosterVO`）。
 
+> 响应骨架（依据类型 `Pagination<PosterVO>` 推导，**未实测**）
+
+```json
+{
+  "records": [
+    {
+      "id": 0,
+      "posterName": "",
+      "posterContent": "",
+      "uid": "",
+      "nickname": "",
+      "avatar": "",
+      "goldenTeacher": false,
+      "problemId": 0,
+      "viewCount": null,
+      "thumbCount": 0,
+      "replyCount": 0,
+      "isMine": false,
+      "posterCategory": null,
+      "top": false,
+      "zone": "",
+      "thumbed": null,
+      "publishTime": 0,
+      "updateTime": null,
+      "publishArea": "",
+      "authenticationIcon": null,
+      "ccfLevel": null,
+      "remarkName": null,
+      "posterType": 1,
+      "status": 0,
+      "statusName": "",
+      "label": null,
+      "refuseReason": null,
+      "aiAuditSuggestion": null,
+      "appealStatus": null,
+      "appealReason": null,
+      "appealTime": null,
+      "appealRejectReason": null,
+      "rejectType": null,
+      "rejectReason": null,
+      "appealCount": null
+    }
+  ],
+  "total": 0,
+  "size": 20,
+  "current": 1,
+  "pages": 0,
+  "orders": [],
+  "searchCount": true
+}
+```
+
 ### 发布帖子
 
 `POST /api/code-community-forum/api/poster/post` ✍️ 写操作未实测（需登录）
@@ -189,6 +309,12 @@ await fetch(
 | body | `allowComment` | number | 否 | 是否允许评论 |
 
 响应结构未验证。
+
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/code-community-forum/api/poster/post?posterType=1`, {
@@ -213,6 +339,12 @@ await fetch(`${BASE}/api/code-community-forum/api/poster/post?posterType=1`, {
 
 响应结构未验证。
 
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ### 帖子详情
 
 `GET /api/code-community-forum/api/poster/detail` ⚠️ 路由存在但参数不足
@@ -227,6 +359,56 @@ await fetch(`${BASE}/api/code-community-forum/api/poster/post?posterType=1`, {
 响应 `data` 为 `PosterVO`，依据 `re/samples/poster-detail.json`。字段集合与「讨论列表」大体一致，另有详情专属字段：`parentSolutionId`、`problem`、`syncPoster`、`allowComment`、`source`、`updated`。
 
 > 实测坑：`poster-detail.json` 里还出现了 [htoj-api.d.ts](./htoj-api.d.ts) 的 `PosterVO` 未收录的字段 `category`、`stdStatus`、`unlockRemainCount`、`aiFlag`、`improveReason`、`extraNote`；且该响应 `posterType` 实测为 `null`（列表接口则为数字）。以实测为准，勿依赖类型里的字段全集。
+
+> 响应示例（依据实测抓包 `re/samples/poster-detail.json`，已脱敏；`posterContent` 截断）
+
+```json
+{
+  "id": 22752755174784,
+  "parentSolutionId": null,
+  "posterName": "【2026】CSP-J/S系列勋章",
+  "category": null,
+  "posterContent": "…",
+  "posterType": null,
+  "viewCount": null,
+  "thumbCount": 155,
+  "replyCount": 1,
+  "uid": "05abcf454ae9074bb8a281ea7d4a4d3e",
+  "goldenTeacher": false,
+  "nickname": "用户2111c2",
+  "avatar": "https://example.invalid/bf56529f1f0f.jpg",
+  "remarkName": "用户e19796",
+  "thumbed": false,
+  "isMine": false,
+  "publishTime": 1777558998030,
+  "publishArea": "某地",
+  "ccfLevel": null,
+  "authenticationIcon": null,
+  "problem": null,
+  "updateTime": 1782458956365,
+  "syncPoster": null,
+  "status": 6,
+  "statusName": "公开",
+  "updated": false,
+  "allowComment": 0,
+  "stdStatus": null,
+  "unlockRemainCount": null,
+  "label": null,
+  "source": 0,
+  "aiFlag": null,
+  "improveReason": null,
+  "extraNote": null,
+  "appealCount": null,
+  "rejectType": null,
+  "rejectReason": null,
+  "refuseReason": null,
+  "aiAuditSuggestion": null,
+  "appealStatus": null,
+  "appealReason": null,
+  "appealTime": null,
+  "appealRejectReason": null
+}
+```
 
 ```js
 await fetch(
@@ -250,6 +432,38 @@ await fetch(
 
 源码声明返回类型为 `PosterReplyVO`（`PosterReplyListVo`），未实测。
 
+> 响应骨架（依据类型 `PosterReplyVO` 推导，**未实测**）
+
+```json
+{
+  "replyId": 0,
+  "replyContent": "",
+  "uid": "",
+  "nickname": "",
+  "avatar": "",
+  "ccfLevel": null,
+  "goldenTeacher": false,
+  "authenticationIcon": null,
+  "remarkName": null,
+  "thumbCount": 0,
+  "replyCount": 0,
+  "area": "",
+  "thumbed": false,
+  "createTime": 0,
+  "to": null,
+  "toUid": null,
+  "toReplyId": 0,
+  "isMine": false,
+  "deleted": false,
+  "hidden": null,
+  "posterUid": "",
+  "replyVoList": [],
+  "posterStatus": 0,
+  "top": 0,
+  "rootFlag": true
+}
+```
+
 ### 点赞
 
 `POST /api/code-community-forum/api/poster/thumb` ✍️ 写操作未实测（需登录）
@@ -264,11 +478,23 @@ await fetch(
 
 响应结构未验证。
 
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ### 取消点赞
 
 `POST /api/code-community-forum/api/poster/unThumb` ✍️ 写操作未实测（需登录）
 
 参数与「点赞」完全相同（query：`posterId` / `posterReplyId` / `posterType`）。响应结构未验证。
+
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ### 置顶回复
 
@@ -276,11 +502,23 @@ await fetch(
 
 置顶某条回复（query：`posterId` / `posterReplyId` / `posterType`）。响应结构未验证。
 
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ### 取消置顶回复
 
 `POST /api/code-community-forum/api/poster/unTopReply` ✍️ 写操作未实测（需登录）
 
 参数同「置顶回复」。响应结构未验证。
+
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ### 删除帖子
 
@@ -288,11 +526,23 @@ await fetch(
 
 删除帖子（query：`posterId` / `posterType`）。响应结构未验证。
 
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ### 删除回复
 
 `POST /api/code-community-forum/api/poster/deleteReply` ✍️ 写操作未实测（需登录）
 
 删除回复（query：`posterId` / `posterReplyId` / `posterType`）。响应结构未验证。
+
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ### 隐藏 / 显示回复
 
@@ -306,6 +556,12 @@ await fetch(
 | `posterStatus` | number | 是 | 目标可见状态（对应帖子 / 回复状态枚举） |
 
 响应结构未验证。
+
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ### 回复列表
 
@@ -321,6 +577,48 @@ await fetch(
 | `posterType` | number | 否 | 1 讨论 2 题解 |
 
 `records[]` 字段依据 `re/samples/poster-reply-list.json`（类型 `PosterReplyVO`）：`replyId`、`replyContent`、`uid`、`nickname`、`avatar`、`ccfLevel`、`goldenTeacher`、`authenticationIcon`、`remarkName`、`thumbCount`、`replyCount`、`area`、`thumbed`、`createTime`、`to`、`toUid`、`toReplyId`、`isMine`、`deleted`、`hidden`、`posterUid`、`replyVoList[]`（子回复，同构递归）、`posterStatus`、`top`、`rootFlag`。
+
+> 响应示例（依据实测抓包 `re/samples/poster-reply-list.json`，已脱敏；`records` 仅保留 1 条，`replyContent` 截断）
+
+```json
+{
+  "records": [
+    {
+      "replyId": 22752759654144,
+      "replyContent": "…",
+      "uid": "05abcf454ae9074bb8a281ea7d4a4d3e",
+      "nickname": "用户2111c2",
+      "avatar": "https://example.invalid/bf56529f1f0f.jpg",
+      "ccfLevel": null,
+      "goldenTeacher": false,
+      "authenticationIcon": null,
+      "remarkName": "用户e19796",
+      "thumbCount": 299,
+      "replyCount": 0,
+      "area": "某地",
+      "thumbed": false,
+      "createTime": 1777559347000,
+      "to": null,
+      "toUid": null,
+      "toReplyId": 0,
+      "isMine": false,
+      "deleted": false,
+      "hidden": null,
+      "posterUid": "05abcf454ae9074bb8a281ea7d4a4d3e",
+      "replyVoList": [],
+      "posterStatus": 6,
+      "top": 0,
+      "rootFlag": true
+    }
+  ],
+  "total": 1,
+  "size": 3,
+  "current": 1,
+  "orders": [],
+  "searchCount": true,
+  "pages": 1
+}
+```
 
 ```js
 await fetch(
@@ -343,6 +641,12 @@ await fetch(
 
 `PosterSimpleInfoVo` 未收录在 [htoj-api.d.ts](./htoj-api.d.ts)，字段未确认。
 
+> 响应骨架（依据类型 `PosterSimpleInfoVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ### 浏览帖子
 
 `GET /api/code-community-forum/api/poster/view` ⚠️ 路由存在但参数不足
@@ -354,11 +658,65 @@ await fetch(
 | `posterId` | number | 是 | 帖子 id；**缺失返回 `errCode=400 ... 'posterId' ...`** |
 | `posterType` | number | 否 | 1 讨论 2 题解 |
 
+> 响应骨架（依据类型 `PosterVO` 推导，**未实测**）
+
+```json
+{
+  "id": 0,
+  "parentSolutionId": null,
+  "posterName": "",
+  "posterContent": "",
+  "posterType": null,
+  "viewCount": null,
+  "thumbCount": 0,
+  "replyCount": 0,
+  "uid": "",
+  "nickname": "",
+  "avatar": "",
+  "goldenTeacher": false,
+  "problemId": 0,
+  "problem": null,
+  "posterCategory": null,
+  "top": false,
+  "zone": "",
+  "thumbed": null,
+  "isMine": false,
+  "publishTime": 0,
+  "updateTime": null,
+  "publishArea": "",
+  "authenticationIcon": null,
+  "ccfLevel": null,
+  "remarkName": null,
+  "syncPoster": null,
+  "allowComment": 0,
+  "source": 0,
+  "updated": false,
+  "status": 0,
+  "statusName": "",
+  "label": null,
+  "refuseReason": null,
+  "aiAuditSuggestion": null,
+  "appealStatus": null,
+  "appealReason": null,
+  "appealTime": null,
+  "appealRejectReason": null,
+  "rejectType": null,
+  "rejectReason": null,
+  "appealCount": null
+}
+```
+
 ### 帖子商品信息
 
 `GET /api/code-community-forum/api/poster/goodsInfo` ❔ 未实测
 
 无参数，源码返回类型 `PosterSimpleInfoVo`。该接口在源码里把 URL 赋给了局部变量，抽取器未能解析路径（标记「路径未解析」），上表路径读自源码字面量，**未经实测**，响应字段未确认。
+
+> 响应骨架（依据类型 `PosterSimpleInfoVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ---
 
@@ -377,6 +735,12 @@ await fetch(
 
 `SolutionVO` 的类型文件未随仓库提供（`@core/types/solution`），仅从其使用处（`solutionList.service.ts`）可推断含 `id`、`likeNum`、`hasLike` 等字段，**未验证**。
 
+> 响应骨架（依据类型 `Pagination<SolutionVO>` 推导，**未实测**；`SolutionVO` 字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ### 题解详情
 
 `GET /api/code-community-forum/gwpub/problemSolution/get-problem-solution-detail` ⚠️ 路由存在但参数不足
@@ -391,6 +755,12 @@ await fetch(
 
 `SolutionDetailExtension` 未收录在 [htoj-api.d.ts](./htoj-api.d.ts)，扩展字段未确认。
 
+> 响应骨架（依据类型 `PosterVO & SolutionDetailExtension` 推导，**未实测**；`SolutionDetailExtension` 字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ### 题解申诉
 
 `POST /api/code-community-forum/gwpub/problemSolution/appeal` ✍️ 写操作未实测（需登录）
@@ -403,6 +773,12 @@ await fetch(
 | `appealReason` | string | 是 | 申诉理由，**源码注释要求 ≥10 字** |
 
 > 与 AI 改进版本申诉（`aiSolutionVersion/appeal`）互相独立，勿混用。响应结构未验证。
+
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ### 点赞 / 取消点赞题解
 
@@ -417,11 +793,23 @@ await fetch(
 
 响应结构未验证。
 
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ### 删除题解
 
 `DELETE /api/code-community/api/delete-problem-solution` ✍️ 写操作未实测（需登录）
 
 删除题解，参数走 query：`sid`（number，题解 id）。响应结构未验证。
+
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ### 能否发布题解
 
@@ -429,11 +817,23 @@ await fetch(
 
 判断当前用户能否为该题发布题解，返回 `boolean`。参数走 query：`pid`（number，题目内部 id）。抽取器将其标记为「疑似写操作（GET）」，未实测（只读语义但未验证）。
 
+> 响应骨架（依据类型 `boolean` 推导，**未实测**）
+
+```json
+false
+```
+
 ### 题解创建信息
 
 `GET /api/code-community/api/solution/create-info` ✍️ 未实测（需登录）
 
 发布题解的前置信息（源码返回类型 `ProblemAndCodeVo`）。参数走 query：`pid`（number，题目内部 id）。抽取器标记为「疑似写操作（GET）」，未实测；`ProblemAndCodeVo` 未收录在 [htoj-api.d.ts](./htoj-api.d.ts)，字段未确认。
+
+> 响应骨架（依据类型 `ProblemAndCodeVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ### 标程解锁
 
@@ -450,11 +850,23 @@ await fetch(
 
 响应结构未验证。
 
+> 响应骨架（依据类型 `number` 推导，**未实测**）
+
+```json
+0
+```
+
 ### 停留时长心跳
 
 `POST /api/code-community-websocket/gwpub/duration/heartbeat` ✍️ 写操作未实测（需登录）
 
 题解停留时长心跳上报（源码注释：仅当 `stdStatus` 为 `HOUR_TIMING` 或 `HOUR_EXHAUSTED` 时调用，每 30 秒上报一次）。走 `code-community-websocket` 网关，请求体为 `DurationHeartbeatRequest`，返回 `DurationHeartbeatVO`；两个类型均未随仓库提供，字段未确认。响应结构未验证。
+
+> 响应骨架（依据类型 `DurationHeartbeatVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ### 题解邀请结果
 
@@ -467,6 +879,12 @@ await fetch(
 | `submitId` | number | 是 | 提交 id；**缺失返回 `errCode=400 ... 'submitId' ...`** |
 
 `SolutionInviteResultVO` 未收录在 [htoj-api.d.ts](./htoj-api.d.ts)，字段未确认。
+
+> 响应骨架（依据类型 `SolutionInviteResultVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ---
 
@@ -486,6 +904,12 @@ await fetch(
 
 源码注释提示：后端对「无数据」可能返回 `null` 或 `undefined`，需统一归一化为 `null`。`AiSolutionEntryVo` 类型文件未随仓库提供，字段未确认。
 
+> 响应骨架（依据类型 `AiSolutionEntryVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ### AI 题解落地页
 
 `GET /api/code-community-forum/gwpub/aiSolutionVersion/landing` ⚠️ 路由存在但参数不足
@@ -498,6 +922,12 @@ await fetch(
 
 从其使用处（`aiSolutionDetail.service.ts`）可推断 `AiSolutionLandingVo` 含 `parentSolutionId`、`aiThumbed`、`aiThumbCount`、`pinnedVersion`、`moreVersions[]` 等字段，**未验证**。
 
+> 响应骨架（依据类型 `AiSolutionLandingVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ### AI 题解版本详情
 
 `GET /api/code-community-forum/gwpub/aiSolutionVersion/detail` ⚠️ 路由存在但参数不足
@@ -509,6 +939,12 @@ await fetch(
 | `id` | number | 是 | 版本 id（源码参数名 `versionId`，实际查询键为 `id`）；**缺失返回 `errCode=400 ... 'id' ...`** |
 
 从使用处可推断 `AiSolutionVersionItemVo` 含 `id`、`thumbed`、`thumbCount` 等字段，**未验证**。
+
+> 响应骨架（依据类型 `AiSolutionVersionItemVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ### AI 题解版本申诉
 
@@ -523,6 +959,12 @@ await fetch(
 
 > 与用户题解申诉（`problemSolution/appeal`）互相独立。响应结构未验证。
 
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ### AI 题解版本信息（diff）
 
 `GET /api/code-community-forum/gwpub/aiSolutionVersion/get-info` ⚠️ 路由存在但参数不足
@@ -535,11 +977,23 @@ await fetch(
 
 `AiSolutionVersionDiffVo` 类型文件未随仓库提供，字段未确认。
 
+> 响应骨架（依据类型 `AiSolutionVersionDiffVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ### 提交 AI 题解版本
 
 `POST /api/code-community-forum/gwpub/aiSolutionVersion/submit` ✍️ 写操作未实测（需登录）
 
 提交 / 编辑共创版本，请求体为 `AiSolutionVersionSubmitVo`（类型文件未随仓库提供，字段未确认）。响应结构未验证。
+
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ### 我的 AI 题解改进
 
@@ -554,6 +1008,20 @@ await fetch(
 | `pageSize` | number | 否 | 每页条数 |
 
 实测返回空分页（`{ records: [], total: 0, size: 20, current: 1, orders: [], searchCount: true, pages: 0 }`）。`records[]` 字段从其使用处（`home/solution/ai-improve/index.vue`）可推断含 `id`、`status`（审核状态，见 `IMPROVE_VERSION_AUDIT_STATE`）、`statusName`、`thumbTopFlag`、`posterName`、`posterContent`、`rejectReason`、`publishTime`、`commentCount`、`thumbCount`，**未逐一实测**。
+
+> 响应示例（依据实测抓包 `re/api-probe.json` 探针样本，已脱敏；实测 `records` 恒为空）
+
+```json
+{
+  "records": [],
+  "total": 0,
+  "size": 20,
+  "current": 1,
+  "orders": [],
+  "searchCount": true,
+  "pages": 0
+}
+```
 
 ```js
 await fetch(
@@ -581,6 +1049,12 @@ await fetch(
 
 `SolutionInlineCommentGroupVo` 字段从其使用处（`inlineComment.service.ts`）可推断含 `anchorText`、`rootComments[]`（每条根评论含 `id`、`replies[]`），**未验证**。
 
+> 响应骨架（依据类型 `SolutionInlineCommentGroupVo[]` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ### 发起划线评论
 
 `POST /api/code-community-forum/gwpub/solutionInlineComment/create` ✍️ 写操作未实测（需登录）
@@ -597,11 +1071,23 @@ await fetch(
 
 响应结构未验证。
 
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ### 回复划线评论
 
 `POST /api/code-community-forum/gwpub/solutionInlineComment/reply` ✍️ 写操作未实测（需登录）
 
 楼中楼回复顶层评论，**提交后进入审核**。请求体 `SolutionInlineCommentReplyVo`：`content`（string，回复内容）、`parentId`（number，被回复的顶层评论 id）。响应结构未验证。
+
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ### 在锚点上盖楼
 
@@ -617,6 +1103,12 @@ await fetch(
 | `content` | string | 是 | 评论内容 |
 
 响应结构未验证。
+
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ---
 
@@ -635,6 +1127,39 @@ await fetch(
 
 请求参数类型 `ArticleListRequestVO` 未随仓库提供，字段未确认（探针实测未传参返回 `Page(10/10)`）。`records[]` 字段依据探针样本：`id`、`title`、`titlePic`、`description`、`content`、`topPriority`、`category`、`uid`、`author`、`avatar`、`titleName`、`likeNum`、`viewNum`、`hasLike`、`selected`、`createTime`。
 
+> 响应示例（依据实测抓包 `re/api-probe.json` 探针样本，已脱敏；`records` 仅保留 1 条，`description` 截断）
+
+```json
+{
+  "records": [
+    {
+      "id": 22553038612224,
+      "title": "2025 CSP-S 复赛真题解析",
+      "titlePic": "",
+      "description": "…",
+      "content": null,
+      "topPriority": null,
+      "category": 1,
+      "uid": null,
+      "author": "用户24debb",
+      "avatar": "https://example.invalid/59daf96f7b1c.jpg",
+      "titleName": null,
+      "likeNum": 0,
+      "viewNum": 0,
+      "hasLike": false,
+      "selected": null,
+      "createTime": 1761956142000
+    }
+  ],
+  "total": 10,
+  "size": 10,
+  "current": 1,
+  "pages": 1,
+  "orders": [],
+  "searchCount": true
+}
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/home-discussion?currentPage=1&limit=10`, {
   headers: HEADERS,
@@ -651,6 +1176,29 @@ await fetch(`${BASE}/api/code-community/api/home-discussion?currentPage=1&limit=
 | --- | --- | --- | --- |
 | `did` | number | 是 | 专栏 id；**缺失返回 `errCode=400 ... 'did' ...`** |
 
+> 响应骨架（依据类型 `ArticleVO` 推导，**未实测**；字段名依据首页探针样本，详情可能另有附加字段）
+
+```json
+{
+  "id": 0,
+  "title": "",
+  "titlePic": "",
+  "description": "",
+  "content": "",
+  "topPriority": null,
+  "category": null,
+  "uid": null,
+  "author": "",
+  "avatar": "",
+  "titleName": null,
+  "likeNum": 0,
+  "viewNum": 0,
+  "hasLike": false,
+  "selected": null,
+  "createTime": 0
+}
+```
+
 ### 专栏点赞
 
 `GET /api/code-community/api/discussion-like` ✍️ 未实测（GET 写操作）
@@ -663,3 +1211,9 @@ await fetch(`${BASE}/api/code-community/api/home-discussion?currentPage=1&limit=
 | `toLike` | boolean | 是 | `true` 点赞，`false` 取消 |
 
 响应结构未验证。
+
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```

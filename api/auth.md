@@ -58,6 +58,20 @@ const encodeCredential = (input) =>
 | code | string | 区号，如 `86` |
 | regular | string | 手机号正则，如 `^[1]\d{10}$` |
 
+> 响应骨架（字段依据正文，已实测；数组此处仅示 1 项，值已占位）
+
+```json
+[
+  {
+    "country": "",
+    "name": "",
+    "short": "",
+    "code": "",
+    "regular": ""
+  }
+]
+```
+
 ```js
 const res = await fetch("https://api.hetao101.com/login/v2/countryCodes", {
   headers: {
@@ -87,6 +101,14 @@ const { errCode, data } = await res.json();
 | short | string | 否 | 国家缩写，默认 `CN` |
 
 **响应**：`data` 至少含 `token`（JWT 明文）。
+
+> 响应骨架（字段依据正文，已实测；真实 token 已截断为占位）
+
+```json
+{
+  "token": "…"
+}
+```
 
 ```js
 const encodeCredential = (input) =>
@@ -143,6 +165,12 @@ const { errCode, data } = await res.json();
 
 票据只能由腾讯 TCaptcha 组件在**已备案域名的浏览器页面**中生成，扩展的 Webview 域名无法通过校验。请改用微信扫码登录。
 
+> 响应结构未验证（成功响应字段正文未给出）
+
+```json
+null
+```
+
 ```js
 const res = await fetch(
   "https://api.hetao101.com/login/v3/account/oauth/verifyCode/htojWeb:Login",
@@ -188,6 +216,14 @@ const { errCode, errMsg } = await res.json();
 
 **响应**：`data` 至少含 `token`。
 
+> 响应骨架（字段依据正文，**未实测**）
+
+```json
+{
+  "token": "…"
+}
+```
+
 ```js
 const res = await fetch(
   "https://api.hetao101.com/login/v2/account/oauth/verifyCode",
@@ -229,6 +265,14 @@ const { errCode, data } = await res.json();
 
 **响应**：`data` 至少含 `token`。
 
+> 响应骨架（字段依据正文，**未实测**）
+
+```json
+{
+  "token": "…"
+}
+```
+
 ```js
 const res = await fetch(
   "https://api.hetao101.com/login/v2/account/oauth/mobileWeiXin?mode=htojWeb&openType=2",
@@ -266,6 +310,14 @@ const { errCode, data } = await res.json();
 
 **响应**：`data` 至少含 `token`。前端调用超时设为 30s。
 
+> 响应骨架（字段依据正文，**未实测**）
+
+```json
+{
+  "token": "…"
+}
+```
+
 ```js
 const res = await fetch(
   "https://api.hetao101.com/login/v2/account/oauth/tokenByCode?code=<temp-code>",
@@ -292,6 +344,14 @@ const { errCode, data } = await res.json();
 **参数**：无；请求需带 `Authorization`（当前 token）。
 
 **响应**：`data` 为 `{ code: string }`。
+
+> 响应骨架（字段依据正文，**未实测**）
+
+```json
+{
+  "code": ""
+}
+```
 
 ```js
 const res = await fetch(
@@ -326,6 +386,14 @@ const { errCode, data } = await res.json();
 
 **响应**：`data` 至少含 `token`。
 
+> 响应骨架（字段依据正文，**未实测**）
+
+```json
+{
+  "token": "…"
+}
+```
+
 ```js
 const res = await fetch(
   "https://api.hetao101.com/login/v2/account/oauth/staff/token",
@@ -359,6 +427,14 @@ const { errCode, data } = await res.json();
 
 **响应**：`data` 为 `{ appId: string }`，实测无参数时返回 `{"appId":""}`。
 
+> 响应骨架（字段依据正文，已实测：无参数时返回 `{"appId":""}`）
+
+```json
+{
+  "appId": ""
+}
+```
+
 ```js
 const res = await fetch(
   "https://api.hetao101.com/login/v1/wechat/configInfo?mode=htojWeb",
@@ -388,6 +464,15 @@ const { errCode, data } = await res.json();
 | mode | string | 是 | 前端固定传 `htbcxas` |
 
 **响应**：`data` 为 `{ ticketBase64: string; sessionId: string }`。`ticketBase64` 是二维码图片的 base64（前端拼 `data:image/png;base64,`），`sessionId` 用于下一步轮询。
+
+> 响应骨架（字段依据正文，已实测；值为占位）
+
+```json
+{
+  "ticketBase64": "",
+  "sessionId": ""
+}
+```
 
 ```js
 const res = await fetch(
@@ -426,6 +511,16 @@ const { errCode, data } = await res.json();
 | 3 | 登录成功，`token` 就绪 | 取 `token` 完成登录 |
 | 4 | 二维码已失效 | 停止轮询，提示重新获取 |
 
+> 响应骨架（字段依据正文，已实测；`token` / `userInfo` 仅在 `qrCodeStatus` 为 3 时出现）
+
+```json
+{
+  "qrCodeStatus": 0,
+  "token": "…",
+  "userInfo": null
+}
+```
+
 ```js
 const res = await fetch(
   "https://api.hetao101.com/login/v1/wechat/miniprogram/loginCheck?sid=<sessionId>",
@@ -458,6 +553,14 @@ if (data.qrCodeStatus === 3 && data.token) {
 | device | string | 是 | 前端传 `htojWeb` |
 
 **响应**：`data` 为 `{ token: string }`。
+
+> 响应骨架（字段依据正文，**未实测**）
+
+```json
+{
+  "token": "…"
+}
+```
 
 ```js
 const res = await fetch(

@@ -72,6 +72,15 @@ const HEADERS = {
 | `usedTime` | number | 本场已用时（**秒**；前端 `elapsedSeconds` 直接取它） |
 | `battleContestProblemDetailVoList` | `BattleContestProblemDetailVo[]` | 题目列表（含 BOSS 关，最后一题为 BOSS 关） |
 
+> 响应骨架（字段依据正文 `galaxy-answer.service.ts`，**未实测**）：
+
+```json
+{
+  "usedTime": 0,
+  "battleContestProblemDetailVoList": []
+}
+```
+
 > 未实测：`oj/galaxy.ts` 里它是 `GET` 但在 [api-inventory.json](../../re/api-inventory.json) 中被标为「疑似写操作（GET）」，故按 ✍️ 处理。前端 `init()` 用 `exerciseId` 优先取 URL query，其次取用户信息里的 `exerciseId`；拿到列表后停在**第一道未通过（`passed=false`）的题**，其余题面按需经「取单题详情」懒加载。
 
 ```js
@@ -113,6 +122,20 @@ The required request parameters are missing：Required request parameter 'pid' f
 | `languages` | `IdName[]` | 可用语言；**OJ 题有它才算完整数据**，缺省时前端会再拉一次 |
 | `passed` | boolean | 本场是否已通过（用于定位起始题） |
 
+> 响应骨架（字段依据正文 `galaxy-answer.service.ts`，**未实测**）：
+
+```json
+{
+  "pid": 0,
+  "title": "",
+  "type": 0,
+  "content": "",
+  "ioMode": { "id": 0, "name": "" },
+  "languages": [],
+  "passed": false
+}
+```
+
 > 前端题型判定 `EXAM_TYPE`：`OJ = 1`、`OBJECTIVE = 5`（客观选择题）。两者在页面上分别渲染代码编辑器与选项卡。
 
 ```js
@@ -144,6 +167,12 @@ query 参数：`exerciseId`（number，是）。
 
 响应类型在源码中为 `unknown`（未声明泛型）；前端提交选择题时 `await` 后仅判断是否成功，不读返回值。字段未验证。
 
+> 响应骨架（依据类型 `unknown` 推导，**未实测**；字段定义不在仓库内，结构未知）：
+
+```json
+null
+```
+
 ```js
 await fetch(
   `${BASE}/api/htoj-biz-gateway/gwpub/judge/submit-problem-judge?exerciseId=22921376372096`,
@@ -174,6 +203,12 @@ await fetch(
 
 响应类型 `number`（源码注释）：**`1` = 已评测，`0` = 未评测**。批量提交前置判断依赖它，避免重复评测。
 
+> 响应骨架（依据正文：`1` = 已评测 / `0` = 未评测，**未实测**）：
+
+```json
+0
+```
+
 ```js
 const evaluated = await fetch(
   `${BASE}/api/htoj-biz-gateway/gwpub/battle/v2/submit-battle-contest-check?pid=22920859951104&exerciseId=22921376372096`,
@@ -203,6 +238,18 @@ const evaluated = await fetch(
 | `consecutiveReward` | number | 连续参赛奖励 |
 | `guessCount` | number | 获得的抽谷次数 |
 | `submitReward` | number | 交卷奖励 |
+
+> 响应骨架（字段依据正文 `pages/oj/galaxy/problem/index.vue`，**未实测**）：
+
+```json
+{
+  "totalFinishCount": 0,
+  "continueText": 0,
+  "consecutiveReward": 0,
+  "guessCount": 0,
+  "submitReward": 0
+}
+```
 
 > 交卷成功后前端进入结算链路：结算弹窗 → 抽谷（[抽谷子](#抽谷子)）→ 超车动画（[超车](#超车)）→ 跳转[赛后报告](#赛后报告按场次)。
 
@@ -255,6 +302,26 @@ errCode=400
 | `name` | string | 场次名 |
 | `status` | number | 作答状态：`-1`=未作答，`1`=答题中，`2`=已完成 |
 
+> 响应骨架（字段依据正文 `galaxy-home.helpers.ts`，**未实测**）：
+
+```json
+{
+  "id": 0,
+  "image": "",
+  "startTime": 0,
+  "endTime": 0,
+  "hasNext": 0,
+  "icons": [{ "iconUrl": "", "text": "" }],
+  "description": "",
+  "journeyList": [{ "exerciseId": 0, "name": "", "status": 0 }],
+  "userStatus": 0,
+  "contestCount": 0,
+  "totalCount": 0,
+  "continueText": 0,
+  "goodsList": []
+}
+```
+
 > 前端从旅程列表 + 当前 `id` 派生「本周 / 可补做 / 已完成 / 锁定」四态，且「锁定」由位置（本周之后）而非 `status` 决定（本周之后的场次后端同样下发 `-1`）。派生文案与 `endTime`、`hasNext` 共同决定是否隐藏「去补做」入口。
 
 ```js
@@ -278,6 +345,15 @@ const data = await fetch(
 | --- | --- | --- |
 | `exerciseCount` | number | 已完赛场数（展示单位「场」） |
 | `goodsCount` | number | 获得谷子数（展示单位「枚」） |
+
+> 响应骨架（字段依据正文 `milestone/index.vue`，**未实测**）：
+
+```json
+{
+  "exerciseCount": 0,
+  "goodsCount": 0
+}
+```
 
 > 类型名与使用字段不一致，且无实测响应，仅按 `milestone/index.vue` 的读取整理。
 
@@ -307,6 +383,16 @@ const data = await fetch(
 | `anyoneList` | `AnyoneVo[]` | 被超越的选手名单（用于超车动画头像） |
 | `ratio` | number | 超越比例，`0~1`（前端 `Number(ratio.toFixed(2))` 后按百分位展示） |
 | `redirect` | number | `1` = 播放超车转场动画；否则直接跳[赛后报告](#赛后报告按场次) |
+
+> 响应骨架（字段依据正文 `settlementFlow.service.ts`，**未实测**；`anyoneList` 元素类型 `AnyoneVo` 未定义，故留空）：
+
+```json
+{
+  "anyoneList": [],
+  "ratio": 0,
+  "redirect": 0
+}
+```
 
 ```js
 const data = await fetch(
@@ -343,6 +429,19 @@ The required request parameters are missing：Required request parameter 'unitPr
 | `userScore` | number | 分数 |
 | `usedTime` | number | 用时（**秒**；前端按 `分:秒` 格式化，未按毫秒处理） |
 
+> 响应骨架（字段依据正文 `MilestoneRecord.vue`，**未实测**）：
+
+```json
+[
+  {
+    "exerciseId": 0,
+    "name": "",
+    "userScore": 0,
+    "usedTime": 0
+  }
+]
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/htoj-biz-gateway/gwpub/battle/v2/battle-contest-record?unitProductId=22156385706112`,
@@ -378,6 +477,19 @@ The required request parameters are missing：Required request parameter 'unitPr
 | `wrongCount` | number | 该场错题数 |
 | `wrongProblemList` | `UserBattleContestProblemDetailVo[]` \| undefined | 该场错题明细；**列表接口一般不返回**，展开时经[单场错题详情](#单场错题详情)懒加载后填充 |
 
+> 响应骨架（字段依据正文 `MilestoneWrong.vue`，**未实测**）：
+
+```json
+[
+  {
+    "exerciseId": 0,
+    "exerciseName": "",
+    "wrongCount": 0,
+    "wrongProblemList": null
+  }
+]
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/htoj-biz-gateway/gwpub/battle/v2/battle-contest-wrong?unitProductId=22156385706112`,
@@ -400,6 +512,18 @@ const data = await fetch(
 | `id` | number | 产品线 id（作为 `unitProductId` 传给记录 / 错题接口） |
 | `name` | string | 展示名 |
 | `current` | boolean | 是否为当前产品线；前端默认选中 `current === true` 那项，找不到则取第一项 |
+
+> 响应骨架（字段依据正文，**未实测**）：
+
+```json
+[
+  {
+    "id": 0,
+    "name": "",
+    "current": false
+  }
+]
+```
 
 ```js
 const data = await fetch(
@@ -442,6 +566,25 @@ The required request parameters are missing：Required request parameter 'exerci
 | `language` | string | OJ 题语言 |
 | `userScore` | number | 本题得分 |
 
+> 响应骨架（字段依据正文 `MilestoneWrong.vue` / `report/index.vue`，**未实测**）：
+
+```json
+[
+  {
+    "pid": 0,
+    "type": 0,
+    "content": "",
+    "status": 0,
+    "userAnswer": {},
+    "answer": {},
+    "explanation": "",
+    "userCode": "",
+    "language": "",
+    "userScore": 0
+  }
+]
+```
+
 > 客观题前端用「`userAnswer` 与 `answer` 逐键相等」判对错；OJ 题用 `status === 0` 判对错。
 
 ```js
@@ -476,6 +619,19 @@ const data = await fetch(
 | `correctRate` | number | 正确率（页面展示为 `xx%`） |
 | `userBattleContestProblemDetailVoList` | `UserBattleContestProblemDetailVo[]` | 逐题详解（字段同[单场错题详情](#单场错题详情)）；**为空时页面提示「赛后报告生成中」** |
 
+> 响应骨架（字段依据正文 `report/index.vue`，**未实测**）：
+
+```json
+{
+  "name": "",
+  "reportText": [],
+  "usedTime": 0,
+  "userScore": 0,
+  "correctRate": 0,
+  "userBattleContestProblemDetailVoList": []
+}
+```
+
 > 报告页用 `?id=`（学生自看）或 `?rid=`（老师查看，走[按记录](#赛后报告按记录)）区分两个接口。
 
 ```js
@@ -504,6 +660,19 @@ const data = await fetch(
 ```
 
 响应类型同为 `BattleContestReportVo`（结构见[赛后报告（按场次）](#赛后报告按场次)），但**当前不可用**，`index.md` 的 403 名单里也列出了该路径。
+
+> 响应骨架（字段依据正文，结构同[赛后报告（按场次）](#赛后报告按场次)，**未实测**；当前 🚫 不可用）：
+
+```json
+{
+  "name": "",
+  "reportText": [],
+  "usedTime": 0,
+  "userScore": 0,
+  "correctRate": 0,
+  "userBattleContestProblemDetailVoList": []
+}
+```
 
 > 与[赛后报告（按场次）](#赛后报告按场次)的区别：本接口按**参赛记录 id**、走 `/api/htoj-biz-gateway/api/`；后者按**场次 exerciseId**、走 `/api/htoj-biz-gateway/gwpub/battle/v2/`。
 
@@ -540,6 +709,27 @@ const data = await fetch(
 | `goodsLevel` | number | 谷子等级 |
 | `levelNum` | number \| null | 等级编号 |
 
+> 响应骨架（字段依据正文 `Goods.vue` / `galaxy-home.helpers.ts`，**未实测**）：
+
+```json
+{
+  "goodsVO": {
+    "id": 0,
+    "name": "",
+    "url": "",
+    "rarityCode": 0,
+    "goodsAnimation": 0,
+    "goodsNum": 0,
+    "goodsLevel": 0,
+    "levelNum": null
+  },
+  "totalCount": 0,
+  "predictText": null,
+  "haveReward": 0,
+  "totalReward": 0
+}
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/htoj-biz-gateway/gwpub/battle/v2/guess-goods`,
@@ -557,8 +747,10 @@ const data = await fetch(
 
 响应类型 `YinheBadgeShowVo`，实测返回 `errCode=0`：
 
+> 实测响应 `data`（字段依据 `api-probe.json` 实测样本，**已实测**）：
+
 ```json
-{ "errCode": 0, "data": { "showHot": false, "showNew": false }, "errMsg": "success" }
+{ "showHot": false, "showNew": false }
 ```
 
 | 字段 | 类型 | 说明 |
@@ -582,6 +774,12 @@ const data = await fetch(
 清掉「新」角标。**写操作，未实测。**
 
 无参数、无请求体。响应类型 `boolean`，字段未验证。
+
+> 响应骨架（依据类型 `boolean` 推导，**未实测**）：
+
+```json
+false
+```
 
 > 前端调用时机：点击银河入口且 `showNew` 为 `true` 时先置本地状态为 `false`，再发本请求；2xx 之外仅 `console.error`，不阻断跳转。
 

@@ -81,6 +81,12 @@ const HEADERS = {
 
 > **坑**：探针在登录态下返回 `errCode=500 Server Error!`（HTTP 200），路由存在但未取到有效数据。字段以源码用法为准，未实测确认完整结构。
 
+> 响应骨架（依据类型 `CurrentLevelInfoVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-actuator/api/user/level/getCurLevelInfo`,
@@ -101,8 +107,10 @@ const data = await fetch(
 
 响应类型 `LevelRewardVO[]`。实测样例返回空数组（`[]`），具体字段未验证：
 
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
+
 ```json
-{ "errCode": 0, "data": [], "errMsg": "success" }
+[]
 ```
 
 > 未取到有效样本，`LevelRewardVO` 具体字段未验证。
@@ -134,8 +142,10 @@ const data = await fetch(`${BASE}/api/code-community-actuator/api/level/reward`,
 
 响应 `data` 为布尔值，实测样例返回 `false`：
 
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
+
 ```json
-{ "errCode": 0, "data": false, "errMsg": "success" }
+false
 ```
 
 ```js
@@ -157,6 +167,8 @@ C 端任务列表，返回当前用户的任务（含对战类、新手引导类
 | — | — | — | 无参数 |
 
 响应类型 `MissionVO[]`（前端 `@core/types/incentive`）。实测样例（`Array(31)`）中单条记录字段：
+
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
 
 ```json
 [
@@ -221,6 +233,12 @@ const data = await fetch(
 
 响应结构未验证（源码未声明泛型）。
 
+> 响应骨架（**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/code-community-actuator/api/user/mission/get-reward`, {
   method: "PUT",
@@ -241,6 +259,21 @@ await fetch(`${BASE}/api/code-community-actuator/api/user/mission/get-reward`, {
 
 响应类型 `MissionVO`（单个任务，字段同任务列表记录）。未实测。
 
+> 响应骨架（依据类型 `MissionVO` 推导，**未实测**；字段同任务列表记录）
+
+```json
+{
+  "id": 0,
+  "missionId": 0,
+  "name": "",
+  "type": 0,
+  "status": 0,
+  "remainTime": 0,
+  "isLadder": 0,
+  "missionInfo": []
+}
+```
+
 ```js
 await fetch(`${BASE}/api/code-community-actuator/api/user/mission/draw-mission`, {
   method: "POST",
@@ -254,8 +287,10 @@ await fetch(`${BASE}/api/code-community-actuator/api/user/mission/draw-mission`,
 
 查询随机任务池中的任务列表（下拉选项）。无参数，实测返回空数组：
 
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
+
 ```json
-{ "errCode": 0, "data": [], "errMsg": "success" }
+[]
 ```
 
 响应类型 `IdNameOption[]`（`{ id, name }`，参见 [htoj-api.d.ts](./htoj-api.d.ts) 的 `IdName`）。
@@ -280,6 +315,8 @@ const data = await fetch(
 获取当前用户已领取的奖励 / 装扮。无参数。
 
 响应类型 `RewardVO[]`（前端 `@core/types/incentive`）。实测样例（`Array(68)`）单条记录字段：
+
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
 
 ```json
 [
@@ -321,6 +358,12 @@ const data = await fetch(
 
 响应结构未验证（源码未声明泛型）。
 
+> 响应骨架（**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/code-community-actuator/api/user/backpack/onoff-outfit`, {
   method: "PUT",
@@ -343,6 +386,12 @@ await fetch(`${BASE}/api/code-community-actuator/api/user/backpack/onoff-outfit`
 
 > **坑**：探针未带 `uid` 时返回 `errCode=400`：
 > `The required request parameters are missing：Required request parameter 'uid' for method parameter type String is not present`
+
+> 响应骨架（依据类型 `UserBudgeList` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(
@@ -370,6 +419,12 @@ const data = await fetch(
 >
 > 未取到有效样本，`UserBudgeDetailList` / `UserBudgeDetailDTO` 完整结构与字段类型未验证。
 
+> 响应骨架（依据类型 `UserBudgeDetailList` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-actuator/api/user/backpack/user-tab-badge?tabId=2&uid=<uid>`,
@@ -390,6 +445,8 @@ const data = await fetch(
 返回农场（荣誉墙）相关的说明链接，均为站内页面 URL。无参数。
 
 实测响应 `data`：
+
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
 
 ```json
 {
@@ -421,6 +478,8 @@ const data = await fetch(
 
 响应类型 `UserMosaicWallVo`。实测 `data` 形状 `object{thumbCount,thumbed,userMosaicProgressDTO,userLargeMosaicDTO}`，样例片段：
 
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
+
 ```json
 {
   "thumbCount": 5,
@@ -450,6 +509,12 @@ const data = await fetch(
 
 实测响应：`data` 为 `{ "needShow": false }`（类型 `FarmRecallVO`）。
 
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
+
+```json
+{ "needShow": false }
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-actuator/gwpub/user/farm/recall-check`,
@@ -477,6 +542,12 @@ const data = await fetch(
 | `forceSubmit` | boolean | 否 | 冲突时强制提交（由前端在冲突确认后附加，不在表单默认字段内） |
 
 响应类型 `AwardApplyResultVo`，字段未验证。
+
+> 响应骨架（依据类型 `AwardApplyResultVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 await fetch(
@@ -511,6 +582,12 @@ await fetch(
 
 响应结构未验证（源码未声明泛型）。
 
+> 响应骨架（**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community-actuator/gwpub/api/user/award/apply/addBatch`,
@@ -535,6 +612,12 @@ await fetch(
 - **未实测，依据源码签名**。接口清单把它标为「疑似写操作（GET）」，但按源码语义应是只读。
 - 响应类型 `UserCertificateVO[]`，字段未验证（无样本）。
 
+> 响应骨架（依据类型 `UserCertificateVO[]` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-actuator/gwpub/api/user/award/apply/receivedCertificates?uid=<uid>`,
@@ -550,6 +633,12 @@ const data = await fetch(
 
 > **未实测，依据源码签名**（在 `MyVerifiedAward` / `AwardVerifiedOkModal` 等处使用）。响应类型 `AwardCertificateAuditRecordVO[]`，字段未验证（无样本）。
 
+> 响应骨架（依据类型 `AwardCertificateAuditRecordVO[]` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-actuator/gwpub/api/user/award/apply/my/awards`,
@@ -564,6 +653,12 @@ const data = await fetch(
 查询当前用户未领取的奖项。无参数。
 
 > **未实测，依据源码签名**。响应类型 `AwardCertificateAuditRecordVO[]`，字段未验证（无样本）。
+
+> 响应骨架（依据类型 `AwardCertificateAuditRecordVO[]` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(
@@ -586,6 +681,12 @@ const data = await fetch(
 
 响应结构未验证（源码未声明泛型）。
 
+> 响应骨架（**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community-actuator/gwpub/api/user/award/apply/my/awards/receive`,
@@ -604,6 +705,8 @@ await fetch(
 奖项认证表单的「证书类型」下拉项。无参数。
 
 实测响应 `data`（`Array(10)`）：
+
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
 
 ```json
 [
@@ -646,6 +749,12 @@ const data = await fetch(
 
 响应类型 `{ id: number; name: string }[]`，未取到有效样本，具体条目未验证。
 
+> 响应骨架（依据类型 `IdName[]` 推导，**未实测**）
+
+```json
+[{ "id": 0, "name": "" }]
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-actuator/gwpub/api/user/award/apply/certificateLevels?certificateType=1`,
@@ -660,6 +769,8 @@ const data = await fetch(
 奖项认证表单的「获奖年份」下拉项。无参数。
 
 实测响应 `data`（`Array(6)`）为数字数组：
+
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
 
 ```json
 [2026, 2025, 2024, 2023, 2022, 2021]
@@ -682,6 +793,12 @@ const data = await fetch(
 
 实测响应：`data` 为 `{ "isFirstDownload": true, "isFirstScan": true }`（类型 `ShareRewardStatusVo`）。`true` 表示尚未领取该奖励。
 
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
+
+```json
+{ "isFirstDownload": true, "isFirstScan": true }
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-actuator/gwpub/user/farm/share/shareRewardStatus`,
@@ -700,6 +817,12 @@ const data = await fetch(
 | — | — | — | 无请求体 |
 
 响应类型 `DownloadRewardVo`，源码取用其 `isReward`（布尔）字段。未实测。
+
+> 响应骨架（依据类型 `DownloadRewardVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(
@@ -722,6 +845,12 @@ const data = await fetch(
 | `md5` | string | 是 | 分享图内容的 MD5 |
 
 响应类型 `QrCodeCacheVo`，源码取用 `hasCache`（布尔）与 `qrCodeUrl` 字段。未实测。
+
+> 响应骨架（依据类型 `QrCodeCacheVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 await fetch(
@@ -748,6 +877,12 @@ await fetch(
 | `md5` | string | 是 | 分享图内容的 MD5 |
 
 响应类型 `QrCodeVo`，源码取用 `qrCodeUrl` 字段。未实测。
+
+> 响应骨架（依据类型 `QrCodeVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(
@@ -784,6 +919,12 @@ const data = await fetch(
 >
 > 未取到有效样本，`ActivityDetailVO` 完整字段未验证。
 
+> 响应骨架（依据类型 `ActivityDetailVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-actuator/api/battle/activity?missionId=<missionId>`,
@@ -808,6 +949,12 @@ const data = await fetch(
 >
 > 未取到有效样本，字段未验证。
 
+> 响应骨架（依据类型 `MyRewardDetaillVO[]` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-actuator/api/battle/myReward?missionId=<missionId>`,
@@ -823,8 +970,10 @@ AC 题目之后检查是否有活动奖励掉落。无参数。
 
 实测响应 `data` 为 `null`：
 
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
+
 ```json
-{ "errCode": 0, "data": null, "errMsg": "success" }
+null
 ```
 
 响应类型 `CheckRewardBySubmissionVO`。本次实测无奖励掉落（`data=null`），有奖励时的字段结构未验证。
@@ -843,6 +992,8 @@ const data = await fetch(
 端午阵营战活动详情（队伍积分、个人排名、圈子等）。无参数。
 
 实测响应 `data` 形状 `object{teamBattleInfo,userBattleInfo,circleList,missionRewards,startTime,endTime,status,winnerTeamName}`，样例片段：
+
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
 
 ```json
 {

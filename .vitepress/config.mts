@@ -59,6 +59,11 @@ export default defineConfig({
   description: 'HTOJ 非官方接口文档：网关约定、鉴权、分页与全部接口清单，逐条实测。',
   cleanUrls: true,
   lastUpdated: true,
+  // docs/ 里除了 API 文档，还放着一份给核桃 OJ 团队的问题反馈（尚未修复前不能公开，
+  // 里面含进行中比赛的原始响应与账号标识），绝不能当成页面发布出去。
+  // ⚠️ 模式必须写成 `**/xxx`（与 VitePress 文档里 `**/README.md` 一致）：
+  // 写成 `bug-report-*.md` 是**不生效**的，实测该文件曾被发布成 /bug-report-contest 页面。
+  srcExclude: ['**/bug-report*.md'],
   ignoreDeadLinks: [
     // 正文把这些文件当「证据」引用，指向仓库而不是站点
     /re\/samples\//,

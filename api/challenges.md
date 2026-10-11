@@ -98,6 +98,8 @@ CSP 刷题挑战赛（对应前端 `api/oj/challenge.ts`，服务 `code-communit
 | `participantCount` | object | 参与人数，键为组别（样本 `{ "CSP-J": 2699 }`） |
 | `pcDescription` | string | PC 端赛事规则（Markdown） |
 
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
+
 ```json
 {
   "admissionId": 14,
@@ -136,6 +138,8 @@ const data = await fetch(`${BASE}/api/code-community-growth/api/challenge/get-in
 | `noiAwardList` | `{ code, name }[]` | NOI / CSP 获奖情况选项，如 `{ "code": 1, "name": "CSP-J一等奖" }`，`code` 覆盖 `1`~`11`（含 `11`=未参加过CSP） |
 | `challengeTargetList` | `{ code, name }[]` | 挑战目标选项，如 `{ "code": 0, "name": "第一次尝试，无明确目标" }` |
 
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
+
 ```json
 {
   "noiAwardList": [
@@ -172,6 +176,12 @@ const data = await fetch(
 
 探针未带参数时返回 `errCode=-1`：`admissionId is required.`。未取到有效样本，`ChallengeUserHomeVO` 字段未验证。
 
+> 响应骨架（依据类型 `ChallengeUserHomeVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-growth/api/challenge/user/get-info?admissionId=14`,
@@ -192,6 +202,12 @@ const data = await fetch(
 | `admissionId` | number | 是 | 赛事 id |
 
 探针未带参数时返回 `errCode=-1`：`admissionId is required.`。未取到有效样本，字段未验证。
+
+> 响应骨架（依据类型 `UserBaseInfoDTO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(
@@ -216,6 +232,12 @@ const data = await fetch(
 
 **实测说明**：探针返回 `errCode=0`（`errMsg=操作成功`），但探针在序列化响应体时报错（`undefined is not an object`），**未取到可读内容**，故无法确认返回的字符串是什么；`location` 是否被后端强校验亦未确认。
 
+> 响应骨架（依据类型 `string` 推导，**未实测**；探针未取到可读内容）
+
+```json
+"…"
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-growth/api/challenge/user/get-teacher-info?location=1`,
@@ -230,6 +252,12 @@ const data = await fetch(
 `POST /api/code-community-growth/api/challenge/user/subscribe-alert` ✍️ 写操作未实测
 
 订阅挑战赛提醒。请求体类型 `UserSubscribeDTO`，**字段未从样例或类型文件确认**（`@core/types/auto/growth.ts` 未随仓库提供）。响应类型 `boolean`。
+
+> 响应骨架（依据类型 `boolean` 推导，**未实测**）
+
+```json
+false
+```
 
 ```js
 await fetch(`${BASE}/api/code-community-growth/api/challenge/user/subscribe-alert`, {
@@ -251,6 +279,12 @@ await fetch(`${BASE}/api/code-community-growth/api/challenge/user/subscribe-aler
 | --- | --- | --- | --- |
 | `openId` | string | 是 | 第三方 openId |
 
+> 响应骨架（依据源码签名，**未实测**；响应未声明泛型，`data` 无业务数据字段）
+
+```json
+null
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community-growth/api/challenge/user/set-openId?openId=xxx`,
@@ -265,6 +299,12 @@ await fetch(
 `POST /api/code-community-growth/api/challenge/user/submit-base-info` ✍️ 写操作未实测
 
 报名页提交学员信息。请求体类型 `UserBaseInfoDTO`（字段未验证）。响应类型 `number`。
+
+> 响应骨架（依据类型 `number` 推导，**未实测**）
+
+```json
+0
+```
 
 ```js
 const data = await fetch(
@@ -284,6 +324,12 @@ const data = await fetch(
 `POST /api/code-community-growth/gwpub/challenge/user/confirm-identity` ✍️ 写操作未实测
 
 身份确认弹窗中提交「在读选择」。请求体类型 `ConfirmIdentityDTO`（字段未验证）。响应未声明泛型。
+
+> 响应骨架（依据源码签名，**未实测**；响应未声明泛型，`data` 无业务数据字段）
+
+```json
+null
+```
 
 ```js
 await fetch(
@@ -310,6 +356,8 @@ await fetch(
 | --- | --- | --- |
 | `realGrade` | number | 年级编码（`3`=一年级 … `14`=高三等） |
 | `gradeName` | string | 年级名 |
+
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
 
 ```json
 [
@@ -345,6 +393,8 @@ const data = await fetch(`${BASE}/api/code-community-growth/api/common/get-grade
 | `areaType` | number | 层级：`1`=省级，`3`=市 / 区级 |
 | `parentId` | number | 父级 id（省级为 `0`） |
 | `children` | `RegionDTO[] \| null` | 下级地区，可能为 `null` |
+
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
 
 ```json
 [
@@ -382,6 +432,8 @@ const data = await fetch(`${BASE}/api/code-community-growth/api/common/get-regio
 | `studentType` | number | 学生类型（样本 `1`，取值枚举未验证） |
 | `hasAddedTeacher` | boolean | 是否已添加老师微信 |
 
+> 响应示例（依据 `re/api-probe.json` 实测内联样本，已脱敏）
+
 ```json
 { "studentType": 1, "hasAddedTeacher": false }
 ```
@@ -405,6 +457,12 @@ const data = await fetch(
 | --- | --- | --- | --- |
 | `testId` | number | 是 | 试卷 / 答题会话 id |
 
+> 响应骨架（依据类型 `ChallengeTestProblemVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/code-community-growth/api/challenge/start-test?testId=123`, {
   method: "POST",
@@ -423,6 +481,12 @@ await fetch(`${BASE}/api/code-community-growth/api/challenge/start-test?testId=1
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | `testId` | number | 是 | 试卷 / 答题会话 id（query） |
+
+> 响应骨架（依据类型 `ChallengeResultDto` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/code-community-growth/api/challenge/submit?testId=123`, {
@@ -443,6 +507,12 @@ await fetch(`${BASE}/api/code-community-growth/api/challenge/submit?testId=123`,
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | `testId` | number | 是 | 试卷 / 答题会话 id |
+
+> 响应骨架（依据类型 `ChallengeTestProblemVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/code-community-growth/api/challenge/next-problem?testId=123`, {
@@ -465,6 +535,12 @@ await fetch(`${BASE}/api/code-community-growth/api/challenge/next-problem?testId
 
 探针未带参数时返回 `errCode=-1`：`testId is required.`。
 
+> 响应骨架（依据类型 `number` 推导，**未实测**；单位：秒）
+
+```json
+0
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-growth/api/challenge/used-time?testId=123`,
@@ -483,6 +559,12 @@ const data = await fetch(
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | `testId` | number | 是 | 试卷 / 答题会话 id |
+
+> 响应骨架（依据源码签名，**未实测**；响应未声明泛型，`data` 无业务数据字段）
+
+```json
+null
+```
 
 ```js
 await fetch(
@@ -505,6 +587,12 @@ await fetch(
 
 探针未带参数时返回 `errCode=-1`：`testId is required.`。未取到有效样本，字段未验证。
 
+> 响应骨架（依据类型 `ChallengeSessionResultVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-growth/gwpub/challenge/session-result?testId=123`,
@@ -525,6 +613,12 @@ const data = await fetch(
 | `testId` | number | 是 | 试卷 / 答题会话 id |
 
 探针未带参数时返回 `errCode=-1`：`testId is required.`。未取到有效样本，字段未验证。
+
+> 响应骨架（依据类型 `ChallengeAnswerSummaryVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(
@@ -550,6 +644,12 @@ CSP 挑战赛的榜单及其点赞。**三个榜单接口实测被网关 403 拒
 | `admissionId` | number | 是 | 赛事 id |
 | `examGroup` | string | 否 | 考试组别（如 `CSP-J` / `CSP-S`） |
 
+> 响应骨架（依据类型 `LeaderboardVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 **实测被网关拒绝**（`re/api-probe.json`）：
 
 ```json
@@ -569,6 +669,12 @@ CSP 挑战赛的榜单及其点赞。**三个榜单接口实测被网关 403 拒
 | `admissionId` | number | 是 | 赛事 id |
 | `examGroup` | string | 否 | 考试组别 |
 
+> 响应骨架（依据类型 `LeaderboardVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 **实测被网关拒绝**：`403 Gateway Error:Access Denied`。
 
 ---
@@ -584,6 +690,12 @@ CSP 挑战赛的榜单及其点赞。**三个榜单接口实测被网关 403 拒
 | `admissionId` | number | 是 | 赛事 id |
 | `examGroup` | string | 否 | 考试组别 |
 
+> 响应骨架（依据类型 `LeaderboardVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 **实测被网关拒绝**：`403 Gateway Error:Access Denied`。未取到有效样本，`LeaderboardVO` 字段未验证。
 
 ---
@@ -593,6 +705,12 @@ CSP 挑战赛的榜单及其点赞。**三个榜单接口实测被网关 403 拒
 `POST /api/code-community-growth/gwpub/challenge/leaderboard/thumb-up` ✍️ 写操作未实测
 
 给榜单某一行点赞。请求体类型 `ThumbDTO`（字段未验证）。响应未声明泛型。
+
+> 响应骨架（依据源码签名，**未实测**；响应未声明泛型，`data` 无业务数据字段）
+
+```json
+null
+```
 
 ```js
 await fetch(
@@ -612,6 +730,12 @@ await fetch(
 `POST /api/code-community-growth/gwpub/challenge/leaderboard/cancel-thumb-up` ✍️ 写操作未实测
 
 取消榜单点赞。请求体类型 `ThumbDTO`（字段未验证）。响应未声明泛型。
+
+> 响应骨架（依据源码签名，**未实测**；响应未声明泛型，`data` 无业务数据字段）
+
+```json
+null
+```
 
 ```js
 await fetch(
@@ -637,6 +761,12 @@ await fetch(
 | `testId` | number | 是 | 试卷 / 答题会话 id |
 | `rankType` | number | 否 | 榜单类型（取值未验证） |
 
+> 响应骨架（依据源码签名，**未实测**；响应未声明泛型，`data` 无业务数据字段）
+
+```json
+null
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community-growth/api/challenge/user-thumb?testId=123&rankType=1`,
@@ -656,6 +786,12 @@ await fetch(
 | --- | --- | --- | --- |
 | `testId` | number | 是 | 试卷 / 答题会话 id |
 | `rankType` | number | 否 | 榜单类型（取值未验证） |
+
+> 响应骨架（依据源码签名，**未实测**；响应未声明泛型，`data` 无业务数据字段）
+
+```json
+null
+```
 
 ```js
 await fetch(
@@ -684,6 +820,12 @@ await fetch(
 
 探针未带参数时返回 `errCode=-1`：`receiveId is required.`。未取到有效样本，`TestInfoVo` 字段未验证。
 
+> 响应骨架（依据类型 `TestInfoVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-growth/api/exam/test-info?receiveId=1`,
@@ -706,6 +848,12 @@ const data = await fetch(
 
 探针未带参数时返回 `errCode=-1`：`receiveId is required.`（`problemId` 是否必填未逐一验证）。未取到有效样本，字段未验证。
 
+> 响应骨架（依据类型 `CommonResultProblemDetailVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-growth/api/exam/problem-detail?receiveId=1&problemId=22169438826624`,
@@ -724,6 +872,12 @@ const data = await fetch(
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | `testId` | number | 是 | 试卷 id |
+
+> 响应骨架（依据源码签名，**未实测**；响应未声明泛型，`data` 无业务数据字段）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/code-community-growth/api/exam/create-test?testId=123`, {
@@ -744,6 +898,12 @@ await fetch(`${BASE}/api/code-community-growth/api/exam/create-test?testId=123`,
 | --- | --- | --- | --- |
 | `testId` | number | 是 | 试卷 id（query） |
 
+> 响应骨架（依据源码签名，**未实测**；响应未声明泛型，`data` 无业务数据字段）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/code-community-growth/api/exam/submit?testId=123`, {
   method: "POST",
@@ -759,6 +919,12 @@ await fetch(`${BASE}/api/code-community-growth/api/exam/submit?testId=123`, {
 `POST /api/code-community-growth/api/submitRecord/submit-problem-judge` ✍️ 写操作未实测
 
 考试内的题目提交判题。请求体类型 `SubmitJudgeDTO`（字段未验证）。响应未声明泛型。
+
+> 响应骨架（依据源码签名，**未实测**；响应未声明泛型，`data` 无业务数据字段）
+
+```json
+null
+```
 
 ```js
 await fetch(
@@ -785,6 +951,12 @@ await fetch(
 
 探针未带参数时返回 `errCode=-1`：`testJudgeKey is required.`。未取到有效样本，`TestJudgeVO` 字段未验证（`re/samples/test-judge-result.json` 属于题库那套接口，不适用于本接口）。
 
+> 响应骨架（依据类型 `TestJudgeVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-growth/api/submitRecord/get-test-judge-result?testJudgeKey=1`,
@@ -799,6 +971,12 @@ const data = await fetch(
 `POST /api/code-community-growth/api/submitRecord/submit-problem-test-judge` ✍️ 写操作未实测
 
 考试内的自测运行提交。请求体类型 `TestJudgeDTO`（字段未验证）。响应类型 `string`。
+
+> 响应骨架（依据类型 `string` 推导，**未实测**）
+
+```json
+"…"
+```
 
 ```js
 const data = await fetch(
@@ -825,6 +1003,12 @@ const data = await fetch(
 
 **未实测**：探针将其判为「疑似写操作（GET）」而跳过探测（实际为只读查询），路由与响应字段均未验证。
 
+> 响应骨架（依据类型 `JudgeDetailVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-growth/api/submitRecord/submit-record-detail?submitId=1`,
@@ -846,6 +1030,12 @@ const data = await fetch(
 
 探针未带参数时返回 `errCode=-1`：`problemId is required.`。未取到有效样本，`ObjectiveIndexVo` 字段未验证。
 
+> 响应骨架（依据类型 `ObjectiveIndexVo[]` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-growth/api/exam/objective-problem?problemId=22169438826624`,
@@ -864,6 +1054,12 @@ const data = await fetch(
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | `testId` | number | 是 | 试卷 id |
+
+> 响应骨架（依据源码签名，**未实测**；响应未声明泛型，`data` 无业务数据字段）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/code-community-growth/api/exam/switch-test?testId=123`, {
@@ -886,6 +1082,12 @@ await fetch(`${BASE}/api/code-community-growth/api/exam/switch-test?testId=123`,
 
 **未实测**：探针将其判为「疑似写操作（GET）」而跳过探测（实际为只读查询），路由与响应字段均未验证。
 
+> 响应骨架（依据类型 `PageJudgeListVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-growth/api/submitRecord/submit-record-list?testId=123`,
@@ -906,6 +1108,12 @@ const data = await fetch(
 | `testId` | number | 是 | 试卷 id |
 
 探针未带参数时返回 `errCode=-1`：`testId is required.`。
+
+> 响应骨架（依据类型 `number` 推导，**未实测**）
+
+```json
+0
+```
 
 ```js
 const data = await fetch(
@@ -928,6 +1136,12 @@ CSP 模拟排名的三个接口（对应前端 `api/activity/csp.ts`）。服务
 
 响应类型 `Record<string, any>`。
 
+> 响应骨架（依据类型 `Record<string, any>` 推导，**未实测**；字段未定义，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/htoj-biz-gateway/api/csp/get-mock-rank-info`,
@@ -943,6 +1157,20 @@ const data = await fetch(
 
 响应类型 `Pagination<Record<string, any>>`（分页结构见 [index.md](./index.md)）。
 
+> 响应骨架（依据类型 `Pagination<Record<string, any>>` 推导，**未实测**；`records` 元素类型为 `Record<string, any>`，结构未定义）
+
+```json
+{
+  "records": [{}],
+  "total": 0,
+  "size": 20,
+  "current": 1,
+  "pages": 0,
+  "orders": [],
+  "searchCount": true
+}
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/htoj-biz-gateway/api/csp/get-mock-rank-list?currentPage=1&limit=20`,
@@ -957,6 +1185,12 @@ const data = await fetch(
 `GET /api/htoj-biz-gateway/api/csp/get-mock-show-rank` ❔ 未实测
 
 响应类型 `number`（推测为是否展示排名的开关值，未验证）。
+
+> 响应骨架（依据类型 `number` 推导，**未实测**）
+
+```json
+0
+```
 
 ```js
 const data = await fetch(

@@ -80,6 +80,43 @@ const post = (path, body) =>
 
 > 前端 `src/api/types.ts` 把 `status` 声明为 `number`，但真实响应里是对象；以样例结构为准。
 
+> 响应示例（依据实测抓包 `re/samples/training-list.json`，已脱敏；`status` 为对象，与旧文档写的 `number` 冲突，以实测为准）
+
+```json
+{
+  "records": [
+    {
+      "id": 22835247096576,
+      "trainingNo": "01464",
+      "title": "往年CSP-S初赛题单",
+      "subtitle": null,
+      "description": null,
+      "author": null,
+      "ownerVo": null,
+      "auth": null,
+      "problemCount": 7,
+      "acCount": null,
+      "completeCount": null,
+      "totalCount": 3848,
+      "gmtModified": null,
+      "nextPid": null,
+      "zone": null,
+      "languages": null,
+      "status": { "id": 2, "name": "未参加", "shortName": null, "chineseName": null },
+      "isAttend": null,
+      "imMark": null,
+      "productLineIds": null
+    }
+  ],
+  "total": 25,
+  "size": 3,
+  "current": 1,
+  "orders": [],
+  "searchCount": true,
+  "pages": 9
+}
+```
+
 ```js
 const res = await get("/api/code-community/api/get-training-list", { currentPage: 1, limit: 20 });
 console.log(res.data.records.map((t) => ({ tid: t.id, title: t.title, isAttend: t.isAttend })));
@@ -101,6 +138,40 @@ console.log(res.data.records.map((t) => ({ tid: t.id, title: t.title, isAttend: 
 响应：`TrainingInfoVO`，字段见上一节 record（实测详见 `re/samples/training-detail.json` 与 `training-detail-gid.json`）。成功样例中 `isAttend` 分别为 `false`（普通题单）与 `true`（已参与，`gid` 变体），`status` 为 `null`。
 
 > 缺 `tid` 时返回 `errCode=400，errMsg=The required request parameters are missing：...'tid'...`；带无效 `tid` 的行为未验证。
+
+> 响应示例（依据实测抓包 `re/samples/training-detail.json`，已脱敏；`description` 已截断）
+
+```json
+{
+  "id": 22338793157760,
+  "trainingNo": "00240",
+  "title": "顺序结构",
+  "subtitle": "顺序结构",
+  "description": "…",
+  "author": "3adc3226deec9ef53503785de1cdead7",
+  "ownerVo": {
+    "uid": "3adc3226deec9ef53503785de1cdead7",
+    "nickname": "用户24debb",
+    "avatar": "https://example.invalid/910af96b61ab.jpg",
+    "ccfLevel": null,
+    "authenticationIcon": null,
+    "userId": null
+  },
+  "auth": 2,
+  "problemCount": 45,
+  "acCount": 0,
+  "completeCount": 0,
+  "totalCount": 62755,
+  "gmtModified": 1767604358000,
+  "nextPid": 22069046619264,
+  "zone": "cpp",
+  "languages": null,
+  "status": null,
+  "isAttend": false,
+  "imMark": 0,
+  "productLineIds": []
+}
+```
 
 ```js
 const res = await get("/api/code-community/api/get-training-detail", { tid: 22338793157760 });
@@ -137,6 +208,46 @@ console.log(res.data.title, res.data.isAttend);
 
 > **前置条件**：题单必须已参与，否则返回 `errCode=400，errMsg=请先点击开始练习！`，需先调 `register-training`。页面中当前题单未参与时，插件会替换成「开始练习」入口而非直接报错。
 
+> 响应示例（依据实测抓包 `re/samples/training-problem-list.json`，已脱敏；数组仅留 1 章 1 题，`trainingChapterVO` 实测字段为 `name`）
+
+```json
+{
+  "records": [
+    {
+      "trainingChapterVO": {
+        "id": 1468,
+        "tid": 22302141951872,
+        "name": "和式",
+        "sort": null
+      },
+      "problemVOList": [
+        {
+          "pid": 22069047049600,
+          "problemId": "LGP8772",
+          "title": "【必做题】[蓝桥杯 2022 省 A] 求和",
+          "difficulty": { "id": 2, "name": "普及-", "color": "#FF8000" },
+          "owner": null,
+          "type": 1,
+          "tags": [{ "id": 69267, "name": "前缀和" }],
+          "acStatus": { "id": 4, "name": "已通过", "shortName": null, "chineseName": null },
+          "total": 2661,
+          "ac": 1506,
+          "rn": 1
+        }
+      ],
+      "nextPid": 22355190302720,
+      "isAttend": true
+    }
+  ],
+  "total": 24,
+  "size": 5,
+  "current": 1,
+  "orders": [],
+  "searchCount": true,
+  "pages": 5
+}
+```
+
 ```js
 const res = await get("/api/code-community/api/get-training-problem-list", {
   tid: 22302141951872, currentPage: 1, limit: 200,
@@ -162,6 +273,12 @@ for (const chapter of res.data.records) {
 
 响应：前端声明为 `QueryPageVO`，**具体字段未验证**。
 
+> 响应示例（依据实测抓包 `re/samples/training-chapter-page.json`，已脱敏；该样例为错误响应 `errCode=400，errMsg=该章节不存在！`，`data` 为 `null`；成功时的 `data` 结构未知，前端声明的 `QueryPageVO` 不在仓库类型内）
+
+```json
+null
+```
+
 ```js
 const res = await get("/api/code-community/gwpub/api/get-training-chapter-page", {
   tid: 22302141951872, tcid: 1468,
@@ -184,6 +301,12 @@ console.log(res); // 章节无效时：{ errCode: 400, data: null, errMsg: "该�
 
 响应：前端声明为 `number`（推测为下一题的 pid），**未验证**。
 
+> 响应示例（字段依据类型，未实测；`data` 为 `number`，此处用占位 `0`）
+
+```json
+0
+```
+
 ```js
 const res = await get("/api/code-community/gwpub/api/user-next-problem", {
   tid: 22302141951872, gid: 22169370776704,
@@ -204,6 +327,12 @@ console.log(res);
 | `tid` | number | 是 | 要参与的题单 id（放在 JSON body 里） |
 
 请求体为 `{ "tid": <number> }`。前端未声明返回类型；成功以 `errCode === 0` 判断。参与成功后可重新调用 `get-training-problem-list`，其 `isAttend` 会变为 `true`。
+
+> 响应示例（前端未声明返回类型，结构未知；写操作未实测）
+
+```json
+null
+```
 
 ```js
 const res = await post("/api/code-community/api/register-training", { tid: 22338793157760 });

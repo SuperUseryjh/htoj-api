@@ -85,36 +85,32 @@ const HEADERS = {
 
 ```json
 {
-  "errCode": 0,
-  "data": {
-    "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
-    "userId": 8871358,
-    "countryCode": "86",
-    "countryShort": "CN",
-    "phoneNumber": "13800000000",
-    "setPassword": true,
-    "username": "用户a03e16",
-    "signature": "（签名已脱敏）",
-    "nickname": "用户8d31e4",
-    "avatar": "https://example.invalid/ffe25f2d948f.jpg",
-    "isAdmin": false,
-    "token": null,
-    "accountId": null,
-    "hasAccount": false,
-    "myGroup": [
-      { "gid": 22156385706112, "name": "课程配套题库", "description": "...", "zone": "cpp", "uid": "3adc3226deec9ef53503785de1cdead7", "isOwner": false, "roles": null, "permissions": null }
-    ],
-    "myZone": [],
-    "permissions": [],
-    "language": 7,
-    "province": "某省",
-    "city": "某市",
-    "ccfLevel": 0,
-    "windowFlag": true,
-    "posterPermission": 0,
-    "replyPermission": 0
-  },
-  "errMsg": "success"
+  "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+  "userId": 8871358,
+  "countryCode": "86",
+  "countryShort": "CN",
+  "phoneNumber": "13800000000",
+  "setPassword": true,
+  "username": "用户a03e16",
+  "signature": "（签名已脱敏）",
+  "nickname": "用户8d31e4",
+  "avatar": "https://example.invalid/ffe25f2d948f.jpg",
+  "isAdmin": false,
+  "token": null,
+  "accountId": null,
+  "hasAccount": false,
+  "myGroup": [
+    { "gid": 22156385706112, "name": "课程配套题库", "description": "...", "zone": "cpp", "uid": "3adc3226deec9ef53503785de1cdead7", "isOwner": false, "roles": null, "permissions": null }
+  ],
+  "myZone": [],
+  "permissions": [],
+  "language": 7,
+  "province": "某省",
+  "city": "某市",
+  "ccfLevel": 0,
+  "windowFlag": true,
+  "posterPermission": 0,
+  "replyPermission": 0
 }
 ```
 
@@ -136,6 +132,12 @@ const data = await fetch(
 `POST /api/htoj-biz-gateway/api/fill-user-info` ✍️ 未实测，依据源码签名
 
 新用户登录后补齐资料。请求体类型为 `UpdateUserRequestVO`（未抽出，字段未验证），响应 `data` 为 `UserVO`（与 `UserInfo` 同族）。**写操作，未实测**。
+
+> 响应骨架（依据类型 `UserVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/htoj-biz-gateway/api/fill-user-info`, {
@@ -160,6 +162,12 @@ await fetch(`${BASE}/api/htoj-biz-gateway/api/fill-user-info`, {
 
 > 前端会先用 `sendVerifyCode`（见 [auth.md](./auth.md#发送短信验证码)）下发验证码再调用本接口；`phoneNumber` 与登录接口一样是混淆后的值，不是明文。
 
+> 响应骨架（依据类型 `UserVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/htoj-biz-gateway/api/bind-user-phone`, {
   method: "POST",
@@ -181,6 +189,12 @@ await fetch(`${BASE}/api/htoj-biz-gateway/api/bind-user-phone`, {
 
 > **未实测，依据源码签名**：路径由源码常量 `GATEWAY_PREFIX_COMMON`（即 `/api/htoj-biz-gateway`）拼接得到，探针未解析出该变量，未取得实测结果。
 
+> 响应骨架（依据类型 `boolean` 推导，**未实测**）
+
+```json
+false
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/htoj-biz-gateway/api/common/get-ys-in-class`,
@@ -198,24 +212,20 @@ const data = await fetch(
 
 ```json
 {
-  "errCode": 0,
-  "data": {
-    "uid": null,
-    "username": "",
-    "school": "某某中学",
-    "signature": "（签名已脱敏）",
-    "nickname": "用户8d31e4",
-    "realGrade": 12,
-    "gender": "girl",
-    "qq": "100000000",
-    "avatar": "https://example.invalid/ffe25f2d948f.jpg",
-    "phoneNumber": null,
-    "userId": 8871358,
-    "province": "某省",
-    "city": "某市",
-    "schoolId": 9256331
-  },
-  "errMsg": "success"
+  "uid": null,
+  "username": "",
+  "school": "某某中学",
+  "signature": "（签名已脱敏）",
+  "nickname": "用户8d31e4",
+  "realGrade": 12,
+  "gender": "girl",
+  "qq": "100000000",
+  "avatar": "https://example.invalid/ffe25f2d948f.jpg",
+  "phoneNumber": null,
+  "userId": 8871358,
+  "province": "某省",
+  "city": "某市",
+  "schoolId": 9256331
 }
 ```
 
@@ -245,6 +255,12 @@ const data = await fetch(`${BASE}/api/code-community/api/get-personal-info`, {
 | `schoolId` | number | 否 | 学校 id |
 | `realGrade` | number | 否 | 真实年级 |
 
+> 响应骨架（**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/personal-info-set`, {
   method: "POST",
@@ -265,6 +281,12 @@ await fetch(`${BASE}/api/code-community/api/personal-info-set`, {
 
 > 前端只提交 `{ language }`；`PreferenceInfo` 是否还有其它字段未确认。
 
+> 响应骨架（**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/preference-info-set`, {
   method: "POST",
@@ -279,6 +301,12 @@ await fetch(`${BASE}/api/code-community/api/preference-info-set`, {
 
 只更新头像。请求体仅一个字段 `avatar`（string，头像 URL，通常先经上传接口得到）。**写操作，未实测**，响应未验证。
 
+> 响应骨架（**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/gwpub/api/update-avatar`, {
   method: "POST",
@@ -292,6 +320,12 @@ await fetch(`${BASE}/api/code-community/gwpub/api/update-avatar`, {
 `POST /api/code-community/api/set-user-default` ✍️ 未实测，依据源码签名
 
 新用户跳过资料填写时，一键重置为默认昵称 / 头像。无参数。**写操作，未实测**，响应未验证。
+
+> 响应骨架（**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/code-community/api/set-user-default`, {
@@ -312,6 +346,12 @@ await fetch(`${BASE}/api/code-community/api/set-user-default`, {
 | `nickname` | string | 是 | 昵称（前端限制 ≤20 字符、需过敏感词校验） |
 | `uid` | string | 是 | 当前用户 uid（前端从 `UserInfo.uid` 取） |
 
+> 响应骨架（**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/set-user-nickname`, {
   method: "POST",
@@ -325,6 +365,12 @@ await fetch(`${BASE}/api/code-community/api/set-user-nickname`, {
 `POST /api/code-community/api/generate-user-info` ✍️ 未实测，依据源码签名
 
 生成一套随机的昵称 / 头像供新用户挑选。无参数，响应 `data` 为 `UserInfoGenerateVO`：前端只取用 `nickname`、`avatar` 两个字段。**写操作，未实测**，其余字段未验证。
+
+> 响应骨架（依据类型 `UserInfoGenerateVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const { data } = await fetch(`${BASE}/api/code-community/api/generate-user-info`, {
@@ -352,6 +398,12 @@ const { data } = await fetch(`${BASE}/api/code-community/api/generate-user-info`
 | 2 | 在学 CSP-J | 基础语法熟练 |
 | 3 | 在学 CSP-S | 算法入门 |
 | 4 | CSP-S 以上 | 算法熟练 |
+
+> 响应骨架（**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/code-community/api/gather-code-level`, {
@@ -383,13 +435,9 @@ await fetch(`${BASE}/api/code-community/api/gather-code-level`, {
 
 ```json
 {
-  "errCode": 0,
-  "data": {
-    "problem": { "pid": 22243802306048, "problemId": "LGP11576", "title": "[CCC 2020] Dog Treats", "tid": 22302141951872, "gid": 22169370776704, "isAc": true },
-    "training": { "tid": 22302141951872, "title": "A5课程配套训练", "gid": 22169370776704, "problemCount": 99, "acCount": 54 },
-    "contest": { "cid": 22921376372096, "title": "【HT-131-MLS】核桃国庆马拉松 & XRCOI Round 11", "startTime": 1790744400000, "endTime": 1791280800000, "gid": null }
-  },
-  "errMsg": "success"
+  "problem": { "pid": 22243802306048, "problemId": "LGP11576", "title": "[CCC 2020] Dog Treats", "tid": 22302141951872, "gid": 22169370776704, "isAc": true },
+  "training": { "tid": 22302141951872, "title": "A5课程配套训练", "gid": 22169370776704, "problemCount": 99, "acCount": 54 },
+  "contest": { "cid": 22921376372096, "title": "【HT-131-MLS】核桃国庆马拉松 & XRCOI Round 11", "startTime": 1790744400000, "endTime": 1791280800000, "gid": null }
 }
 ```
 
@@ -410,7 +458,7 @@ const data = await fetch(`${BASE}/api/code-community/api/my/lastIncomplete`, {
 响应 `data` 为 `ContestCountdownDTO[]`。实测样例返回**空数组** `[]`：
 
 ```json
-{ "errCode": 0, "data": [], "errMsg": "success" }
+[]
 ```
 
 > 未取到非空样本，`ContestCountdownDTO` 具体字段未验证。
@@ -430,6 +478,12 @@ const data = await fetch(
 
 > 探针在无参数下返回 **HTTP 404**（非标准 `errCode` 信封），verdict 记为「路由存在（业务错误）」。既非 `errCode=0` 的成功响应，也没有明确的参数缺失提示，**未能确认可用性，响应字段未验证**。
 
+> 响应骨架（依据类型 `HundredProblemList[]` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(`${BASE}/api/htoj-biz-gateway/api/get-hundred-problem`, {
   headers: HEADERS,
@@ -443,6 +497,12 @@ const data = await fetch(`${BASE}/api/htoj-biz-gateway/api/get-hundred-problem`,
 返回「码力进阶」页顶部 tab 数组。无参数。对应前端 `getMaliJiejinSummary`，响应 `data` 为 `HundredProblemVo[]`。
 
 > **未实测，依据源码签名**：路径由源码常量 `GATEWAY_PREFIX_COMMON`（`/api/htoj-biz-gateway`）拼接得到，探针未解析出该变量；响应字段未验证。
+
+> 响应骨架（依据类型 `HundredProblemVo[]` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(
@@ -462,6 +522,12 @@ const data = await fetch(
 | `index` | number | 否 | tab 序号（前端按当前选中 tab 传入） |
 
 > **未实测，依据源码签名**：路径由源码常量拼接得到，探针未解析；响应字段未验证。
+
+> 响应骨架（依据类型 `HundredProblemList` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(
@@ -483,6 +549,12 @@ const data = await fetch(
 
 > **这是带副作用的 GET 写操作**（领取奖品），未在真实账号上实测领取结果。探针补参数时缺 `missionId`，返回 `errCode=400 The required request parameters are missing：Required request parameter 'missionId' for method parameter type Long is not present`，可见 `missionId` 为必填 `Long`；`GoodsVO` 字段未验证。
 
+> 响应骨架（依据类型 `GoodsVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 const data = await fetch(
   `${BASE}/api/code-community-actuator/api/user/mission/get-goods?goodsId=1&missionId=1`,
@@ -497,7 +569,7 @@ const data = await fetch(
 返回后端配置的新手引导题目 id。无参数。对应前端 `getUserGuideProblem`，响应 `data` 为数字 pid。
 
 ```json
-{ "errCode": 0, "data": 22169438826624, "errMsg": "success" }
+22169438826624
 ```
 
 ```js
@@ -580,6 +652,12 @@ const data = await fetch(
 
 > 前端在点击消息时调用，且**仅当 `isRead` 为 `false`** 时才发请求。
 
+> 响应骨架（依据类型 `number` 推导，**未实测**）
+
+```json
+0
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community-forum/gwpub/user/message/read?messageId=641534`,
@@ -592,6 +670,12 @@ await fetch(
 `POST /api/code-community-forum/gwpub/user/message/readAll` ✍️ 未实测，依据源码签名
 
 把全部未读消息置为已读，无参数，响应 `data` 为数字。**写操作，未实测**。
+
+> 响应骨架（依据类型 `number` 推导，**未实测**）
+
+```json
+0
+```
 
 ```js
 await fetch(
@@ -609,7 +693,7 @@ await fetch(
 响应 `data`（类型 `UnreadCountVo`）实测字段：`total`（总数）、`likeCount`、`commentCount`、`noticeCount`。
 
 ```json
-{ "errCode": 0, "data": { "total": 0, "likeCount": 0, "commentCount": 0, "noticeCount": 0 }, "errMsg": "success" }
+{ "total": 0, "likeCount": 0, "commentCount": 0, "noticeCount": 0 }
 ```
 
 ```js
@@ -654,6 +738,12 @@ const data = await fetch(
 
 响应 `data` 为 `MsgSendResponseVO`，前端只判断 `SendResult.sensitive`：为真表示命中敏感词、发送失败且不允许重发。
 
+> 响应骨架（依据类型 `MsgSendResponseVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 // 文本消息走 sensitive 路径
 await fetch(`${IM_BASE}/im-business/v1/sensitive/msgSend`, {
@@ -678,6 +768,12 @@ await fetch(`${IM_BASE}/im-business/v1/sensitive/msgSend`, {
 
 响应 `data` 为 `MsgReadStatusResponseVO`（字段未验证）。
 
+> 响应骨架（依据类型 `MsgReadStatusResponseVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(`${IM_BASE}/im-business/v1/msgReadStatus`, {
   method: "POST",
@@ -700,6 +796,12 @@ await fetch(`${IM_BASE}/im-business/v1/msgReadStatus`, {
 
 响应 `data` 为 `BusiOnlineStatusResponseVO`：`statusInfo[]`，每项含 `user` 与 `imStatus.status`（`1` 表示在线）。
 
+> 响应骨架（依据类型 `BusiOnlineStatusResponseVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(`${IM_BASE}/im-business/v1/getBusiOnlineStatus`, {
   method: "POST",
@@ -719,6 +821,12 @@ await fetch(`${IM_BASE}/im-business/v1/getBusiOnlineStatus`, {
 | `user` | string | 是 | 当前用户（带前缀 id） |
 
 > 探针未带 `user` 时返回 **HTTP 400** 且响应体为纯文本 `Parse query param: user failed.`（非 JSON），可见 `user` 为必填 query。补上正确 id 后即可拿到 `userCounts`，`UnreadMsgCountsResponseVO` 其余字段未验证。
+
+> 响应骨架（依据类型 `UnreadMsgCountsResponseVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(
@@ -743,6 +851,12 @@ const data = await fetch(
 
 响应 `data` 为 `MsgHistoryResponseVO`：`hasNext`（是否还有下一页）、`msgList`（`MsgVO[]`，字段同「发送私信」的请求体，另含 `readStatus` 等）。
 
+> 响应骨架（依据类型 `MsgHistoryResponseVO` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
 ```js
 await fetch(`${IM_BASE}/im-business/v1/msgHistory`, {
   method: "POST",
@@ -760,7 +874,7 @@ await fetch(`${IM_BASE}/im-business/v1/msgHistory`, {
 响应 `data` 为 `{ url: string }`：
 
 ```json
-{ "errCode": 0, "data": { "url": "https://..." }, "errMsg": "success" }
+{ "url": "https://..." }
 ```
 
 ```js
@@ -780,6 +894,12 @@ const data = await fetch(`${BASE}/api/code-community-forum/api/upload/upload-im-
 `POST /api/code-community/api/im-business/get-code-summary` ✍️ 未实测，依据源码签名
 
 把一段代码在私信中生成分享卡片（标题 / 链接等），走 `code-community` 网关。请求体 `{ code: string, pid: number }`，响应 `data` 为 `CodeVo`（字段未验证）。**写操作，未实测**。
+
+> 响应骨架（依据类型 `CodeVo` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/code-community/api/im-business/get-code-summary`, {
@@ -801,6 +921,12 @@ await fetch(`${BASE}/api/code-community/api/im-business/get-code-summary`, {
 | `tid` | string | 是 | 题单 id |
 
 > **未实测，依据源码签名**：路径由源码常量 `GATEWAY_PREFIX_COMMON`（`/api/htoj-biz-gateway`）拼接得到，探针未解析出该变量；`IMTeacherResp` 字段未验证。
+
+> 响应骨架（依据类型 `IMTeacherResp` 推导，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
 
 ```js
 const data = await fetch(

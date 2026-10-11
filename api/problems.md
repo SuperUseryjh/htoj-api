@@ -40,6 +40,37 @@ const headers = {
 
 > `pid` 与 `problemId` 不可混用：提交、详情接口都用内部的 `pid`。
 
+> 响应示例（依据实测抓包 `re/samples/problem-list.json`，已脱敏）
+
+```json
+{
+  "records": [
+    {
+      "pid": 22169438826624,
+      "problemId": "P1000",
+      "title": "新手引导-OJ题",
+      "difficulty": { "id": 1, "name": "入门", "color": "#FF5100" },
+      "owner": null,
+      "type": 1,
+      "tags": [
+        { "id": 557, "name": "模拟" },
+        { "id": 618, "name": "顺序结构" }
+      ],
+      "acStatus": { "id": 3, "name": "未通过", "shortName": null, "chineseName": null },
+      "total": 184718,
+      "ac": 173021,
+      "rn": null
+    }
+  ],
+  "total": 38665,
+  "size": 3,
+  "current": 1,
+  "orders": [],
+  "searchCount": true,
+  "pages": 12889
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/api/get-problem-list?currentPage=1&limit=20&keyword=P1000&wid=1&difficulties=1,2`,
@@ -68,6 +99,63 @@ await fetch(
 
 > 实测样本里 `records` 有 3 条但 `total=0`、`pages=0`，分页元数据不完全可信，不要用它做终止判断。
 
+> 响应示例（依据实测抓包 `re/samples/submission-list.json`，已脱敏；数组仅列 2 条）
+
+```json
+{
+  "records": [
+    {
+      "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+      "submitId": 51204677,
+      "username": "用户8d31e4",
+      "pid": 22243802306048,
+      "displayPid": "LGP11576",
+      "title": "[CCC 2020] Dog Treats",
+      "displayId": null,
+      "submitTime": 1789289786535,
+      "status": { "id": 0, "name": "Accepted", "shortName": null, "chineseName": null },
+      "isMine": null,
+      "time": 4,
+      "memory": 812,
+      "length": null,
+      "language": "C++17 With O2",
+      "score": 100,
+      "cid": 0,
+      "tid": 22302141951872,
+      "gid": 22169370776704,
+      "source": 1
+    },
+    {
+      "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+      "submitId": 51196180,
+      "username": "用户8d31e4",
+      "pid": 22069044965120,
+      "displayPid": "LGP3373",
+      "title": "【必做题】【模板】线段树 2",
+      "displayId": null,
+      "submitTime": 1789287332715,
+      "status": { "id": 0, "name": "Accepted", "shortName": null, "chineseName": null },
+      "isMine": null,
+      "time": 276,
+      "memory": 11076,
+      "length": null,
+      "language": "C++17 With O2",
+      "score": 100,
+      "cid": 0,
+      "tid": 22302141951872,
+      "gid": 22169370776704,
+      "source": 1
+    }
+  ],
+  "total": 0,
+  "size": 3,
+  "current": 1,
+  "orders": [],
+  "searchCount": true,
+  "pages": 0
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/api/get-submission-list?currentPage=1&limit=20&language=C%2B%2B17%20With%20O2`,
@@ -94,6 +182,63 @@ await fetch(
 > 两个已知坑：
 > 1. **`limit` 上限为 20**，超出直接报错。
 > 2. **不要带 `gid`**。比赛题提交记录里的 `gid` 常为 `0`，按链接里的 `gid` 过滤会一条都查不到——实测 `pid+cid` 有记录，加上 `gid` 后 `total` 直接变 0。
+
+> 响应示例（依据实测抓包 `re/samples/my-submission-list.json`，已脱敏）
+
+```json
+{
+  "records": [
+    {
+      "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+      "submitId": 51980181,
+      "username": "用户8d31e4",
+      "pid": 22169438826624,
+      "displayPid": "P1000",
+      "title": "新手引导-OJ题",
+      "displayId": null,
+      "submitTime": 1790854350847,
+      "status": { "id": 0, "name": "Accepted", "shortName": null, "chineseName": null },
+      "isMine": null,
+      "time": 0,
+      "memory": 3392,
+      "length": null,
+      "language": "C++17 With O2",
+      "score": 100,
+      "cid": 0,
+      "tid": 0,
+      "gid": 0,
+      "source": 1
+    },
+    {
+      "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+      "submitId": 45224983,
+      "username": "用户8d31e4",
+      "pid": 22169438826624,
+      "displayPid": "P1000",
+      "title": "新手引导-OJ题",
+      "displayId": null,
+      "submitTime": 1783416941739,
+      "status": { "id": 4, "name": "Wrong Answer", "shortName": null, "chineseName": null },
+      "isMine": null,
+      "time": 0,
+      "memory": 3312,
+      "length": null,
+      "language": "C++14 With O2",
+      "score": 0,
+      "cid": 0,
+      "tid": 0,
+      "gid": 0,
+      "source": 1
+    }
+  ],
+  "total": 2,
+  "size": 2,
+  "current": 1,
+  "orders": [],
+  "searchCount": true,
+  "pages": 1
+}
+```
 
 ```js
 await fetch(
@@ -129,8 +274,10 @@ await fetch(
 
 响应 `data` 为提交 id：
 
+> 响应示例（依据文档既有示例，`data` 为数字 `submitId`，**未实测**）
+
 ```json
-{ "errCode": 0, "data": 51980181, "errMsg": "success" }
+51980181
 ```
 
 ```js
@@ -167,8 +314,10 @@ const submitId = res.data;
 
 响应：
 
+> 响应示例（依据实测抓包 `re/samples/test-judge-submit.json`，已脱敏；`data` 为字符串）
+
 ```json
-{ "errCode": 0, "data": "TEST_JUDGE_eb87408112534d2ca912a04fd378910b", "errMsg": "success" }
+"TEST_JUDGE_2d531063feaa6b6e2f3b522d5181c3a9"
 ```
 
 ```js
@@ -198,6 +347,23 @@ const testJudgeKey = res.data;
 
 响应 `data` 实测字段：`status`（`{id,name,shortName,chineseName}`，如 `id=0,name=Success,chineseName=运行通过`）、`resultCode`、`time`、`memory`、`userInput`、`userOutput`、`userOutputFile`、`expectedOutput`、`stderr`、`problemJudgeMode`。
 
+> 响应示例（依据实测抓包 `re/samples/test-judge-result.json`，已脱敏；`userOutputFile` 路径已截断）
+
+```json
+{
+  "status": { "id": 0, "name": "Success", "shortName": null, "chineseName": "运行通过" },
+  "resultCode": 1,
+  "time": 0,
+  "memory": 3392,
+  "userInput": "5",
+  "userOutput": "5",
+  "userOutputFile": "…",
+  "expectedOutput": null,
+  "stderr": "",
+  "problemJudgeMode": null
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/api/get-test-judge-result?testJudgeKey=TEST_JUDGE_eb87408112534d2ca912a04fd378910b`,
@@ -217,6 +383,12 @@ await fetch(
 | `pid` | number | 是 | 题目内部 id |
 
 响应字段未验证（无样本，返回类型为 `FileUrlVO`，推测含文件 URL 字段）。
+
+> 响应骨架（依据类型 `FileUrlVO` 推导，字段未确认，**未实测**）
+
+```json
+{}
+```
 
 ```js
 await fetch(
@@ -243,6 +415,63 @@ await fetch(
 - 客观题（`type=5`）的逐题作答结果在 `answers[]`：`{ id（小题号，可能是 "1" 或区间 "1-3"）, myAnswer, answer, status（-1 未作答 / 1 正确 / 2 错误 / 3 已作答）, score, myScore }`。
 - `resultCode`：`0`=评测中（继续轮询），非 0（`1` 成功 / `2` 失败 / `3` 不展示 / `4` 纯代码）表示结束。
 
+> 响应示例（依据实测抓包 `re/samples/submission-detail.json`，已脱敏；`userCode` 已截断）
+
+```json
+{
+  "submitId": 51980181,
+  "resultCode": 1,
+  "canCreateProblemSolution": false,
+  "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+  "pid": 22169438826624,
+  "type": 1,
+  "problemId": "P1000",
+  "userCode": "…",
+  "language": "C++17 With O2",
+  "additionalCaseResults": [],
+  "caseResults": null,
+  "caseGroups": [
+    {
+      "groupNum": 1,
+      "calculateTypeCode": 1,
+      "calculateTypeName": "SUM",
+      "groupScore": 100,
+      "caseResult": [
+        {
+          "pid": 22169438826624,
+          "submitId": 51980181,
+          "uid": null,
+          "caseId": null,
+          "time": 0,
+          "memory": 3392,
+          "score": 100,
+          "status": { "id": 0, "name": "Accepted", "shortName": "AC", "chineseName": null },
+          "seq": 1,
+          "message": "",
+          "groupNum": 1,
+          "calculateType": null
+        }
+      ]
+    }
+  ],
+  "cid": null,
+  "gid": null,
+  "runResult": null,
+  "tid": null,
+  "objectiveScore": 0,
+  "score": 100,
+  "answers": null,
+  "firstAc": true,
+  "cheatTag": null,
+  "unfinishedProblemNum": null,
+  "budge": null,
+  "budgeName": null,
+  "showAiButton": null,
+  "afterContestSubmit": null,
+  "guideConfig": null
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/htoj-biz-gateway/api/get-submission-detail?submitId=51980181`,
@@ -255,6 +484,8 @@ await fetch(
 `GET /api/code-community/api/get-problem-language-and-case` 🚫 被网关 403 拒绝
 
 返回题目可用语言与测试点信息（`GetProblemLanguageAndCaseResponseVO`），当前不可用：
+
+> 响应（该接口被网关拦截，无成功样例；实测返回下述网关错误结构）
 
 ```json
 { "code": 403, "message": "Gateway Error:Access Denied" }
@@ -293,6 +524,83 @@ await fetch(
 
 > **可见性限制**：比赛题、题单题、小组题在 `get-problem-detail` 里受可见性限制，需要分别通过 `cid` / `tid` / `gid` 指明来源，否则可能返回 `errCode=400 该题目不可见`。比赛题不带 `cid` 已被实测确认直接报错。相应地，提交比赛题时 `submit-problem-judge` 也要带上 `cid`，否则提交不会归属到该场比赛。
 
+> 响应示例（依据实测抓包 `re/samples/problem-detail.json`，已脱敏；`content` / `modelAnswer` / `guideModelAnswer` 等长文本已截断）
+
+```json
+{
+  "problemBaseVO": {
+    "id": 22169438826624,
+    "problemId": "P1000",
+    "title": "新手引导-OJ题",
+    "content": "…",
+    "difficulty": { "id": 1, "name": "入门", "color": "#FF5100" },
+    "source": { "id": 1, "name": "核桃编程官方" },
+    "type": 1,
+    "tags": [
+      { "id": 557, "name": "模拟" },
+      { "id": 618, "name": "顺序结构" }
+    ],
+    "showProblemSolution": true,
+    "showJudgeRecord": true,
+    "zone": "cpp",
+    "historyResult": null,
+    "total": 184718,
+    "ac": 173021,
+    "wid": 1
+  },
+  "problemChoiceDetailVO": null,
+  "problemOjDetailVO": {
+    "problemLanguage": [
+      { "id": 7, "name": "C++17 With O2" },
+      { "id": 10, "name": "Python3" }
+    ],
+    "ioMode": { "id": 1, "name": "标准IO" },
+    "sampleCaseList": null,
+    "timeLimit": 1000,
+    "memoryLimit": 256,
+    "stackLimit": 256,
+    "timeLimitMax": 1000,
+    "memoryLimitMax": 256,
+    "stackLimitMax": 256,
+    "judgeMode": { "value": "default", "name": "传统题" },
+    "ioReadFileName": "case.in",
+    "ioWriteFileName": "case.out"
+  },
+  "problemObjectiveDetailVO": null,
+  "ownerVo": {
+    "uid": "3adc3226deec9ef53503785de1cdead7",
+    "nickname": "用户24debb",
+    "avatar": "https://example.invalid/910af96b61ab.jpg",
+    "ccfLevel": null,
+    "authenticationIcon": null,
+    "userId": null
+  },
+  "isGuide": true,
+  "isGuideTraining": null,
+  "modelAnswer": "…",
+  "budge": "…",
+  "budgeName": null,
+  "likeCount": 584,
+  "dislikeCount": 233,
+  "gid": null,
+  "noPrev": true,
+  "noNext": false,
+  "accepted": false,
+  "hideResult": null,
+  "additionalFiles": null,
+  "like": false,
+  "dislike": false,
+  "guideConfigVo": {
+    "guideProblemId": 22169438826624,
+    "guideModelAnswer": "…",
+    "guideBudge": "…",
+    "guideTrainingId": 22448103338112,
+    "guideBudgeId": null,
+    "guideTrainingBudgeId": null
+  }
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/htoj-biz-gateway/api/get-problem-detail?problemId=22169438826624` +
@@ -307,6 +615,8 @@ await fetch(
 
 返回选择题选项（`ProblemChoiceDetailVO`：`{ choiceType, options[] }`，`choiceType` 2=单选 4=多选）。当前不可用：
 
+> 响应（该接口被网关拦截，无成功样例；实测返回下述网关错误结构）
+
 ```json
 { "code": 403, "message": "Gateway Error:Access Denied" }
 ```
@@ -318,6 +628,8 @@ await fetch(
 `GET /api/code-community/api/get-submission-case-list` 🚫 被网关 403 拒绝
 
 按 `submitId` 返回测试点分组明细（`TestCaseGroupItemVO[]`）。当前被网关屏蔽：
+
+> 响应示例（依据实测抓包 `re/samples/submission-case-list.json`，已脱敏；当前被网关 403 拦截）
 
 ```json
 { "code": 403, "message": "Gateway Error:Access Denied" }
@@ -338,6 +650,20 @@ await fetch(
 
 未取到有效样本，`ContestProblemIndexVO` 具体字段未验证。
 
+> 响应骨架（依据类型 `Pagination<ContestProblemIndexVO>` 推导，record 字段未验证，**未实测**）
+
+```json
+{
+  "records": [],
+  "total": 0,
+  "size": 20,
+  "current": 1,
+  "pages": 0,
+  "orders": [],
+  "searchCount": true
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/api/get-contest-problem-index?cid=22921376372096`,
@@ -356,6 +682,12 @@ await fetch(
 | `id` | number | 是 | 题目内部 id；缺失返回 `errCode=400 ... 'id' ...` |
 
 响应：`{ "errCode": 0, "data": 120, "errMsg": "success" }`。
+
+> 响应示例（依据实测抓包 `re/samples/problem-reply-count.json`，已脱敏；`data` 为数字）
+
+```json
+120
+```
 
 ```js
 await fetch(
@@ -376,6 +708,12 @@ await fetch(
 
 响应结构未验证。
 
+> 响应骨架（依据前端签名 `httpService.post` 推导，`data` 为 `unknown`，**未实测**）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/problem/like?pid=22169438826624`, {
   method: "POST",
@@ -388,6 +726,12 @@ await fetch(`${BASE}/api/code-community/api/problem/like?pid=22169438826624`, {
 `POST /api/code-community/api/problem/unlike` ✍️ 写操作未实测
 
 取消题目点赞，参数同上（query：`pid`）。响应结构未验证。
+
+> 响应骨架（依据前端签名 `httpService.post` 推导，`data` 为 `unknown`，**未实测**）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/code-community/api/problem/unlike?pid=22169438826624`, {
@@ -402,6 +746,12 @@ await fetch(`${BASE}/api/code-community/api/problem/unlike?pid=22169438826624`, 
 
 为题目点踩，参数同上（query：`pid`）。响应结构未验证。
 
+> 响应骨架（依据前端签名 `httpService.post` 推导，`data` 为 `unknown`，**未实测**）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/problem/dislike?pid=22169438826624`, {
   method: "POST",
@@ -414,6 +764,12 @@ await fetch(`${BASE}/api/code-community/api/problem/dislike?pid=22169438826624`,
 `POST /api/code-community/api/problem/undislike` ✍️ 写操作未实测
 
 取消题目点踩，参数同上（query：`pid`）。响应结构未验证。
+
+> 响应骨架（依据前端签名 `httpService.post` 推导，`data` 为 `unknown`，**未实测**）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/code-community/api/problem/undislike?pid=22169438826624`, {
@@ -435,6 +791,12 @@ await fetch(`${BASE}/api/code-community/api/problem/undislike?pid=22169438826624
 
 未取到有效样本，`ProblemRecommendVO` 具体字段未验证。
 
+> 响应骨架（依据类型 `ProblemRecommendVO[]` 推导，record 字段未验证，**未实测**）
+
+```json
+[]
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/api/problem/ide-get-problem-recommend?currentPid=22169438826624`,
@@ -454,6 +816,12 @@ await fetch(
 | `direct` | number | 是 | `1`=上一题，`2`=下一题 |
 | `wid` | number | 是 | 题库 id；缺失返回 `errCode=400 ... 'wid' ...` |
 
+> 响应骨架（依据类型 `number` 推导，`data` 为相邻题目 pid，**未实测**）
+
+```json
+0
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/api/warehouse/warehouse-problem?currentPid=22169438826624&direct=2&wid=1`,
@@ -472,6 +840,12 @@ await fetch(
 | `currentPid` | number | 是 | 当前题目内部 id |
 | `direct` | number | 是 | `1`=上一题，`2`=下一题 |
 | `gid` | number | 是 | 小组 id；缺失返回 `errCode=400 ... 'gid' ...` |
+
+> 响应骨架（依据类型 `number` 推导，`data` 为相邻题目 pid，**未实测**）
+
+```json
+0
+```
 
 ```js
 await fetch(
@@ -493,6 +867,12 @@ await fetch(
 | `tid` | number | 是 | 题单 id；缺失返回 `errCode=400 ... 'tid' ...` |
 | `gid` | number | 否 | 小组 id |
 
+> 响应骨架（依据类型 `number` 推导，`data` 为相邻题目 pid，**未实测**）
+
+```json
+0
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/api/training-problem-skip?currentPid=22169438826624&direct=2&tid=22302141951872`,
@@ -512,6 +892,12 @@ await fetch(
 | `direct` | number | 是 | `1`=上一题，`2`=下一题 |
 | `cid` | number | 是 | 比赛 id；缺失返回 `errCode=400 ... 'cid' ...` |
 | `gid` | number | 否 | 小组 id |
+
+> 响应骨架（依据类型 `number` 推导，`data` 为相邻题目 pid，**未实测**）
+
+```json
+0
+```
 
 ```js
 await fetch(
@@ -535,6 +921,20 @@ AC 之后获取题单内的下一题导航信息（实测返回 `errCode=0`，�
 
 响应 `data` 实测字段：`currentChapterPid`、`nextChapterPid`、`prevChapterPid`、`prevChapterName`、`prevChapterUnfinished`、`goodsNum`、`rocketColorUrl`。
 
+> 响应骨架（依据文档实测字段清单推导，示例参数下各字段均为 `null`，**未实测**）
+
+```json
+{
+  "currentChapterPid": null,
+  "nextChapterPid": null,
+  "prevChapterPid": null,
+  "prevChapterName": null,
+  "prevChapterUnfinished": null,
+  "goodsNum": null,
+  "rocketColorUrl": null
+}
+```
+
 ```js
 await fetch(
   `${BASE}/api/htoj-biz-gateway/gwpub/get-training-problem-navigation?submitId=51980181&pid=22169438826624&tid=22302141951872`,
@@ -554,6 +954,12 @@ await fetch(
 | `tid` | number | 是 | 题单 id；缺失返回 `errCode=400 ... 'tid' ...` |
 
 未取到有效样本，`DrawerTrainingChapterListVo` 具体字段未验证。
+
+> 响应骨架（依据类型 `DrawerTrainingChapterListVo[]` 推导，record 字段未验证，**未实测**）
+
+```json
+[]
+```
 
 ```js
 await fetch(
@@ -577,6 +983,12 @@ await fetch(
 
 未取到有效样本，`DrawerProblemListVo` 具体字段未验证。
 
+> 响应骨架（依据类型 `DrawerProblemListVo[]` 推导，record 字段未验证，**未实测**）
+
+```json
+[]
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/api/get-training-problems?chapterId=1&tid=22302141951872`,
@@ -595,6 +1007,12 @@ await fetch(
 | `url` | string | 是 | 原始链接 |
 
 响应为短链字符串，未验证。
+
+> 响应骨架（依据类型 `string` 推导，`data` 为短链字符串，**未实测**）
+
+```json
+""
+```
 
 ```js
 await fetch(`${BASE}/api/htoj-biz-gateway/api/get-short-link`, {
@@ -619,6 +1037,12 @@ await fetch(`${BASE}/api/htoj-biz-gateway/api/get-short-link`, {
 | `gid` | number | 否 | 小组 id |
 
 响应结构未验证。
+
+> 响应骨架（依据前端签名 `httpService.post` 推导，`data` 为 `unknown`，**未实测**）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/code-community/api/contest-store-answer`, {
@@ -649,6 +1073,15 @@ await fetch(`${BASE}/api/code-community/api/contest-store-answer`, {
 | 100 | Becoder |
 | 22 | 历年真题 |
 
+> 响应示例（依据实测抓包 `re/samples/warehouse-list.json`，已脱敏；数组仅列前 2 项）
+
+```json
+[
+  { "value": 1, "label": "核桃题库" },
+  { "value": 3, "label": "洛谷" }
+]
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/warehouse/list`, { headers }).then((r) => r.json());
 ```
@@ -666,6 +1099,12 @@ await fetch(`${BASE}/api/code-community/api/warehouse/list`, { headers }).then((
 | `wid` | number | 是 | 题库 id；缺失返回 `errCode=400 ... 'wid' ...` |
 
 实测样本返回 `errCode=0` 且 `data` 为空数组（`[]`），具体 record 字段未验证。
+
+> 响应示例（依据实测抓包 `re/samples/warehouse-problems.json`，已脱敏；样本 `data` 为空数组）
+
+```json
+[]
+```
 
 ```js
 await fetch(
@@ -685,6 +1124,26 @@ await fetch(
 | `wid` | number | 是 | 题库 id，如 `1` |
 
 响应 `data` 实测字段（`wid=1`）：`id`、`title`、`author`、`auth`、`sort`、`gmtModified`、`zone`、`createTime`、`isCanUp`、`isCanDown`、`isCanDelete`、`isCanModify`、`type`（多数为 `null`）。
+
+> 响应示例（依据实测抓包 `re/samples/warehouse-get.json`，已脱敏）
+
+```json
+{
+  "id": 1,
+  "title": "核桃题库",
+  "author": null,
+  "auth": null,
+  "sort": null,
+  "gmtModified": null,
+  "zone": null,
+  "createTime": null,
+  "isCanUp": null,
+  "isCanDown": null,
+  "isCanDelete": null,
+  "isCanModify": null,
+  "type": null
+}
+```
 
 ```js
 await fetch(`${BASE}/api/code-community/api/warehouse/get?wid=1`, { headers }).then((r) => r.json());

@@ -96,6 +96,18 @@ const HEADERS = {
 
 > 注意返回项用 `value` / `label`（不是 `id` / `name`），比题目详情里的 `Difficulty`（`id` / `name` / `color`）多一个 `type` 字段。前端用 `res[types]` 取值。
 
+> 响应示例（依据实测抓包 `re/samples/zone-difficulty.json`，已脱敏）
+
+```json
+{
+  "difficulty": [
+    { "type": "difficulty", "value": 0, "label": "暂无评定", "color": "#CCCCCC" },
+    { "type": "difficulty", "value": 1, "label": "入门", "color": "#FF5100" },
+    { "type": "difficulty", "value": 2, "label": "普及-", "color": "#FF8000" }
+  ]
+}
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/zone-data-list?types=difficulty`, {
   headers: HEADERS,
@@ -115,6 +127,16 @@ await fetch(`${BASE}/api/code-community/api/zone-data-list?types=difficulty`, {
 | 10 | Python3 |
 
 > **提交时不能用这里的 `id`**：`submit-problem-judge` 的 `language` 字段要的是语言名（如 `"C++17 With O2"`），见 [problems.md](./problems.md#提交评测)。列表内容随 `Hetao-Oj-Zone` 变化（`python` zone 未实测）。历史接口 `get-problem-language-and-case` 已被网关 403，需要语言列表时用本接口。
+
+> 响应示例（依据实测抓包 `re/samples/language-list.json`，已脱敏）
+
+```json
+[
+  { "id": 6, "name": "C++14 With O2" },
+  { "id": 7, "name": "C++17 With O2" },
+  { "id": 10, "name": "Python3" }
+]
+```
 
 ```js
 await fetch(`${BASE}/api/code-community/api/get-language`, { headers: HEADERS }).then((r) => r.json());
@@ -140,6 +162,16 @@ await fetch(`${BASE}/api/code-community/api/get-language`, { headers: HEADERS })
 | 49 | Cancelled |
 | -10 | Judging |
 
+> 响应示例（依据实测抓包 `re/samples/problem-user-status.json`，已脱敏）
+
+```json
+[
+  { "id": 0, "name": "Accepted", "shortName": null, "chineseName": null },
+  { "id": 4, "name": "Wrong Answer", "shortName": null, "chineseName": null },
+  { "id": 7, "name": "Compile Error", "shortName": null, "chineseName": null }
+]
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/get-problem-user-status`, { headers: HEADERS }).then((r) => r.json());
 ```
@@ -149,6 +181,8 @@ await fetch(`${BASE}/api/code-community/api/get-problem-user-status`, { headers:
 `GET /api/code-community/api/get-problem-tag` 🚫 被网关 403 拒绝
 
 源码签名返回 `IdNameOption[]`。**实测被网关拒绝**：
+
+> 响应（实测被网关 403 拒绝，无 `data`）
 
 ```json
 { "code": 403, "message": "Gateway Error:Access Denied" }
@@ -162,17 +196,35 @@ await fetch(`${BASE}/api/code-community/api/get-problem-user-status`, { headers:
 
 源码签名返回 `IdNameOption[]`。**实测被网关拒绝**：`403 Gateway Error:Access Denied`。与上一个接口同为旧接口，当前不可用。
 
+> 响应（实测被网关 403 拒绝，无 `data`）
+
+```json
+{ "code": 403, "message": "Gateway Error:Access Denied" }
+```
+
 ### 题目难度字典（旧）
 
 `GET /api/code-community/api/get-problem-difficulty` 🚫 被网关 403 拒绝
 
 源码签名返回 `IdNameOption[]`。**实测被网关拒绝**：`403 Gateway Error:Access Denied`。难度请改走 `zone-data-list?types=difficulty`。
 
+> 响应（实测被网关 403 拒绝，无 `data`）
+
+```json
+{ "code": 403, "message": "Gateway Error:Access Denied" }
+```
+
 ### 题目来源字典（旧）
 
 `GET /api/code-community/api/get-problem-source` 🚫 被网关 403 拒绝
 
 源码签名返回 `IdNameOption[]`。**实测被网关拒绝**：`403 Gateway Error:Access Denied`。题目来源现由题目详情 `problemBaseVO.source`（`IdName`）给出，见 [problems.md](./problems.md#题目详情)。
+
+> 响应（实测被网关 403 拒绝，无 `data`）
+
+```json
+{ "code": 403, "message": "Gateway Error:Access Denied" }
+```
 
 ### 标签分类树
 
@@ -193,6 +245,27 @@ await fetch(`${BASE}/api/code-community/api/get-problem-user-status`, { headers:
 
 > 叶子标签总量很大（数百个，含「算法」下数百个知识点标签），`re/samples/tag-classification.json` 是完整快照。注意同 id 与不同 id 可能出现同名标签（如 `562:排序` 同时出现在「语法/排序」与「算法/基础算法」下），筛选时以叶子 `id` 为准。
 
+> 响应示例（依据实测抓包 `re/samples/tag-classification.json`，已脱敏）
+
+```json
+[
+  {
+    "id": 44,
+    "name": "语法",
+    "list": [
+      {
+        "id": 47,
+        "name": "顺序结构",
+        "tagList": [
+          { "id": 618, "name": "顺序结构" },
+          { "id": 1415, "name": "简单输入输出" }
+        ]
+      }
+    ]
+  }
+]
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/tag/get-classification-list`, { headers: HEADERS }).then((r) => r.json());
 ```
@@ -202,6 +275,8 @@ await fetch(`${BASE}/api/code-community/api/tag/get-classification-list`, { head
 `GET /api/htoj-biz-gateway/api/get-region-list` ✅ 已实测可用
 
 无参数，返回省 / 市 / 区县树（`CityDataVO[]`）。实测顶层 35 项（依据探针样本），节点形如 `{ id, tag, areaType, parentId, children[] }`：
+
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
 
 ```json
 [
@@ -237,6 +312,12 @@ await fetch(`${BASE}/api/htoj-biz-gateway/api/get-region-list`, { headers: HEADE
 香港, 黑龙江
 ```
 
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
+
+```json
+["上海", "云南", "内蒙古", "北京", "吉林"]
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/oi-school/provinces`, { headers: HEADERS }).then((r) => r.json());
 ```
@@ -252,6 +333,8 @@ await fetch(`${BASE}/api/code-community/api/oi-school/provinces`, { headers: HEA
 | `keyword` | string | 是 | 学校名称关键词 |
 
 实测 `keyword=A` 返回（依据探针样本）：
+
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
 
 ```json
 [
@@ -275,6 +358,12 @@ await fetch(`${BASE}/api/htoj-biz-gateway/api/get-school-list?keyword=A`, { head
 | `schoolName` | string | 是 | 学校名；缺失返回 `errCode=400 The required request parameters are missing：Required request parameter 'schoolName' for method parameter type String is not present` |
 
 `OiSchoolVO` 未随仓库提供字段样本，具体结构未验证。
+
+> 响应骨架（依据类型 `OiSchoolVO[]` 推导，元素字段未确认，**未实测**）
+
+```json
+null
+```
 
 ```js
 await fetch(`${BASE}/api/code-community/api/oi-school/search?schoolName=某某中学`, { headers: HEADERS }).then((r) => r.json());
@@ -300,6 +389,16 @@ await fetch(`${BASE}/api/code-community/api/oi-school/search?schoolName=某某�
 | 10 | 初二 |
 | 11 | 初三 |
 | 12–15 | 未取全（`realGrade=12` 起样本被截断；按「成长年级字典」推断 12=高一 / 13=高二 起，但未实测确认） |
+
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
+
+```json
+[
+  { "realGrade": 1, "gradeName": "幼儿中班" },
+  { "realGrade": 2, "gradeName": "幼儿大班" },
+  { "realGrade": 3, "gradeName": "一年级" }
+]
+```
 
 ```js
 await fetch(`${BASE}/api/code-community/api/get-grade-list`, { headers: HEADERS }).then((r) => r.json());
@@ -328,6 +427,16 @@ await fetch(`${BASE}/api/code-community/api/get-grade-list`, { headers: HEADERS 
 
 > 走 `code-community-growth` 网关，成功时 `errMsg` 是「操作成功」（不是 `success`）。同一路径也被 `oj/challenge.ts` 的 `getCommonGradeList` 调用。
 
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
+
+```json
+[
+  { "realGrade": 3, "gradeName": "一年级" },
+  { "realGrade": 4, "gradeName": "二年级" },
+  { "realGrade": 5, "gradeName": "三年级" }
+]
+```
+
 ```js
 await fetch(`${BASE}/api/code-community-growth/api/common/get-grade-list`, { headers: HEADERS }).then((r) => r.json());
 ```
@@ -344,6 +453,12 @@ await fetch(`${BASE}/api/code-community-growth/api/common/get-grade-list`, { hea
 | `content` | string | 是 | 待检查文本；缺失返回 `errCode=400 The required request parameters are missing：Required request parameter 'content' for method parameter type String is not present` |
 
 响应 `data` 为 `boolean`，具体语义（`true` 表示命中敏感词还是校验通过）未验证。
+
+> 响应骨架（依据类型 `boolean` 推导，**未实测**）
+
+```json
+false
+```
 
 ```js
 await fetch(
@@ -373,6 +488,8 @@ await fetch(
 | `keyword` | string | 是 | 关键词（题目编号或名称） |
 
 实测 `keyword=A` 返回 5 项（依据探针样本），每项形如：
+
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
 
 ```json
 [
@@ -404,6 +521,16 @@ await fetch(`${BASE}/api/code-community-forum/api/common/searchProblem?keyword=A
 | 6 | 一小时后可查看 |
 | 5 | 通过测试点可查看 |
 
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
+
+```json
+[
+  { "value": 1, "label": "所有人可查看" },
+  { "value": 3, "label": "AC可查看" },
+  { "value": 6, "label": "一小时后可查看" }
+]
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community/gwpub/admin/common/v2/problem-solution-permission`,
@@ -426,6 +553,16 @@ await fetch(
 | 6 | 一小时后可查看 |
 
 > 两个接口都在 `gwpub/admin` 路径下，但实测无需管理员身份即可返回数据。
+
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
+
+```json
+[
+  { "value": 0, "label": "根据题目本身题解权限而定" },
+  { "value": 1, "label": "所有人可查看" },
+  { "value": 3, "label": "AC可查看" }
+]
+```
 
 ```js
 await fetch(
@@ -465,6 +602,43 @@ await fetch(
 | `modifiedUser` / `submitStatus` | — | 实测为 `null` |
 | `acCount` / `tryCount` / `total` / `ac` | number | 我的通过次数 / 尝试次数 / 提交总数 / 通过总数 |
 
+> 响应示例（依据实测抓包 `re/samples/my-problem-record.json`，已脱敏）
+
+```json
+{
+  "records": [
+    {
+      "id": 22914051374720,
+      "problemId": "P12980",
+      "title": "拼积木",
+      "type": null,
+      "difficulty": { "id": 0, "name": "暂无评定", "color": "#CCCCCC" },
+      "auth": 2,
+      "answerAuth": 1,
+      "codeShare": true,
+      "tags": [
+        { "id": 557, "name": "模拟", "status": 1, "zone": null, "gmtCreate": null, "gmtModified": null }
+      ],
+      "zone": "cpp",
+      "gmtCreate": 1790160264000,
+      "createTime": 1790160264000,
+      "modifiedUser": null,
+      "submitStatus": null,
+      "acCount": 2,
+      "tryCount": 2,
+      "total": 2,
+      "ac": 2
+    }
+  ],
+  "total": 1475,
+  "size": 3,
+  "current": 1,
+  "pages": 492,
+  "orders": [],
+  "searchCount": true
+}
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/my/problemRecord?currentPage=1&limit=20`, { headers: HEADERS }).then((r) => r.json());
 ```
@@ -481,6 +655,60 @@ await fetch(`${BASE}/api/code-community/api/my/problemRecord?currentPage=1&limit
 
 实测返回 `Page(20/183)`。`records[]` 为 `ContestVO` 并补充了个人的成绩字段（依据 `re/samples/my-contest-record.json`）：除常规字段外，另有 `rank`（我的排名）、`score`（我的得分）、`scoreDesc`、`hideScoreboard`、`sealRank`、`rankShowName`、`oiRankScoreType`、`started` / `remainTime` / `contestRemainTime` 等。
 
+> 响应示例（依据实测抓包 `re/samples/my-contest-record.json`，已脱敏）
+
+```json
+{
+  "records": [
+    {
+      "id": 22031620062464,
+      "author": "用户e3b0c4",
+      "title": "核桃编程 7月上普及组月赛",
+      "type": 1,
+      "ioType": 1,
+      "typeDesc": { "id": 1, "name": "OI" },
+      "description": "…",
+      "status": 1,
+      "statusDesc": { "id": 1, "name": "已结束" },
+      "rank": 230,
+      "score": 0,
+      "scoreDesc": null,
+      "now": null,
+      "startTime": 1689328800000,
+      "endTime": 1689760800000,
+      "duration": 12600,
+      "sealRank": null,
+      "openPrint": null,
+      "sealRankTime": null,
+      "rankShowName": null,
+      "openRank": false,
+      "oiRankScoreType": "Recent",
+      "count": null,
+      "problemCount": 4,
+      "registered": true,
+      "started": null,
+      "remainTime": 0,
+      "contestRemainTime": null,
+      "avatarList": [],
+      "needPassword": null,
+      "needPasswordAfterEnd": null,
+      "matchType": 1,
+      "matchTypeDesc": null,
+      "zone": "cpp",
+      "languages": null,
+      "hideScoreboard": 0,
+      "ioTypeName": "标准IO"
+    }
+  ],
+  "total": 181,
+  "size": 3,
+  "current": 1,
+  "pages": 61,
+  "orders": [],
+  "searchCount": true
+}
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/my/contestRecord?currentPage=1&limit=20`, { headers: HEADERS }).then((r) => r.json());
 ```
@@ -490,6 +718,8 @@ await fetch(`${BASE}/api/code-community/api/my/contestRecord?currentPage=1&limit
 `GET /api/code-community/api/get-registered-contest-list` 🚫 被网关 403 拒绝
 
 源码签名返回 `Pagination<ContestVO>`。**实测被网关拒绝**：
+
+> 响应（实测被网关 403 拒绝，无 `data`）
 
 ```json
 { "code": 403, "message": "Gateway Error:Access Denied" }
@@ -509,6 +739,58 @@ await fetch(`${BASE}/api/code-community/api/my/contestRecord?currentPage=1&limit
 
 实测返回 `Page(4/4)`，`records[]` 为标准 `ContestVO`（字段见 [contests.md](./contests.md)）。
 
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，`ContestVO` 字段同 `re/samples/contest-list.json`，已脱敏）
+
+```json
+{
+  "records": [
+    {
+      "id": 22921395096192,
+      "author": "用户4f2f06",
+      "title": "【HT-131-Div.4】核桃语法组周赛",
+      "type": 3,
+      "typeDesc": { "id": 3, "name": "乐多" },
+      "ioType": 1,
+      "ioTypeName": "标准IO",
+      "description": "…",
+      "status": 0,
+      "statusDesc": { "id": 0, "name": "进行中" },
+      "now": null,
+      "startTime": 1790744400000,
+      "endTime": 1791280800000,
+      "duration": 5400,
+      "sealRank": null,
+      "openPrint": null,
+      "openRank": false,
+      "count": 0,
+      "submitCount": null,
+      "problemCount": 4,
+      "registered": false,
+      "started": null,
+      "remainTime": null,
+      "contestRemainTime": null,
+      "avatarList": [],
+      "needPassword": false,
+      "matchType": null,
+      "matchTypeDesc": null,
+      "gid": null,
+      "zone": null,
+      "registerState": null,
+      "ownerVo": null,
+      "top": false,
+      "hideResult": null,
+      "hideScoreboard": null
+    }
+  ],
+  "total": 4,
+  "size": 4,
+  "current": 1,
+  "pages": 1,
+  "orders": [],
+  "searchCount": true
+}
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/get-not-registered-contest-list?currentPage=1&limit=10`, { headers: HEADERS }).then((r) => r.json());
 ```
@@ -518,6 +800,8 @@ await fetch(`${BASE}/api/code-community/api/get-not-registered-contest-list?curr
 `GET /api/code-community/api/my/homeData` 🚫 被网关 403 拒绝
 
 源码签名返回 `HomeInfoVO`。**实测被网关拒绝**：
+
+> 响应（实测被网关 403 拒绝，无 `data`）
 
 ```json
 { "code": 403, "message": "Gateway Error:Access Denied" }
@@ -544,6 +828,27 @@ await fetch(`${BASE}/api/code-community/api/get-not-registered-contest-list?curr
 | `contestCount` | number | 参赛数 |
 | `starCount` / `posterCount` / `problemSolutionCount` / `badgeCount` | number | 收藏 / 帖子 / 题解 / 徽章数（实测样本中还出现更多以 `badge` 开头的字段，被截断未取全） |
 
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
+
+```json
+{
+  "userId": 8871358,
+  "userName": "用户8d31e4",
+  "uid": "dfbb0f4b648a9c6abdbf0948799d66ca",
+  "description": "…",
+  "avatar": "https://example.invalid/9d28d38d8e02.jpg",
+  "ccfLevel": null,
+  "goldenTeacher": false,
+  "authenticationIcon": null,
+  "acCount": 1143,
+  "contestCount": 203,
+  "starCount": 44,
+  "posterCount": 1,
+  "problemSolutionCount": 1,
+  "badgeCount": 67
+}
+```
+
 ```js
 await fetch(`${BASE}/api/htoj-biz-gateway/api/my/newUserData`, { headers: HEADERS }).then((r) => r.json());
 ```
@@ -553,6 +858,20 @@ await fetch(`${BASE}/api/htoj-biz-gateway/api/my/newUserData`, { headers: HEADER
 `GET /api/code-community/api/group/my-apply-list` ❔ 无法验证
 
 源码签名返回 `Pagination<CMyGroupApplylistResVO>`。该接口**未纳入实测**（无实测样本），`CMyGroupApplylistResVO` 未随仓库提供，字段未确认。抽取器将其标记为「疑似写操作（GET）」，但从命名看应为只读列表。
+
+> 响应骨架（依据类型 `Pagination<CMyGroupApplylistResVO>` 推导，元素字段未确认，**未实测**）
+
+```json
+{
+  "records": [],
+  "total": 0,
+  "size": 20,
+  "current": 1,
+  "pages": 0,
+  "orders": [],
+  "searchCount": true
+}
+```
 
 ```js
 await fetch(`${BASE}/api/code-community/api/group/my-apply-list`, { headers: HEADERS }).then((r) => r.json());
@@ -583,6 +902,45 @@ await fetch(`${BASE}/api/code-community/api/group/my-apply-list`, { headers: HEA
 
 > 注意 `id` 与 `cid` 重复给出，`owner` 是 uid 字符串、`ownerVo` 才是对象。
 
+> 响应示例（依据实测抓包 `re/samples/hot-contests.json`，已脱敏）
+
+```json
+[
+  {
+    "id": 22921381069568,
+    "cid": 22921381069568,
+    "contestTitle": "【HT-131-Div.1】核桃省选模拟赛",
+    "online": null,
+    "onlineTime": null,
+    "startTime": 1790744400000,
+    "endTime": 1791280800000,
+    "exerciseId": null,
+    "exerciseTag": null,
+    "type": 1,
+    "typeDesc": { "id": 1, "name": "OI" },
+    "status": 0,
+    "statusDesc": { "id": 0, "name": "进行中" },
+    "now": 1790853605137,
+    "registered": false,
+    "avatarList": ["https://example.invalid/05ecb4bbd7d0.jpg"],
+    "matchType": 1,
+    "matchTypeDesc": { "id": 1, "name": "核桃周赛" },
+    "zone": "cpp",
+    "owner": "19af82490f250ba5e484307b49b6216b",
+    "gid": null,
+    "ownerVo": {
+      "uid": "19af82490f250ba5e484307b49b6216b",
+      "nickname": "用户855e0b",
+      "avatar": "https://example.invalid/de6364223ad7.png",
+      "ccfLevel": null,
+      "authenticationIcon": null,
+      "userId": null
+    },
+    "count": 74
+  }
+]
+```
+
 ```js
 await fetch(`${BASE}/api/htoj-biz-gateway/api/home-get-hot-contests`, { headers: HEADERS }).then((r) => r.json());
 ```
@@ -592,6 +950,8 @@ await fetch(`${BASE}/api/htoj-biz-gateway/api/home-get-hot-contests`, { headers:
 `GET /api/code-community/api/home-get-recommend-sections` ✅ 已实测可用
 
 无参数，返回首页「推荐题目」的分区 Tab（`ProblemRecommendSectionVO[]`）。实测 2 项（依据 `re/samples/recommend-sections.json`）：
+
+> 响应示例（依据实测抓包 `re/samples/recommend-sections.json`，已脱敏）
 
 ```json
 [
@@ -618,6 +978,12 @@ await fetch(`${BASE}/api/code-community/api/home-get-recommend-sections`, { head
 
 `ProblemRecommendVO` 未提供有效样本，字段未验证。
 
+> 响应骨架（依据类型 `ProblemRecommendVO[]` 推导，元素字段未确认，**未实测**）
+
+```json
+null
+```
+
 ```js
 await fetch(`${BASE}/api/code-community/api/home-get-problem-recommend?configId=7`, { headers: HEADERS }).then((r) => r.json());
 ```
@@ -640,6 +1006,36 @@ await fetch(`${BASE}/api/code-community/api/home-get-problem-recommend?configId=
 
 `goodsList[]` 每项实测字段：`id`、`url`、`video`、`name`、`wear`、`rarityCode`、`rarityName`（如 `普通`）、`goodsAnimation`、`goodsNum`、`goodsLevel` 等（样本被截断，未取全）。
 
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
+
+```json
+{
+  "id": 22921443729664,
+  "name": "小柴·植物大战僵尸2",
+  "startTime": 1791028800000,
+  "endTime": 1792238400000,
+  "number": null,
+  "totalCount": 99,
+  "totalCountLimit": 99,
+  "goodsList": [
+    {
+      "id": 22921440706560,
+      "url": "https://oj.htcdn-a.com/code-community/reward/b804d35b22a12bc36460fbdcccad5131.png",
+      "video": "",
+      "name": "小柴·探险家僵尸",
+      "wear": false,
+      "rarityCode": 1,
+      "rarityName": "普通",
+      "goodsAnimation": null,
+      "goodsNum": null,
+      "goodsLevel": null
+    }
+  ],
+  "newest": null,
+  "isSpecial": null
+}
+```
+
 ```js
 await fetch(`${BASE}/api/code-community-actuator/api/user/mission/goods-by-week`, { headers: HEADERS }).then((r) => r.json());
 ```
@@ -656,6 +1052,12 @@ await fetch(`${BASE}/api/code-community-actuator/api/user/mission/goods-by-week`
 | `missionId` | number | 是 | 任务 / 活动 id；缺失返回 `errCode=400 The required request parameters are missing：Required request parameter 'missionId' for method parameter type Long is not present` |
 
 `DrawGoodsVo` 未提供样本，字段未验证。
+
+> 响应骨架（依据类型 `DrawGoodsVo` 推导，字段未确认，**未实测**）
+
+```json
+null
+```
 
 ```js
 await fetch(
@@ -676,6 +1078,12 @@ await fetch(
 
 响应未提供样本，结构未验证。
 
+> 响应骨架（响应结构未提供，`data` 记为 `null`，**未实测**）
+
+```json
+null
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community-actuator/api/user/mission/decorate-goods?goodsId=22921440706560`,
@@ -695,6 +1103,12 @@ await fetch(
 
 响应未提供样本，结构未验证。
 
+> 响应骨架（响应结构未提供，`data` 记为 `null`，**未实测**）
+
+```json
+null
+```
+
 ```js
 await fetch(
   `${BASE}/api/code-community-actuator/api/user/mission/offload-goods?goodsId=22921440706560`,
@@ -707,6 +1121,8 @@ await fetch(
 `GET /api/htoj-biz-gateway/api/get-novice-task` ✅ 已实测可用（需登录）
 
 返回新手引导任务（`NoviceTaskList`）。实测样本（依据探针样本）：
+
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
 
 ```json
 {
@@ -741,6 +1157,50 @@ await fetch(`${BASE}/api/htoj-biz-gateway/api/get-novice-task`, { headers: HEADE
 
 > **与 [community.md](./community.md#讨论列表) 的「讨论列表」不是同一个接口**：那里的 `getPosterList` 路径是 `/api/code-community-forum/api/poster/listPoster`，**必填 `posterCategoryId`**、返回分页对象 `Pagination`；本接口路径是 `/api/code-community-forum/api/poster/homePosterList`，**无参数**、直接返回数组。两者同名但语义不同，注意区分。
 
+> 响应示例（依据实测抓包 `re/samples/home-poster-list.json`，已脱敏）
+
+```json
+[
+  {
+    "id": 22851103468416,
+    "posterName": "有小组的发一下链接，热心帮助一下",
+    "posterContent": null,
+    "uid": "86dfd5cf86b685170885f0602dda424a",
+    "nickname": "用户5fa51f",
+    "goldenTeacher": false,
+    "avatar": "https://example.invalid/7ab6062c0744.jpg",
+    "problemId": 0,
+    "viewCount": null,
+    "thumbCount": null,
+    "replyCount": 2,
+    "isMine": null,
+    "posterCategory": { "id": 1, "name": "学术交流" },
+    "top": false,
+    "zone": "cpp",
+    "thumbed": null,
+    "publishTime": null,
+    "updateTime": null,
+    "publishArea": null,
+    "authenticationIcon": null,
+    "ccfLevel": null,
+    "remarkName": null,
+    "posterType": 1,
+    "status": 6,
+    "statusName": "公开",
+    "label": null,
+    "refuseReason": null,
+    "aiAuditSuggestion": null,
+    "appealStatus": null,
+    "appealReason": null,
+    "appealTime": null,
+    "appealRejectReason": null,
+    "rejectType": null,
+    "rejectReason": null,
+    "appealCount": null
+  }
+]
+```
+
 ```js
 await fetch(`${BASE}/api/code-community-forum/api/poster/homePosterList`, { headers: HEADERS }).then((r) => r.json());
 ```
@@ -750,6 +1210,12 @@ await fetch(`${BASE}/api/code-community-forum/api/poster/homePosterList`, { head
 `GET /api/code-community-heart-beat/api/reward/v2/authReward` ✅ 已实测可用
 
 无参数，返回当前用户可领取 / 已领取的鉴权奖励（`RewardVo[]`）。实测样本返回空数组 `[]`（依据探针样本），非空时的字段结构未验证；`RewardVo` 未随仓库提供。
+
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，实测为空数组，已脱敏）
+
+```json
+[]
+```
 
 ```js
 await fetch(`${BASE}/api/code-community-heart-beat/api/reward/v2/authReward`, { headers: HEADERS }).then((r) => r.json());
@@ -764,6 +1230,8 @@ await fetch(`${BASE}/api/code-community-heart-beat/api/reward/v2/authReward`, { 
 `GET /api/code-community/api/home-carousel` ✅ 已实测可用
 
 无参数，返回首页 banner 数组（`SliderVO[]`）。实测 5 项（依据探针样本），每项：
+
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
 
 ```json
 [
@@ -798,6 +1266,21 @@ await fetch(`${BASE}/api/code-community/api/home-carousel`, { headers: HEADERS }
 无参数，走 biz 网关的新版首页 banner（`SliderVOBiz[]`）。实测 3 项（依据探针样本），字段与旧接口基本相同（`id` / `img` / `url` / `target` / `forceLogin` / `scene`），差异：**新版 `scene` 实测为数字**（如 `0`），旧版为 `null`。
 
 > 前端 `oj/banner.ts` 里函数名为 `getHomeCarouselNew`（导出名），返回类型 `SliderVOBiz`。新旧两个接口并存，首页实际使用新版。
+
+> 响应示例（依据实测抓包探针样本 `re/api-probe.json`，已脱敏）
+
+```json
+[
+  {
+    "id": 76,
+    "img": "https://oj.htcdn-a.com/code-community/banner/61cd59a49e55835a22d04eea5d1ab87d.png",
+    "url": "https://htoj.com.cn/cpp/discuss/post/detail?id=22752755174784&type=1",
+    "target": true,
+    "scene": 0,
+    "forceLogin": false
+  }
+]
+```
 
 ```js
 await fetch(`${BASE}/api/htoj-biz-gateway/api/home-slider`, { headers: HEADERS }).then((r) => r.json());
