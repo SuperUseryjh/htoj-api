@@ -142,7 +142,7 @@ const { errCode, data } = await res.json();
 ## 发送短信验证码
 `POST https://api.hetao101.com/login/v3/account/oauth/verifyCode/htojWeb:Login` ❔
 
-触发发送短信验证码。**该接口强制校验腾讯 TCaptcha 票据，第三方（浏览器扩展 / 非备案域名）无法调用**，因此标注为不可验证。前端源码注释里标注了发送验证码时用的头为 `HT_PLATFORM: parentApp` / `HT_SYSTEM: android` / `HT_VERSION: 2.0.3`。
+触发发送短信验证码。**该接口强制校验腾讯 TCaptcha 票据**：空票据返回 `errCode=1011`、伪造票据返回 `errCode=2024`，没有票据无法调用。前端源码注释里标注了发送验证码时用的头为 `HT_PLATFORM: parentApp` / `HT_SYSTEM: android` / `HT_VERSION: 2.0.3`。
 
 **body（JSON）**：
 
@@ -163,7 +163,23 @@ const { errCode, data } = await res.json();
 伪造 ticket  → {"errCode":2024,"errMsg":"票据校验异常"}
 ```
 
-票据只能由腾讯 TCaptcha 组件在**已备案域名的浏览器页面**中生成，扩展的 Webview 域名无法通过校验。请改用微信扫码登录。
+**票据怎么拿（实测）**：
+
+前端用的是腾讯 TCaptcha，参数在源码里就是常量（`re/src/packages/core/utils/constant.ts`）：
+
+| 项 | 值 |
+| --- | --- |
+| SDK | `https://turing.captcha.qcloud.com/TCaptcha.js` |
+| appid | `190559420` |
+| 用法 | `loadScript(SDK)` → `new TencentCaptcha(190559420, cb, {}).show()`；`cb(res)` 里 `res.ret === 0` 时取 `res.ticket` / `res.randstr` |
+
+在**非备案 origin** 上实测过一次（`http://localhost:8099`，Electron 内核，UA 带 `Electron/`）：
+
+- SDK 照常加载，`TencentCaptcha` 正常注册，`new` 与 `show()` 均无异常。**「域名未备案就拿不到票」并不成立** —— 本节早前那句「扩展的 Webview 域名无法通过校验」是推断，已被这次实测推翻。
+- 但它弹出来的是**交互式拖动验证**（页面内 iframe 指向 `https://turing.captcha.gtimg.com/1/template/drag_ele.html`），**不完成拖动回调就不触发**（观测约 1 分钟始终没有回调）→ 拿票必须有**用户可见、可交互**的界面。
+- 票据一次性、短时有效，服务端会向腾讯校验真伪（所以伪造会被 `2024` 拒）。票据是否与生成它的页面解绑、能否换个客户端提交，**本次未验证**，需要跑通一次完整流程才能确认。
+
+结论：短信验证码登录**在插件里可以做** —— webview 中弹出腾讯验证码 → 用户拖一下 → 回调拿到票据 → 调本接口发码。只需要把 webview 的 CSP 放开：`script-src https://turing.captcha.qcloud.com`、`frame-src https://turing.captcha.gtimg.com`。做不到的是「用户零参与地自动拿票」。
 
 > 响应结构未验证（成功响应字段正文未给出）
 

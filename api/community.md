@@ -4,7 +4,7 @@
 
 > 全局约定（网关前缀、必带请求头、统一 `errCode` 信封、分页与枚举）见 [index.md](./index.md)，本页不再重复。类型名集中定义在 [htoj-api.d.ts](./htoj-api.d.ts)。题目讨论数接口在 [problems.md](./problems.md#题目讨论数)。
 
-本文覆盖 43 个接口：✅6 / ⚠️13 / ✍️23 / ❔1。
+本文覆盖 45 个接口：✅6 / ⚠️13 / ✍️24 / ❔2。
 
 ## 接口清单
 
@@ -50,6 +50,8 @@
 | [发起划线评论](#发起划线评论) | POST | `/api/code-community-forum/gwpub/solutionInlineComment/create` | ✍️ | 顶层行内评论 |
 | [回复划线评论](#回复划线评论) | POST | `/api/code-community-forum/gwpub/solutionInlineComment/reply` | ✍️ | 楼中楼回复 |
 | [在锚点上盖楼](#在锚点上盖楼) | POST | `/api/code-community-forum/gwpub/solutionInlineComment/createOnAnchor` | ✍️ | 复用锚点追加根评论 |
+| [划线评论引导](#划线评论引导) | GET | `/api/code-community-forum/gwpub/solutionInlineComment/guide` | ❔ | 新手引导弹窗是否需要展示 |
+| [记录划线评论引导曝光](#记录划线评论引导曝光) | POST | `/api/code-community-forum/gwpub/solutionInlineComment/guide/show` | ✍️ | 引导弹窗曝光上报 |
 | [专栏列表（首页精选）](#专栏列表首页精选) | GET | `/api/code-community/api/home-discussion` | ✅ | 首页「核桃精选」专栏列表 |
 | [专栏详情](#专栏详情) | GET | `/api/code-community/api/get-discussion-detail` | ⚠️ | 单篇专栏正文 |
 | [专栏点赞](#专栏点赞) | GET | `/api/code-community/api/discussion-like` | ✍️ | 切换专栏点赞（GET 写操作） |
@@ -1103,6 +1105,32 @@ null
 | `content` | string | 是 | 评论内容 |
 
 响应结构未验证。
+
+> 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
+
+```json
+null
+```
+
+### 划线评论引导
+
+`GET /api/code-community-forum/gwpub/solutionInlineComment/guide` ❔ 无法验证
+
+无参数。查询当前用户是否需要展示「划线就可以评论」的新手引导弹窗（源码返回 `SolutionInlineCommentGuideVo`）。
+
+该类型定义不在还原源码里（`@core/types/auto/forum` 未被 sourcemap 还原），但调用处 `useInlineCommentGuide.ts` 以 `state?.shouldShow === true` 决定是否弹窗，据此可确认响应至少含 `shouldShow`（boolean，`true` 才展示）。
+
+> 响应骨架（依据调用处推断，**未实测**；字段定义不在仓库内，结构未知）
+
+```json
+null
+```
+
+### 记录划线评论引导曝光
+
+`POST /api/code-community-forum/gwpub/solutionInlineComment/guide/show` ✍️ 写操作未实测（需登录）
+
+无参数、无请求体。引导弹窗实际展示后上报一次曝光（`useInlineCommentGuide.ts` 的 `recordShown`：用 `recorded` 标志去重，同一次展示只上报一次，失败不重试也不阻塞关闭）。源码未声明响应类型，结构未知。
 
 > 响应骨架（依据源码推导，**未实测**；源码未声明响应类型，结构未知）
 

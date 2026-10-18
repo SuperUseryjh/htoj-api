@@ -196,7 +196,7 @@ JWT payload：
 
 ## 覆盖率与验证状态
 
-本仓库对前端 `api/` 目录做了全量抽取（不含 `admin/**` 管理后台），共 **307 个接口 / 294 条唯一路径**。每个接口在分页文档里都会标注验证状态：
+本仓库对前端 `api/` 目录做了全量抽取（不含 `admin/**` 管理后台），共 **309 个接口 / 295 条唯一路径**。每个接口在分页文档里都会标注验证状态：
 
 | 标记 | 含义 |
 | --- | --- |
@@ -206,4 +206,4 @@ JWT payload：
 | ✍️ | 写操作，**未实测**（避免在真实账号上产生副作用）；文档依据前端源码签名与类型 |
 | ❔ | 无法验证（路径在源码里是变量拼接、需要验证码票据等） |
 
-分布：`code-community` 126 · `code-community-forum` 45 · `code-community-growth` 39 · `code-community-actuator` 36 · `htoj-biz-gateway` 32 · 登录域 9 · `im` 4 · 相对路径 14。
+分布：`code-community` 126 · `code-community-forum` 47 · `code-community-growth` 39 · `code-community-actuator` 36 · `htoj-biz-gateway` 32 · 登录域 9 · `im` 4 · 相对路径 14 · `code-community-heart-beat` 1 · `code-community-websocket` 1。

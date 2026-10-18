@@ -806,9 +806,9 @@ await fetch(
 
 ## 题库内上一题 / 下一题
 
-`GET /api/code-community/api/warehouse/warehouse-problem` ⚠️ 路由存在但参数不足
+`GET /api/code-community/api/warehouse/warehouse-problem` ✅ 已实测可用
 
-在某个题库内按顺序定位相邻题目（`data` 为数字 pid）。
+在某个题库内按顺序定位相邻题目。`data` 直接是相邻题目的 pid，**裸数字**（注意：另外三个同类接口返回的是 `{ pid }` 对象，形状不统一）；已经到边界时 `data` 为 `null`。
 
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -816,10 +816,10 @@ await fetch(
 | `direct` | number | 是 | `1`=上一题，`2`=下一题 |
 | `wid` | number | 是 | 题库 id；缺失返回 `errCode=400 ... 'wid' ...` |
 
-> 响应骨架（依据类型 `number` 推导，`data` 为相邻题目 pid，**未实测**）
+> 实测（P1000，`wid=1`）：`direct=2` → 下一题 pid `22443705437952`；`direct=1` → `null`（P1000 已是第一题）
 
 ```json
-0
+22443705437952
 ```
 
 ```js
@@ -831,9 +831,9 @@ await fetch(
 
 ## 小组内上一题 / 下一题
 
-`GET /api/code-community/api/group/group-problem` ⚠️ 路由存在但参数不足
+`GET /api/code-community/api/group/group-problem` ⚠️ 路由存在（非 null 样本未取到）
 
-在某个小组内按顺序定位相邻题目（`data` 为数字 pid）。
+在某个小组内按顺序定位相邻题目。用样例里的 pid + gid 组合实测两个方向都返回 `data: null`（可能该题已不在这个小组内、或已是边界），所以**没有邻居时返回 `null` 是确定的，有邻居时的形状未验证** —— 参照题单 / 比赛推测是 `{ pid }`，实现时建议连同裸数字一起兜。
 
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -841,10 +841,10 @@ await fetch(
 | `direct` | number | 是 | `1`=上一题，`2`=下一题 |
 | `gid` | number | 是 | 小组 id；缺失返回 `errCode=400 ... 'gid' ...` |
 
-> 响应骨架（依据类型 `number` 推导，`data` 为相邻题目 pid，**未实测**）
+> 实测：`currentPid=22243802306048&gid=22169370776704`，`direct` 取 `1` / `2` 均返回 `null`
 
 ```json
-0
+null
 ```
 
 ```js
@@ -856,9 +856,9 @@ await fetch(
 
 ## 题单内上一题 / 下一题
 
-`GET /api/code-community/api/training-problem-skip` ⚠️ 路由存在但参数不足
+`GET /api/code-community/api/training-problem-skip` ✅ 已实测可用
 
-在某个题单内按顺序定位相邻题目（`data` 为数字 pid）。
+在某个题单内按顺序定位相邻题目。`data` 是对象 `{ pid, unfinishedProblemNum, changeChapter }`（不是裸数字，注意与题库接口的形状差异）；已经到边界时 `data` 为 `null`。
 
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -867,10 +867,14 @@ await fetch(
 | `tid` | number | 是 | 题单 id；缺失返回 `errCode=400 ... 'tid' ...` |
 | `gid` | number | 否 | 小组 id |
 
-> 响应骨架（依据类型 `number` 推导，`data` 为相邻题目 pid，**未实测**）
+> 实测（`tid=22302141951872`）：`direct=2` → `{ pid: 22069045878656, unfinishedProblemNum: 0, changeChapter: false }`；`direct=1` → `null`（该题已是题单第一题）
 
 ```json
-0
+{
+  "pid": 22069045878656,
+  "unfinishedProblemNum": 0,
+  "changeChapter": false
+}
 ```
 
 ```js
@@ -882,9 +886,9 @@ await fetch(
 
 ## 比赛内上一题 / 下一题
 
-`GET /api/code-community/gwpub/contest-problem-skip` ⚠️ 路由存在但参数不足
+`GET /api/code-community/gwpub/contest-problem-skip` ✅ 已实测可用
 
-在某场比赛内按顺序定位相邻题目（`data` 为数字 pid）。
+在某场比赛内按顺序定位相邻题目。`data` 是对象 `{ pid }`（不是裸数字）；没有邻居时返回 `null`。
 
 | 参数 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -893,10 +897,12 @@ await fetch(
 | `cid` | number | 是 | 比赛 id；缺失返回 `errCode=400 ... 'cid' ...` |
 | `gid` | number | 否 | 小组 id |
 
-> 响应骨架（依据类型 `number` 推导，`data` 为相邻题目 pid，**未实测**）
+> 实测（`cid=22930273863808`，比赛进行中）：`currentPid=22929683167744`，`direct=2` → `{ "pid": 22929670253312 }`；`direct=1` → `{ "pid": 22929689728000 }`
 
 ```json
-0
+{
+  "pid": 22929670253312
+}
 ```
 
 ```js

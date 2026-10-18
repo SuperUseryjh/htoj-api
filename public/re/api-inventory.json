@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T12:53:56.154Z",
+  "generatedAt": "2026-10-16T14:06:02.209Z",
   "consts": {
     "GATEWAY_PREFIX_COMMON": "/api/htoj-biz-gateway",
     "GATEWAY_PREFIX_FORUM": "/api/code-community-forum",
@@ -7,7 +7,7 @@
     "HETAO_API_BASE": "https://api.hetao101.com",
     "IM_API_BASE": "https://im.hetao101.com"
   },
-  "count": 307,
+  "count": 309,
   "api": [
     {
       "file": "activity/csp.ts",
@@ -1533,6 +1533,25 @@
           "type": "SolutionInlineAnchorCommentVo"
         }
       ],
+      "probe": "写接口"
+    },
+    {
+      "file": "oj/aiSolutionComment.ts",
+      "name": "getInlineCommentGuide",
+      "method": "GET",
+      "path": "/api/code-community-forum/gwpub/solutionInlineComment/guide",
+      "responseType": "SolutionInlineCommentGuideVo",
+      "options": [],
+      "params": [],
+      "probe": "只读"
+    },
+    {
+      "file": "oj/aiSolutionComment.ts",
+      "name": "postInlineCommentGuideShow",
+      "method": "POST",
+      "path": "/api/code-community-forum/gwpub/solutionInlineComment/guide/show",
+      "options": [],
+      "params": [],
       "probe": "写接口"
     },
     {
@@ -4866,5 +4885,18 @@
       "probe": "只读"
     }
   ],
-  "typeDefs": {}
+  "typeDefs": {
+    "TrainingVO": {
+      "file": "training.ts",
+      "text": "export interface TrainingVO {\n  createTime: number;\n  description: string;\n  id: number;\n  gid?: number;\n  auth: number;\n  modifiedUser: string;\n  problemCount: number;\n  languages: number[];\n  productLineIds: number[];\n  source: string;\n  status: boolean;\n  contributable: boolean;\n  reanswer: number;\n  showDifficulty: boolean;\n  showTags: boolean;\n  showAnswer: boolean;\n  subtitle: string;\n  title: string;\n  trainingNo: string;\n  completeCount: number;\n  totalCount: number;\n  ioType: number;\n  imMark: number;\n  /** 新增章节位置，0 表示添加在列表最后，1 表示添加在列表最前 */\n  chapterPosition: number;\n  /** 题解权限：0-跟随题目，1-所有人，2-提交用户，3-通过用户，4-管理员，5-有测试点通过 */\n  solutionPermission?: number;\n  /** 标程权限：0-跟随题目本身设定，1-所有人，3-AC，5-通过测试点，6-一小时后（新增） */\n  stdPermission?: number;\n}"
+    },
+    "TrainingInfoVO": {
+      "file": "training.ts",
+      "text": "export interface TrainingInfoVO {\n  acCount: number;\n  completeCount: number;\n  id: number;\n  problemCount: number;\n  description: string;\n  source: string;\n  title: string;\n  subtitle: string;\n  totalCount: number;\n  /** 上次停留题目 id（最近一次进入/提交的题目；替代旧 nextPid 的「继续练习」跳转语义） */\n  lastPid: number;\n  /** @deprecated 旧「继续练习」跳转字段，已由 lastPid 替代（swagger 仍下发，前端不再使用） */\n  nextPid?: number;\n  isAttend: boolean;\n  /** 用户在该题单的 AC 状态（2 未参加 / 3 未完成 / 4 已完成，驱动主按钮三态） */\n  status?: TrainingUserStatusVO;\n  author: string;\n  trainingNo: string;\n  editable: boolean;\n}"
+    },
+    "TrainingChapterProblemVO": {
+      "file": "training.ts",
+      "text": "export interface TrainingChapterProblemVO {\n  nextPid: number;\n  isAttend: boolean;\n  trainingChapterVO: TrainingChapterVO;\n  problemVOList: TrainingProblemItemVO[];\n}"
+    }
+  }
 }
